@@ -1,0 +1,269 @@
+---
+layout: base
+---
+<div class="home">
+  {{ content }}
+
+  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+
+  {%- comment -%}── Posts paginados (o todos si no hay paginación) ──{%- endcomment -%}
+  {%- if site.pagination.enabled -%}
+    {%- assign paged_posts = paginator.posts -%}
+    {%- assign current_page = paginator.page -%}
+  {%- else -%}
+    {%- assign paged_posts = site.posts -%}
+    {%- assign current_page = 1 -%}
+  {%- endif -%}
+
+  {%- comment -%}── Editorial: siempre el último de categoría editorial ──{%- endcomment -%}
+  {%- assign editorial_post = nil -%}
+  {%- for post in site.posts -%}
+    {%- if editorial_post == nil and post.categories contains "editorial" -%}
+      {%- assign editorial_post = post -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- comment -%}── Grid: posts paginados sin editorial ──{%- endcomment -%}
+  {%- assign grid_posts = "" | split: "" -%}
+  {%- for post in paged_posts -%}
+    {%- unless post.categories contains "editorial" -%}
+      {%- assign grid_posts = grid_posts | push: post -%}
+    {%- endunless -%}
+  {%- endfor -%}
+
+  {%- comment -%}── Por categoría (solo página 1): posts de 2016 ──{%- endcomment -%}
+  {%- assign category_posts = site.posts | where_exp: "p", "p.date.year < 2020" -%}
+  {%- assign cats_seen = "" | split: "" -%}
+  {%- for post in category_posts -%}
+    {%- assign cat = post.categories | first -%}
+    {%- if cat and cat != "" -%}
+      {%- unless cats_seen contains cat -%}
+        {%- assign cats_seen = cats_seen | push: cat -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- comment -%}── Más vistos ──{%- endcomment -%}
+  {%- assign popular_posts = site.posts | where: "popular", true -%}
+
+
+  <!-- ══════════════════════════════════════════════
+       EDITORIAL — solo en página 1
+  ══════════════════════════════════════════════ -->
+  {%- if current_page == 1 and editorial_post -%}
+  <section class="editorial-feature">
+    {%- if editorial_post.cover_image -%}
+    <a href="{{ editorial_post.url | relative_url }}" class="editorial-feature__img-link">
+      <img src="{{ editorial_post.cover_image }}"
+           alt="{{ editorial_post.title | escape }}"
+           class="editorial-feature__img" />
+    </a>
+    {%- endif -%}
+    <div class="editorial-feature__body">
+      <span class="section-badge">Editorial</span>
+       <div class="editorial-rule"></div>
+      <h2 class="editorial-feature__title">
+        <a href="{{ editorial_post.url | relative_url }}">{{ editorial_post.title | escape }}</a>
+      </h2>
+      <p class="editorial-feature__excerpt">
+        {{ editorial_post.excerpt | strip_html | truncatewords: 40 }}
+      </p>
+      <span class="post-meta">{{ editorial_post.date | date: date_format }}</span>
+      {%- if editorial_post.tags.size > 0 -%}
+      <div class="post-tags">
+        {%- for tag in editorial_post.tags limit: 4 -%}
+          <span class="post-tag">{{ tag }}</span>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+    </div>
+  </section>
+  {%- endif -%}
+
+
+  <!-- ══════════════════════════════════════════════
+       CUERPO: main (68%) + aside (30%)
+  ══════════════════════════════════════════════ -->
+  <div class="home-body">
+    <main class="home-main">
+
+      <!-- ── ÚLTIMAS NOTICIAS: grid 3 columnas paginado ── -->
+      {%- if grid_posts.size > 0 -%}
+      <section class="home-section">
+        <h2 class="home-section__heading">Últimas noticias</h2>
+        <div class="latest-grid">
+          {%- for post in grid_posts -%}
+          <article class="news-card">
+            {%- if post.cover_image -%}
+            <a href="{{ post.url | relative_url }}" class="news-card__img-link">
+              <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="news-card__img" />
+            </a>
+            {%- endif -%}
+            <div class="news-card__body">
+              {%- if post.categories.size > 0 -%}
+                <span class="post-category">{{ post.categories | first }}</span>
+              {%- endif -%}
+              <h3 class="news-card__title">
+                <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+              </h3>
+              {%- assign author_display = post.author | join: ", " -%}
+              {%- if author_display != "" -%}
+                <span class="news-card__author">Por: {{ author_display }}</span>
+              {%- endif -%}
+              <p class="news-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 16 }}</p>
+              <span class="post-meta">{{ post.date | date: date_format }}</span>
+            </div>
+          </article>
+          {%- endfor -%}
+        </div>
+      </section>
+      {%- endif -%}
+
+      <!-- ── PAGINACIÓN ── -->
+      {%- if site.pagination.enabled and paginator.total_pages > 1 -%}
+      <nav class="pagination" aria-label="Paginación">
+        {%- if paginator.previous_page -%}
+          <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination__btn pagination__btn--prev">
+            &larr; Anterior
+          </a>
+        {%- else -%}
+          <span class="pagination__btn pagination__btn--prev pagination__btn--disabled">&larr; Anterior</span>
+        {%- endif -%}
+
+        <div class="pagination__pages">
+          {%- for i in (1..paginator.total_pages) -%}
+            {%- if i == paginator.page -%}
+              <span class="pagination__page pagination__page--active">{{ i }}</span>
+            {%- elsif i == 1 -%}
+              <a href="{{ '/' | relative_url }}" class="pagination__page">{{ i }}</a>
+            {%- else -%}
+              <a href="{{ site.pagination.permalink | replace: ':num', i | prepend: site.baseurl }}" class="pagination__page">{{ i }}</a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if paginator.next_page -%}
+          <a href="{{ paginator.next_page_path | relative_url }}" class="pagination__btn pagination__btn--next">
+            Siguiente &rarr;
+          </a>
+        {%- else -%}
+          <span class="pagination__btn pagination__btn--next pagination__btn--disabled">Siguiente &rarr;</span>
+        {%- endif -%}
+      </nav>
+      {%- endif -%}
+
+      <!-- ── POR CATEGORÍA: solo en página 1 ── -->
+      {%- if current_page == 1 and category_posts.size > 0 -%}
+      <section class="home-section">
+        <h2 class="home-section__heading">Por categoría</h2>
+        {%- for cat in cats_seen -%}
+        <div class="category-group">
+          <h3 class="category-group__label">{{ cat }}</h3>
+          <div class="category-group__grid">
+            {%- for post in category_posts -%}
+              {%- if post.categories contains cat -%}
+              <article class="news-card news-card--sm">
+                {%- if post.cover_image -%}
+                <a href="{{ post.url | relative_url }}" class="news-card__img-link">
+                  <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="news-card__img" />
+                </a>
+                {%- endif -%}
+                <div class="news-card__body">
+                  <h3 class="news-card__title">
+                    <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                  </h3>
+                  {%- assign author_display = post.author | join: ", " -%}
+                  {%- if author_display != "" -%}
+                    <span class="news-card__author">Por: {{ author_display }}</span>
+                  {%- endif -%}
+                  <p class="news-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 14 }}</p>
+                  <span class="post-meta">{{ post.date | date: date_format }}</span>
+                </div>
+              </article>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+        {%- endfor -%}
+      </section>
+      {%- endif -%}
+
+    </main>
+
+    <!-- ══════════════════════════════════════════════
+         ASIDE — Más vistos
+    ══════════════════════════════════════════════ -->
+    <aside class="home-aside">
+      {%- if popular_posts.size > 0 -%}
+      <div class="most-viewed">
+        <h2 class="most-viewed__heading">Más vistos</h2>
+        <ol class="most-viewed__list">
+          {%- for post in popular_posts limit: 7 -%}
+          <li class="most-viewed__item">
+            <span class="most-viewed__num">{{ forloop.index }}</span>
+            <div class="most-viewed__content">
+              {%- if post.categories.size > 0 -%}
+                <span class="post-category">{{ post.categories | first }}</span>
+              {%- endif -%}
+              <a href="{{ post.url | relative_url }}" class="most-viewed__title">
+                {{ post.title | escape }}
+              </a>
+              <span class="post-meta">{{ post.date | date: date_format }}</span>
+            </div>
+          </li>
+          {%- endfor -%}
+        </ol>
+      </div>
+      {%- endif -%}
+    </aside>
+
+  </div><!-- /home-body -->
+<!-- <hr class="divisor"> -->
+  <!-- ══════════════════════════════════════════════
+       PROMO — Video + Slogan
+  ══════════════════════════════════════════════ -->
+  <div class="promo-banner">
+    <div class="promo-banner__video">
+      <div class="promo-banner__video-wrap">
+        <iframe src="https://www.youtube.com/embed/DHsE9PIkFe8?si=OLhPfa11DDlKVLjd&autoplay=1&mute=1&loop=1&playlist=DHsE9PIkFe8" title="Sur Común — Video institucional" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="promo-banner__body">
+      <span class="promo-banner__kicker">Quiénes somos</span>
+      <h2 class="promo-banner__headline">El periodismo que informa,<br>el análisis que transforma.</h2>
+      <p class="promo-banner__text">Desde 2016, Sur Común investiga, cuestiona y cuenta las historias que importan. Periodismo independiente al servicio de la verdad.</p>
+      <a href="{{ '/about' | relative_url }}" class="promo-banner__btn">Conoce nuestra historia &rarr;</a>
+    </div>
+  </div>
+<!-- <hr class="divisor"> -->
+
+  <!-- ══════════════════════════════════════════════
+       PASATIEMPOS — Crucigrama + Caricatura
+  ══════════════════════════════════════════════ -->
+  <section class="pasatiempos">
+
+    <div class="pasatiempos__col">
+      <h2 class="pasatiempos__heading">Crucigrama</h2>
+      <div class="pasatiempos__frame">
+        {% include crucigrama.html id="ejemplo" %}
+      </div>
+    </div>
+
+    <div class="pasatiempos__col">
+      <h2 class="pasatiempos__heading">Caricatura editorial</h2>
+      <div class="pasatiempos__cartoon">
+        <figure class="cartoon">
+          <img
+            src="{{ '/assets/img/Mafalda_01.jpeg' | relative_url }}"
+            alt="Gargantúa — Honoré Daumier, 1831. Caricatura política del rey Luis Felipe de Francia."
+            class="cartoon__img"
+            loading="lazy">
+          <figcaption class="cartoon__caption">
+            <em>Mafalda</em> &mdash; por Quino. © Joaquín Salvador Lavado Tejón (Quino).
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </section>
+</div><!-- /home -->

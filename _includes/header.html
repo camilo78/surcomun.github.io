@@ -1,0 +1,160 @@
+<header class="site-header">
+
+  <!-- ══ Masthead: logo centrado + buscador ══ -->
+  <div class="site-masthead">
+    <div class="wrapper">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+        <svg class="theme-icon theme-icon--sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-icon theme-icon--moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="{{ site.title | escape }}" class="site-logo">
+      </a>
+      <button class="search-btn" id="search-btn" aria-label="Buscar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ Navbar: categorías ══ -->
+  <div class="site-navbar">
+    <div class="wrapper site-navbar__inner">
+
+      {%- assign all_cat_pages = site.pages | where: "layout", "category" | sort: "title" -%}
+      {%- assign page_paths = site.minima.nav_pages -%}
+
+      <nav class="site-nav-links" id="site-nav-links">
+        {%- for cat_page in all_cat_pages -%}
+          {%- assign cat_posts = site.posts | where_exp: "p", "p.categories contains cat_page.category" -%}
+          {%- if cat_posts.size > 0 -%}
+            {%- assign is_active = false -%}
+            {%- if page.url == cat_page.url -%}{%- assign is_active = true -%}{%- endif -%}
+            {%- if page.categories contains cat_page.category -%}{%- assign is_active = true -%}{%- endif -%}
+            <a class="nav-cat{% if is_active %} nav-cat--active{% endif %}" href="{{ cat_page.url | relative_url }}">{{ cat_page.title | escape }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- for path in page_paths -%}
+          {%- assign hyperpage = site.pages | where: "path", path | first -%}
+          {%- if hyperpage.title and hyperpage.layout != "category" -%}
+            <a class="nav-cat{% if page.url == hyperpage.url %} nav-cat--active{% endif %}" href="{{ hyperpage.url | relative_url }}">{{ hyperpage.title | escape }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </nav>
+
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú" aria-expanded="false" aria-controls="site-nav-links">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </div>
+
+</header>
+
+<!-- ══ Overlay de búsqueda ══ -->
+<div class="search-overlay" id="search-overlay" aria-hidden="true" role="dialog" aria-label="Buscar">
+  <div class="search-overlay__box">
+    <div class="search-overlay__bar">
+      <svg class="search-overlay__icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="search" id="search-input" class="search-overlay__input"
+             placeholder="Buscar artículos, categorías…" autocomplete="off" spellcheck="false" />
+    </div>
+    <div id="search-results" class="search-overlay__results"></div>
+  </div>
+  <div class="search-overlay__backdrop" id="search-backdrop"></div>
+</div>
+
+<script>
+(function () {
+  // ── Tema claro/oscuro ──
+  var html = document.documentElement;
+  var saved = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  html.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+
+  // ── Hamburger ──
+  var hamburger = document.getElementById('nav-hamburger');
+  var navLinks  = document.getElementById('site-nav-links');
+  hamburger.addEventListener('click', function () {
+    var open = navLinks.classList.toggle('is-open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+
+  // ── Búsqueda ──
+  var btn      = document.getElementById('search-btn');
+  var overlay  = document.getElementById('search-overlay');
+  var backdrop = document.getElementById('search-backdrop');
+  var input    = document.getElementById('search-input');
+  var results  = document.getElementById('search-results');
+  var posts    = null;
+
+  function openSearch() {
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('search-open');
+    input.focus();
+    if (!posts) loadPosts();
+  }
+
+  function closeSearch() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('search-open');
+    input.value = '';
+    results.innerHTML = '';
+  }
+
+  function loadPosts() {
+    fetch('{{ "/search.json" | relative_url }}')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { posts = data; })
+      .catch(function () { posts = []; });
+  }
+
+  function runSearch(q) {
+    if (!posts || q.length < 2) { results.innerHTML = ''; return; }
+    var lq = q.toLowerCase();
+    var matches = posts.filter(function (p) {
+      return p.title.toLowerCase().indexOf(lq) >= 0 ||
+             p.excerpt.toLowerCase().indexOf(lq) >= 0 ||
+             (p.category && p.category.toLowerCase().indexOf(lq) >= 0);
+    });
+    if (!matches.length) {
+      results.innerHTML = '<p class="search-no-results">Sin resultados para <strong>' + q + '</strong>.</p>';
+      return;
+    }
+    results.innerHTML = matches.slice(0, 8).map(function (p) {
+      return '<a href="' + p.url + '" class="search-result">' +
+        (p.category ? '<span class="search-result__cat">' + p.category + '</span>' : '') +
+        '<span class="search-result__title">' + p.title + '</span>' +
+        '<span class="search-result__excerpt">' + p.excerpt + '</span>' +
+      '</a>';
+    }).join('');
+  }
+
+  btn.addEventListener('click', openSearch);
+  backdrop.addEventListener('click', closeSearch);
+  input.addEventListener('input', function (e) { runSearch(e.target.value.trim()); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSearch(); });
+})();
+</script>

@@ -1,0 +1,142 @@
+# Site-wide settings
+# ------------------
+title: Sur Común
+author:
+  name: Tu Nombre
+  email: tu-email@ejemplo.com
+
+description: >
+  Un sitio web creado con Jekyll y el tema Minima.
+
+# Build settings
+# --------------
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate-v2
+  - jekyll-toc
+
+
+pagination:
+  enabled: true
+  per_page: 6
+  permalink: '/page:num/'
+  sort_field: 'date'
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
+
+sass:
+  quiet_deps: true
+  silence_deprecations: [import]
+
+# URL base del sitio (actualizar según necesario)
+# url: "https://example.com"
+# baseurl: ""
+
+# Minima-specific settings (applicable to Minima v3 and above only)
+# -----------------------------------------------------------------
+minima:
+  # Skin: classic, dark, auto, solarized-light, solarized-dark, solarized
+  skin: auto
+
+  # Mostrar páginas específicas en la navegación
+  nav_pages:
+    - about.md
+    - apoyar.md
+
+  # Mostrar extractos en la página de inicio
+  show_excerpts: true
+
+  # Formato de fecha (por defecto: "%b %d, %Y")
+  date_format: "%d de %B de %Y"
+
+  # Enlaces de redes sociales
+  social_links:
+    # - title: GitHub
+    #   icon: github
+    #   url: "https://github.com/tu-usuario"
+    # - title: Twitter
+    #   icon: x-twitter
+    #   url: "https://x.com/tu-usuario"
+
+  # Ocultar el enlace del feed RSS
+  hide_site_feed_link: false
+
+# ── Footer ────────────────────────────────────────────────
+footer:
+  description: "Periodismo independiente dedicado a informar, analizar y cuestionar. Desde 2016 contando las historias que importan."
+  email: "contacto@gaceta.ejemplo.com"
+  copyright: "© 2025 Sur Común. Todos los derechos reservados."
+
+  social:
+    - platform: Facebook
+      url: "https://facebook.com/gaceta"
+      icon: facebook
+    - platform: Instagram
+      url: "https://instagram.com/gaceta"
+      icon: instagram
+    - platform: X
+      url: "https://x.com/gaceta"
+      icon: x-twitter
+    - platform: YouTube
+      url: "https://youtube.com/gaceta"
+      icon: youtube
+    - platform: LinkedIn
+      url: "https://linkedin.com/company/gaceta"
+      icon: linkedin
+
+  columns:
+    - heading: Secciones
+      links:
+        - text: Editorial
+          url: /categorias/editorial/
+        - text: Tecnología
+          url: /categorias/tecnologia/
+        - text: Cultura
+          url: /categorias/cultura/
+        - text: Ciencia
+          url: /categorias/ciencia/
+        - text: Diseño
+          url: /categorias/diseno/
+    - heading: Nosotros
+      links:
+        - text: Quiénes somos
+          url: /about/
+        - text: Contacto
+          url: /contacto/
+        - text: Publicidad
+          url: /publicidad/
+        - text: Trabaja con nosotros
+          url: /trabaja-con-nosotros/
+    - heading: Legal
+      links:
+        - text: Política de privacidad
+          url: /privacidad/
+        - text: Términos de uso
+          url: /terminos/
+        - text: Política de cookies
+          url: /cookies/
+
+kofi:
+  username: camiloalvarado
+  button_text: "Apoya Sur Común"
+
+toc:
+  min_level: 2
+  max_level: 3
+
+# Habilita TOC en todos los posts por defecto
+# (jekyll-toc requiere toc: true en el front matter o via defaults)
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      toc: true
+
+permalink: /:year/:month/:day/:title:output_ext
+
+incremental: true

@@ -1,0 +1,26 @@
+---
+layout: base
+---
+<article class="post crucigrama-page">
+
+  <header class="post-header">
+    <div class="post-header__meta">
+      {%- if page.categories.size > 0 -%}
+        <span class="post-category">{{ page.categories | first }}</span>
+      {%- endif -%}
+      <span class="post-meta">
+        {{ page.date | date: site.minima.date_format | default: "%b %-d, %Y" }}
+        {%- if page.author %} · {{ page.author }}{%- endif -%}
+      </span>
+    </div>
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    {%- if page.subtitle -%}
+      <p class="post-subtitle">{{ page.subtitle | escape }}</p>
+    {%- endif -%}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+</article>

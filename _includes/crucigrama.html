@@ -1,0 +1,108 @@
+{% comment %}
+  Include: crucigrama.html
+  Uso:
+    {% include crucigrama.html id="ejemplo" %}
+  El parámetro `id` debe coincidir con el nombre del archivo en _data/crucigramas/
+  (sin extensión .yml). Ej.: _data/crucigramas/ejemplo.yml → id="ejemplo"
+{% endcomment %}
+
+{% assign cw_id   = include.id | default: "ejemplo" %}
+{% assign cw_data = site.data.crucigramas[cw_id] %}
+
+{% if cw_data %}
+<link rel="stylesheet" href="{{ '/assets/css/crucigrama.css' | relative_url }}">
+
+<div class="cw-wrapper" id="cw-{{ cw_id }}">
+
+  <!-- Encabezado -->
+  <div class="cw-header">
+    <!-- <h2 class="cw-title">{{ cw_data.titulo | escape }}</h2> -->
+    <!-- {% if cw_data.descripcion %}
+    <p class="cw-description">{{ cw_data.descripcion | escape }}</p>
+    {% endif %} -->
+    <div class="cw-meta">
+      {% if cw_data.autor %}<span>{{ cw_data.autor | escape }}</span>{% endif %}
+      {% if cw_data.fecha %}<span>{{ cw_data.fecha | date: "%d/%m/%Y" }}</span>{% endif %}
+      <span class="cw-timer" id="cw-timer-{{ cw_id }}" aria-live="off" aria-atomic="true">00:00</span>
+    </div>
+  </div>
+
+  <!-- Pista activa (banner bajo el header) -->
+<!--   <div class="cw-active-clue" id="cw-active-clue-{{ cw_id }}" aria-live="polite" aria-atomic="true">
+    Haz clic en una celda para comenzar
+  </div> -->
+
+  <!-- Controles -->
+  <div class="cw-controls" role="toolbar" aria-label="Controles del crucigrama">
+    <button class="cw-btn cw-btn--primary" id="cw-btn-verify-{{ cw_id }}" type="button">Verificar</button>
+    <button class="cw-btn" id="cw-btn-reveal-letter-{{ cw_id }}" type="button">Revelar letra</button>
+    <button class="cw-btn" id="cw-btn-reveal-word-{{ cw_id }}" type="button">Revelar palabra</button>
+    <button class="cw-btn cw-btn--danger" id="cw-btn-reset-{{ cw_id }}" type="button">Reiniciar</button>
+    <button class="cw-btn" id="cw-btn-share-{{ cw_id }}" type="button">Compartir</button>
+  </div>
+
+  <!-- Cuerpo: tabla + pistas -->
+  <div class="cw-body">
+
+    <!-- Cuadrícula -->
+    <div class="cw-table-wrap">
+      <div id="cw-grid-{{ cw_id }}" role="group" aria-label="Cuadrícula del crucigrama">
+        <!-- Renderizado por JS -->
+      </div>
+    </div>
+
+    <!-- Pistas -->
+    <div class="cw-clues" aria-label="Pistas">
+      <div class="cw-clues-col">
+        <h3>Horizontales</h3>
+        <ul class="cw-clues-list" id="cw-clues-h-{{ cw_id }}" role="listbox" aria-label="Pistas horizontales">
+          <!-- Renderizado por JS -->
+        </ul>
+      </div>
+      <div class="cw-clues-col">
+        <h3>Verticales</h3>
+        <ul class="cw-clues-list" id="cw-clues-v-{{ cw_id }}" role="listbox" aria-label="Pistas verticales">
+          <!-- Renderizado por JS -->
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /cw-body -->
+
+  <!-- Mensaje de éxito -->
+  <div class="cw-success" id="cw-success-{{ cw_id }}" aria-live="assertive" role="status">
+    <div class="cw-success__icon">&#127881;</div>
+    <p class="cw-success__title">&#161;Crucigrama completado!</p>
+    <p class="cw-success__time" id="cw-success-time-{{ cw_id }}"></p>
+  </div>
+
+</div><!-- /cw-wrapper -->
+
+<!-- Motor del crucigrama (cargado primero, sin defer) -->
+<script src="{{ '/assets/js/crucigrama.js' | relative_url }}"></script>
+
+<!-- Inicialización con los datos del crucigrama -->
+ <script>
+(function () {
+  var data = {{ cw_data | jsonify }};
+  var id   = {{ cw_id | jsonify }};
+
+
+  if (typeof window.CrucigramaInit === 'function') {
+    window.CrucigramaInit(data, id);
+  }
+})();
+</script>
+<script>
+(function () {
+  var data = {{ cw_data | jsonify }};
+  var id   = {{ cw_id | jsonify }};
+  if (typeof window.CrucigramaInit === 'function') {
+    window.CrucigramaInit(data, id);
+  }
+})();
+</script>
+
+{% else %}
+<p><em>No se encontró el crucigrama con id "{{ cw_id }}".</em></p>
+{% endif %}

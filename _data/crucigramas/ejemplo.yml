@@ -1,0 +1,477 @@
+titulo: "Crucigrama"
+descripcion: "Crucigrama de variedad — vocabulario general"
+autor: "Redacción"
+fecha: 2026-04-18
+ancho: 15
+alto: 15
+palabras:
+# =========== Horizontales ===========
+- numero: 1
+  direccion: "horizontal"
+  fila: 0
+  columna: 0
+  respuesta: "AYUNAR"
+  pista: "Abstenerse de comer por motivos religiosos o de salud."
+- numero: 2
+  direccion: "horizontal"
+  fila: 0
+  columna: 7
+  respuesta: "ABAD"
+  pista: "Superior de un monasterio."
+- numero: 3
+  direccion: "horizontal"
+  fila: 0
+  columna: 12
+  respuesta: "PAR"
+  pista: "Conjunto de dos cosas iguales o semejantes."
+- numero: 4
+  direccion: "horizontal"
+  fila: 1
+  columna: 0
+  respuesta: "TARARI"
+  pista: "Interjección burlesca equivalente a 'nada de eso'."
+- numero: 5
+  direccion: "horizontal"
+  fila: 1
+  columna: 7
+  respuesta: "BALA"
+  pista: "Proyectil de un arma de fuego."
+- numero: 6
+  direccion: "horizontal"
+  fila: 1
+  columna: 12
+  respuesta: "ECU"
+  pista: "Antigua unidad de cuenta europea, antecesora del euro (siglas)."
+- numero: 7
+  direccion: "horizontal"
+  fila: 2
+  columna: 0
+  respuesta: "RUSTICACION"
+  pista: "Acción de darle carácter rústico o campestre a algo."
+- numero: 8
+  direccion: "horizontal"
+  fila: 2
+  columna: 12
+  respuesta: "ROB"
+  pista: "Zumo de frutas cocido con azúcar hasta espesarse."
+- numero: 9
+  direccion: "horizontal"
+  fila: 3
+  columna: 0
+  respuesta: "ANI"
+  pista: "Ave tropical americana de plumaje negro, del género Crotophaga."
+- numero: 10
+  direccion: "horizontal"
+  fila: 3
+  columna: 4
+  respuesta: "OIL"
+  pista: "'Petróleo' o 'aceite' en inglés."
+- numero: 11
+  direccion: "horizontal"
+  fila: 3
+  columna: 8
+  respuesta: "LENTIGO"
+  pista: "Mancha pequeña y oscura en la piel, parecida a una peca."
+- numero: 12
+  direccion: "horizontal"
+  fila: 4
+  columna: 0
+  respuesta: "EDDA"
+  pista: "Colección de antiguos poemas mitológicos nórdicos."
+- numero: 13
+  direccion: "horizontal"
+  fila: 4
+  columna: 5
+  respuesta: "OIRA"
+  pista: "Percibirá sonidos (futuro de 'oír')."
+- numero: 14
+  direccion: "horizontal"
+  fila: 4
+  columna: 10
+  respuesta: "YACER"
+  pista: "Estar tendido, o descansar en la sepultura."
+- numero: 15
+  direccion: "horizontal"
+  fila: 5
+  columna: 0
+  respuesta: "REOJO"
+  pista: "Mirar de ___: mirar disimuladamente de lado."
+- numero: 16
+  direccion: "horizontal"
+  fila: 5
+  columna: 7
+  respuesta: "ORI"
+  pista: "Prefijo griego que significa 'montaña' (ej.: orografía)."
+- numero: 17
+  direccion: "horizontal"
+  fila: 5
+  columna: 11
+  respuesta: "CODO"
+  pista: "Articulación entre el brazo y el antebrazo."
+- numero: 18
+  direccion: "horizontal"
+  fila: 6
+  columna: 3
+  respuesta: "ESTOLIDA"
+  pista: "Necia, falta de razón o discurso (femenino)."
+- numero: 19
+  direccion: "horizontal"
+  fila: 6
+  columna: 12
+  respuesta: "TOS"
+  pista: "Expulsión brusca y ruidosa del aire de los pulmones."
+- numero: 20
+  direccion: "horizontal"
+  fila: 7
+  columna: 0
+  respuesta: "CLOSEUP"
+  pista: "Primer plano, en la jerga del cine (en inglés)."
+- numero: 21
+  direccion: "horizontal"
+  fila: 7
+  columna: 8
+  respuesta: "NUECERO"
+  pista: "Relativo o perteneciente a la nuez."
+- numero: 22
+  direccion: "horizontal"
+  fila: 8
+  columna: 0
+  respuesta: "AEC"
+  pista: "Antigua Comisión de Energía Atómica de EE. UU. (siglas en inglés)."
+- numero: 23
+  direccion: "horizontal"
+  fila: 8
+  columna: 4
+  respuesta: "ASOLASTE"
+  pista: "Arrasaste, destruiste por completo."
+- numero: 24
+  direccion: "horizontal"
+  fila: 9
+  columna: 0
+  respuesta: "MUTA"
+  pista: "Cambia, transforma (tercera persona del verbo mutar)."
+- numero: 25
+  direccion: "horizontal"
+  fila: 9
+  columna: 5
+  respuesta: "EPA"
+  pista: "Interjección coloquial para llamar la atención o advertir."
+- numero: 26
+  direccion: "horizontal"
+  fila: 9
+  columna: 10
+  respuesta: "AJEBE"
+  pista: "Nombre que recibe el alumbre en algunas regiones."
+- numero: 27
+  direccion: "horizontal"
+  fila: 10
+  columna: 0
+  respuesta: "ACODA"
+  pista: "Apoya el codo; también: realiza acodos en una planta."
+- numero: 28
+  direccion: "horizontal"
+  fila: 10
+  columna: 6
+  respuesta: "OBRA"
+  pista: "Trabajo o producción; también, construcción en ejecución."
+- numero: 29
+  direccion: "horizontal"
+  fila: 10
+  columna: 11
+  respuesta: "APEX"
+  pista: "Punto más alto o culminante; vértice."
+- numero: 30
+  direccion: "horizontal"
+  fila: 11
+  columna: 0
+  respuesta: "REGALON"
+  pista: "Mimado, consentido; muy dado a los regalos."
+- numero: 31
+  direccion: "horizontal"
+  fila: 11
+  columna: 8
+  respuesta: "AME"
+  pista: "Quiera con amor (subjuntivo del verbo amar)."
+- numero: 32
+  direccion: "horizontal"
+  fila: 11
+  columna: 12
+  respuesta: "UCO"
+  pista: "Valle de ___: reconocida zona vitivinícola de Mendoza, Argentina."
+- numero: 33
+  direccion: "horizontal"
+  fila: 12
+  columna: 0
+  respuesta: "AMO"
+  pista: "Dueño o señor de algo."
+- numero: 34
+  direccion: "horizontal"
+  fila: 12
+  columna: 4
+  respuesta: "ACARDENALAR"
+  pista: "Causar cardenales o moretones en la piel."
+- numero: 35
+  direccion: "horizontal"
+  fila: 13
+  columna: 0
+  respuesta: "DIN"
+  pista: "Estrépito, ruido fuerte y persistente."
+- numero: 36
+  direccion: "horizontal"
+  fila: 13
+  columna: 4
+  respuesta: "DACA"
+  pista: "Contracción de 'da acá', usada para pedir algo."
+- numero: 37
+  direccion: "horizontal"
+  fila: 13
+  columna: 9
+  respuesta: "BEBIDA"
+  pista: "Líquido que se ingiere para calmar la sed."
+- numero: 38
+  direccion: "horizontal"
+  fila: 14
+  columna: 0
+  respuesta: "AAA"
+  pista: "Máxima calificación crediticia otorgada a una deuda."
+- numero: 39
+  direccion: "horizontal"
+  fila: 14
+  columna: 4
+  respuesta: "OLOF"
+  pista: "___ Palme, primer ministro sueco asesinado en 1986."
+- numero: 40
+  direccion: "horizontal"
+  fila: 14
+  columna: 9
+  respuesta: "ASESOR"
+  pista: "Persona que da consejo o dictamen profesional."
+# =========== Verticales ===========
+- numero: 1
+  direccion: "vertical"
+  fila: 0
+  columna: 0
+  respuesta: "ATRAER"
+  pista: "Traer hacia sí; ejercer fuerza de atracción."
+- numero: 2
+  direccion: "vertical"
+  fila: 0
+  columna: 1
+  respuesta: "YAUNDE"
+  pista: "Capital de Camerún."
+- numero: 3
+  direccion: "vertical"
+  fila: 0
+  columna: 2
+  respuesta: "URSIDO"
+  pista: "Perteneciente a la familia de los osos."
+- numero: 4
+  direccion: "vertical"
+  fila: 0
+  columna: 3
+  respuesta: "NAT"
+  pista: "Apócope de Natalia o Nataniel."
+- numero: 5
+  direccion: "vertical"
+  fila: 0
+  columna: 4
+  respuesta: "ARIO"
+  pista: "Perteneciente a un antiguo pueblo indoeuropeo."
+- numero: 6
+  direccion: "vertical"
+  fila: 0
+  columna: 5
+  respuesta: "RICIO"
+  pista: "Hierba que brota en un campo tras la cosecha."
+- numero: 7
+  direccion: "vertical"
+  fila: 0
+  columna: 7
+  respuesta: "ABC"
+  pista: "Las primeras letras del alfabeto; lo más básico."
+- numero: 8
+  direccion: "vertical"
+  fila: 0
+  columna: 8
+  respuesta: "BAILARINA"
+  pista: "Mujer que se dedica profesionalmente a la danza."
+- numero: 9
+  direccion: "vertical"
+  fila: 0
+  columna: 9
+  respuesta: "ALOE"
+  pista: "Planta medicinal de hojas carnosas y propiedades cicatrizantes."
+- numero: 10
+  direccion: "vertical"
+  fila: 0
+  columna: 10
+  respuesta: "DANNY"
+  pista: "Nombre propio masculino inglés (ej.: ___ DeVito)."
+- numero: 11
+  direccion: "vertical"
+  fila: 0
+  columna: 12
+  respuesta: "PERICOTE"
+  pista: "Ratón grande; roedor común en Sudamérica."
+- numero: 12
+  direccion: "vertical"
+  fila: 0
+  columna: 13
+  respuesta: "ACOGEDOR"
+  pista: "Que recibe con calidez; cómodo y agradable."
+- numero: 13
+  direccion: "vertical"
+  fila: 0
+  columna: 14
+  respuesta: "RUBOROSO"
+  pista: "Que se sonroja con facilidad."
+- numero: 14
+  direccion: "vertical"
+  fila: 2
+  columna: 6
+  respuesta: "ALI"
+  pista: "Yerno del profeta Mahoma; también apellido del boxeador Muhammad ___."
+- numero: 15
+  direccion: "vertical"
+  fila: 3
+  columna: 11
+  respuesta: "TAC"
+  pista: "Tomografía Axial Computarizada (siglas)."
+- numero: 16
+  direccion: "vertical"
+  fila: 4
+  columna: 3
+  respuesta: "AJES"
+  pista: "Plural de aje, tubérculo comestible tropical."
+- numero: 17
+  direccion: "vertical"
+  fila: 4
+  columna: 7
+  respuesta: "ROL"
+  pista: "Papel o función que desempeña alguien."
+- numero: 18
+  direccion: "vertical"
+  fila: 5
+  columna: 4
+  respuesta: "OSEA"
+  pista: "Perteneciente o relativa a los huesos."
+- numero: 19
+  direccion: "vertical"
+  fila: 5
+  columna: 9
+  respuesta: "IDUS"
+  pista: "Día 15 de marzo en el calendario romano; fatídico para César."
+- numero: 20
+  direccion: "vertical"
+  fila: 6
+  columna: 5
+  respuesta: "TUSE"
+  pista: "Corte el pelo al ras (subjuntivo/pretérito de tusar)."
+- numero: 21
+  direccion: "vertical"
+  fila: 6
+  columna: 6
+  respuesta: "OPOPONACO"
+  pista: "Gomorresina aromática de uso medicinal y en perfumería."
+- numero: 22
+  direccion: "vertical"
+  fila: 6
+  columna: 10
+  respuesta: "AETA"
+  pista: "Grupo étnico indígena de las islas Filipinas."
+- numero: 23
+  direccion: "vertical"
+  fila: 7
+  columna: 0
+  respuesta: "CAMARADA"
+  pista: "Compañero, amigo cercano; tratamiento usado entre militantes."
+- numero: 24
+  direccion: "vertical"
+  fila: 7
+  columna: 1
+  respuesta: "LEUCEMIA"
+  pista: "Cáncer de la sangre y de la médula ósea."
+- numero: 25
+  direccion: "vertical"
+  fila: 7
+  columna: 2
+  respuesta: "OCTOGONA"
+  pista: "Que tiene ocho lados o ángulos (femenino)."
+- numero: 26
+  direccion: "vertical"
+  fila: 7
+  columna: 11
+  respuesta: "CEJA"
+  pista: "Franja de pelo situada encima del ojo."
+- numero: 27
+  direccion: "vertical"
+  fila: 8
+  columna: 7
+  respuesta: "LAB"
+  pista: "Abreviatura usual de laboratorio."
+- numero: 28
+  direccion: "vertical"
+  fila: 9
+  columna: 3
+  respuesta: "ADA"
+  pista: "Hada; también ___ Lovelace, pionera de la informática."
+- numero: 29
+  direccion: "vertical"
+  fila: 9
+  columna: 12
+  respuesta: "EPULIS"
+  pista: "Tumor benigno que se forma en las encías."
+- numero: 30
+  direccion: "vertical"
+  fila: 9
+  columna: 13
+  respuesta: "BECADO"
+  pista: "Que disfruta de una beca de estudios."
+- numero: 31
+  direccion: "vertical"
+  fila: 9
+  columna: 14
+  respuesta: "EXORAR"
+  pista: "Rogar con insistencia y humildad."
+- numero: 32
+  direccion: "vertical"
+  fila: 10
+  columna: 4
+  respuesta: "ALADO"
+  pista: "Que tiene alas; también, rápido o ligero."
+- numero: 33
+  direccion: "vertical"
+  fila: 10
+  columna: 8
+  respuesta: "RAD"
+  pista: "Antigua unidad de medida de radiación absorbida."
+- numero: 34
+  direccion: "vertical"
+  fila: 10
+  columna: 9
+  respuesta: "AMEBA"
+  pista: "Protozoo unicelular que puede causar disentería."
+- numero: 35
+  direccion: "vertical"
+  fila: 11
+  columna: 5
+  respuesta: "OCAL"
+  pista: "Variedad de seda fina de color amarillento."
+- numero: 36
+  direccion: "vertical"
+  fila: 11
+  columna: 10
+  respuesta: "ENES"
+  pista: "Plural del nombre de la letra N."
+- numero: 37
+  direccion: "vertical"
+  fila: 12
+  columna: 7
+  respuesta: "RAF"
+  pista: "Fuerza aérea británica (siglas en inglés)."
+- numero: 38
+  direccion: "vertical"
+  fila: 12
+  columna: 11
+  respuesta: "ABE"
+  pista: "Apócope inglés de Abraham (ej.: ___ Lincoln)."

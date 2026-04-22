@@ -1,0 +1,111 @@
+---
+layout: base
+---
+
+{%- assign months_es = "enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" | split: "," -%}
+{%- assign month_index = page.date | date: "%-m" | minus: 1 -%}
+{%- assign month_name = months_es[month_index] -%}
+{%- assign pdate = page.date | date_to_xmlschema -%}
+{%- assign popular_posts = site.posts | where: "popular", true -%}
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- AUTOR -->
+  <div class="post-author-top">
+    {%- if page.author -%}
+      {%- for author in page.author -%}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span class="p-author h-card post-author__name" itemprop="name">{{ author }}</span>
+        </span>
+        {%- if forloop.last == false %}, {% endif -%}
+      {%- endfor -%}
+    {%- else -%}
+      <span class="post-author__name">Redacción</span>
+    {%- endif -%}
+  </div>
+
+  <hr class="post-divider">
+
+  <header class="post-header">
+    <!-- CATEGORÍA en rojo -->
+    {%- if page.categories.size > 0 -%}
+      <div class="post-header__category">{{ page.categories | first }}</div>
+    {%- endif -%}
+
+    <!-- TÍTULO -->
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+
+    <!-- FECHA con mes en español -->
+    <div class="post-meta">
+      <time class="dt-published" datetime="{{ pdate }}" itemprop="datePublished">
+        {{ page.date | date: "%-d" }} de {{ month_name }} de {{ page.date | date: "%Y" }}
+      </time>
+    </div>
+  </header>
+
+  <!-- IMAGEN DE PORTADA -->
+  {%- if page.cover_image -%}
+  <div class="post-cover">
+    <img src="{{ page.cover_image }}" alt="{{ page.title | escape }}" class="post-cover-image" />
+  </div>
+  {%- endif -%}
+
+  <!-- CUERPO: contenido + aside -->
+  <div class="post-layout">
+
+    <div class="post-content e-content" itemprop="articleBody">
+      {{ content | inject_anchors }}
+      {%- include apoyo.html -%}
+    </div>
+
+    <aside class="post-aside">
+
+      <!-- ÍNDICE DE CONTENIDO -->
+      {%- if content contains '<h2' or content contains '<h3' -%}
+      {%- assign toc_html = content | toc_only -%}
+      <div class="post-toc">
+        <h2 class="post-toc__heading">Contenido</h2>
+        <nav class="post-toc__nav" aria-label="Tabla de contenidos">
+          {{ toc_html }}
+        </nav>
+      </div>
+      {%- endif -%}
+
+      <!-- MÁS VISTOS -->
+      {%- if popular_posts.size > 0 -%}
+      <div class="most-viewed post-aside__most-viewed">
+        <h2 class="most-viewed__heading">Más vistos</h2>
+        <ol class="most-viewed__list">
+          {%- for post in popular_posts limit: 7 -%}
+          <li class="most-viewed__item">
+            <span class="most-viewed__num">{{ forloop.index }}</span>
+            <div class="most-viewed__content">
+              {%- if post.categories.size > 0 -%}
+                <span class="post-category">{{ post.categories | first }}</span>
+              {%- endif -%}
+              <a href="{{ post.url | relative_url }}" class="most-viewed__title">
+                {{ post.title | escape }}
+              </a>
+              <span class="post-meta">{{ post.date | date: "%d/%m/%Y" }}</span>
+            </div>
+          </li>
+          {%- endfor -%}
+        </ol>
+      </div>
+      {%- endif -%}
+
+    </aside>
+  </div><!-- /post-layout -->
+
+  {% if jekyll.environment == 'production' -%}
+    {% if page.comments == false -%}
+    <div class="comments-disabled-message">
+      Comments have been disabled for this post.
+    </div>
+    {% else -%}
+      {%- include comments.html -%}
+    {% endif -%}
+  {% endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

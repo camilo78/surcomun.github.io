@@ -1,0 +1,39 @@
+---
+layout: base
+---
+<div class="home">
+  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+  {%- assign cat_posts = site.posts | where_exp: "p", "p.categories contains page.category" -%}
+
+  <header class="category-header">
+    <h1 class="category-header__title">{{ page.title | escape }}</h1>
+    <p class="category-header__count">{{ cat_posts.size }} artículo{%- if cat_posts.size != 1 -%}s{%- endif -%}</p>
+  </header>
+
+  {%- if cat_posts.size > 0 -%}
+  <div class="latest-grid">
+    {%- for post in cat_posts -%}
+    <article class="news-card">
+      {%- if post.cover_image -%}
+      <a href="{{ post.url | relative_url }}" class="news-card__img-link">
+        <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="news-card__img" />
+      </a>
+      {%- endif -%}
+      <div class="news-card__body">
+        <h3 class="news-card__title">
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h3>
+        {%- assign author_display = post.author | join: ", " -%}
+        {%- if author_display != "" -%}
+          <span class="news-card__author">Por: {{ author_display }}</span>
+        {%- endif -%}
+        <p class="news-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+      </div>
+    </article>
+    {%- endfor -%}
+  </div>
+  {%- else -%}
+  <p class="category-empty">No hay artículos en esta categoría todavía.</p>
+  {%- endif -%}
+</div>
