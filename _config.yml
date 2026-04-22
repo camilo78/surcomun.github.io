@@ -33,8 +33,8 @@ sass:
   silence_deprecations: [import]
 
 # URL base del sitio (actualizar según necesario)
-# url: "https://example.com"
-# baseurl: ""
+url: "https://surcomun"
+baseurl: "https://surcomun.github.io"
 
 # Minima-specific settings (applicable to Minima v3 and above only)
 # -----------------------------------------------------------------
@@ -47,7 +47,7 @@ minima:
     - about.md
     - apoyar.md
 
-  # Mostrar extractos en la página de inicio
+  # Mostrar extractos en la página de inicio  
   show_excerpts: true
 
   # Formato de fecha (por defecto: "%b %d, %Y")
