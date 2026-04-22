@@ -54,22 +54,11 @@ layout: base
   <div class="post-layout">
 
     <div class="post-content e-content" itemprop="articleBody">
-      {{ content | inject_anchors }}
+      {{ content }}
       {%- include apoyo.html -%}
     </div>
 
     <aside class="post-aside">
-
-      <!-- ÍNDICE DE CONTENIDO -->
-      {%- if content contains '<h2' or content contains '<h3' -%}
-      {%- assign toc_html = content | toc_only -%}
-      <div class="post-toc">
-        <h2 class="post-toc__heading">Contenido</h2>
-        <nav class="post-toc__nav" aria-label="Tabla de contenidos">
-          {{ toc_html }}
-        </nav>
-      </div>
-      {%- endif -%}
 
       <!-- MÁS VISTOS -->
       {%- if popular_posts.size > 0 -%}

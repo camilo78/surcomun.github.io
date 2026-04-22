@@ -15,7 +15,6 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate-v2
-  - jekyll-toc
 
 
 pagination:
@@ -124,18 +123,6 @@ kofi:
   username: camiloalvarado
   button_text: "Apoya Sur Común"
 
-toc:
-  min_level: 2
-  max_level: 3
-
-# Habilita TOC en todos los posts por defecto
-# (jekyll-toc requiere toc: true en el front matter o via defaults)
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      toc: true
 
 permalink: /:year/:month/:day/:title:output_ext
 
