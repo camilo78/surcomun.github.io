@@ -34,7 +34,7 @@ sass:
 
 # URL base del sitio (actualizar según necesario)
 url: "https://camilo78.github.io"
-baseurl: "/surcomun"
+baseurl: ""
 
 # Minima-specific settings (applicable to Minima v3 and above only)
 # -----------------------------------------------------------------
