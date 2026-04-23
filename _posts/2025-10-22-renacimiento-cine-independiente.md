@@ -2,9 +2,11 @@
 layout: post
 title: "El renacimiento del cine independiente"
 categories: cultura
+featured: true
 tags: [cine, cultura, independiente, arte]
 popular: true
 cover_image: "https://picsum.photos/seed/cine-indie/1200/500"
+cover_caption: "Fotografía de referencia"
 ---
 
 En un panorama dominado por franquicias y superproducciones, el cine independiente vive un momento de renovación extraordinaria. Nuevas voces, perspectivas diversas y presupuestos ajustados están produciendo algunas de las obras más relevantes de la última década.

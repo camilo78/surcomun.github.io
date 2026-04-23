@@ -2,8 +2,10 @@
 layout: post
 title: "Literatura latinoamericana del siglo XXI: nuevas voces, nuevos mundos"
 categories: cultura
+featured: true
 tags: [literatura, latinoamérica, libros, escritura, cultura]
 cover_image: "https://picsum.photos/seed/literatura-lat/1200/500"
+cover_caption: "Fotografía de referencia"
 ---
 
 La narrativa latinoamericana contemporánea vive un momento de ebullición. Lejos del peso canónico del boom de los sesenta, una nueva generación de escritoras y escritores explora territorios antes marginados: los cuerpos, las migraciones, los feminismos y las memorias colectivas de países marcados por la violencia.

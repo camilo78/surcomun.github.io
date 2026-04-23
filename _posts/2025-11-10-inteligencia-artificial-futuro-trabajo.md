@@ -2,10 +2,12 @@
 layout: post
 title: "Inteligencia artificial y el futuro del trabajo"
 categories: tecnología
+featured: false
 tags: [inteligencia-artificial, trabajo, automatización, futuro]
 popular: true
 author: [María García]
 cover_image: "https://picsum.photos/seed/ia-trabajo/1200/500"
+cover_caption: "Fotografía de referencia"
 ---
 
 ## Inteligencia artificial

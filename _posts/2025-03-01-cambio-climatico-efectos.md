@@ -4,6 +4,7 @@ title: "El cambio climático y sus efectos visibles en el planeta"
 categories: ciencia
 tags: [clima, medioambiente, calentamiento-global, naturaleza, ciencia]
 popular: true
+featured: false
 cover_image: "https://picsum.photos/seed/climate/1200/500"
 ---
 

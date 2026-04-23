@@ -4,6 +4,7 @@ title: "La libertad de prensa frente a sus mayores desafíos en décadas"
 categories: editorial
 tags: [editorial, prensa, democracia, periodismo, libertad]
 cover_image: "https://picsum.photos/seed/editorial-press2/1200/500"
+cover_caption: "Víctor Peñate / El Faro"
 hidden: true
 ---
 

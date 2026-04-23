@@ -2,9 +2,11 @@
 layout: post
 title: "Nuevos descubrimientos en astronomía que cambian nuestra visión del universo"
 categories: ciencia
+featured: true
 tags: [astronomía, espacio, universo, telescopio]
 popular: true
 cover_image: "https://picsum.photos/seed/cosmos/1200/500"
+cover_caption: "Fotografía de referencia"
 ---
 
 El telescopio espacial James Webb continúa sorprendiendo a la comunidad científica con imágenes de una nitidez y profundidad sin precedentes. Sus observaciones están cuestionando modelos cosmológicos establecidos y abriendo nuevas preguntas sobre la formación de galaxias en el universo temprano.

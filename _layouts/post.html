@@ -7,62 +7,101 @@ layout: base
 {%- assign month_name = months_es[month_index] -%}
 {%- assign pdate = page.date | date_to_xmlschema -%}
 {%- assign popular_posts = site.posts | where: "popular", true -%}
+{%- assign recent_posts = site.posts | where_exp: "p", "p.url != page.url" -%}
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <!-- AUTOR -->
-  <div class="post-author-top">
-    {%- if page.author -%}
-      {%- for author in page.author -%}
-        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <span class="p-author h-card post-author__name" itemprop="name">{{ author }}</span>
-        </span>
-        {%- if forloop.last == false %}, {% endif -%}
-      {%- endfor -%}
-    {%- else -%}
-      <span class="post-author__name">Redacción</span>
-    {%- endif -%}
-  </div>
-
-  <hr class="post-divider">
-
+  <!-- ══ CABECERA ══ -->
   <header class="post-header">
-    <!-- CATEGORÍA en rojo -->
+
     {%- if page.categories.size > 0 -%}
-      <div class="post-header__category">{{ page.categories | first }}</div>
+    <div class="post-header__section">
+      <a href="{{ '/categorias/' | append: page.categories.first | relative_url }}" class="post-header__section-link">{{ page.categories | first }}</a>
+    </div>
     {%- endif -%}
 
-    <!-- TÍTULO -->
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
 
-    <!-- FECHA con mes en español -->
-    <div class="post-meta">
-      <time class="dt-published" datetime="{{ pdate }}" itemprop="datePublished">
-        {{ page.date | date: "%-d" }} de {{ month_name }} de {{ page.date | date: "%Y" }}
-      </time>
+    {%- if page.subtitle -%}
+    <p class="post-deck">{{ page.subtitle | escape }}</p>
+    {%- elsif page.description -%}
+    <p class="post-deck">{{ page.description | escape }}</p>
+    {%- endif -%}
+
+    <div class="post-meta-bar">
+      <div class="post-meta-bar__left">
+        {%- if page.author -%}
+          <span class="post-meta-bar__by">Por</span>
+          {%- for author in page.author -%}
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <strong class="post-meta-bar__author p-author h-card" itemprop="name">{{ author }}</strong>
+            </span>
+            {%- if forloop.last == false %} y {% endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          <strong class="post-meta-bar__author">Redacción</strong>
+        {%- endif -%}
+        <span class="post-meta-bar__sep" aria-hidden="true">·</span>
+        <time class="post-meta-bar__date dt-published" datetime="{{ pdate }}" itemprop="datePublished">
+          {{ page.date | date: "%-d" }} de {{ month_name }} de {{ page.date | date: "%Y" }}
+        </time>
+      </div>
+
+      <div class="post-meta-bar__share">
+        <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}"
+           target="_blank" rel="noopener noreferrer"
+           class="share-btn share-btn--x" aria-label="Compartir en X">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.258 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}"
+           target="_blank" rel="noopener noreferrer"
+           class="share-btn share-btn--fb" aria-label="Compartir en Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <button class="share-btn share-btn--copy"
+                aria-label="Copiar enlace"
+                onclick="navigator.clipboard.writeText('{{ page.url | absolute_url }}').then(()=>{this.setAttribute('data-copied','1');setTimeout(()=>this.removeAttribute('data-copied'),2000)})">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
     </div>
+
+    <hr class="post-header__rule">
   </header>
 
-  <!-- IMAGEN DE PORTADA -->
+  <!-- ══ IMAGEN DE PORTADA ══ -->
   {%- if page.cover_image -%}
-  <div class="post-cover">
-    <img src="{{ page.cover_image }}" alt="{{ page.title | escape }}" class="post-cover-image" />
-  </div>
+  <figure class="post-cover">
+    <img src="{{ page.cover_image }}"
+         alt="{{ page.title | escape }}"
+         class="post-cover-image"
+         itemprop="image" />
+    {%- if page.cover_caption -%}
+    <figcaption class="post-cover-caption">{{ page.cover_caption }}</figcaption>
+    {%- endif -%}
+  </figure>
   {%- endif -%}
 
-  <!-- CUERPO: contenido + aside -->
+  <!-- ══ CUERPO: artículo + aside ══ -->
   <div class="post-layout">
 
     <div class="post-content e-content" itemprop="articleBody">
       {{ content }}
+
+      {%- if page.tags.size > 0 -%}
+      <div class="post-tags post-tags--bottom">
+        {%- for tag in page.tags -%}
+          <span class="post-tag"># {{ tag }}</span>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+
       {%- include apoyo.html -%}
     </div>
 
     <aside class="post-aside">
-
-      <!-- MÁS VISTOS -->
       {%- if popular_posts.size > 0 -%}
-      <div class="most-viewed post-aside__most-viewed">
+      <div class="most-viewed">
         <h2 class="most-viewed__heading">Más vistos</h2>
         <ol class="most-viewed__list">
           {%- for post in popular_posts limit: 7 -%}
@@ -72,9 +111,7 @@ layout: base
               {%- if post.categories.size > 0 -%}
                 <span class="post-category">{{ post.categories | first }}</span>
               {%- endif -%}
-              <a href="{{ post.url | relative_url }}" class="most-viewed__title">
-                {{ post.title | escape }}
-              </a>
+              <a href="{{ post.url | relative_url }}" class="most-viewed__title">{{ post.title | escape }}</a>
               <span class="post-meta">{{ post.date | date: "%d/%m/%Y" }}</span>
             </div>
           </li>
@@ -82,19 +119,45 @@ layout: base
         </ol>
       </div>
       {%- endif -%}
-
     </aside>
+
   </div><!-- /post-layout -->
 
   {% if jekyll.environment == 'production' -%}
-    {% if page.comments == false -%}
-    <div class="comments-disabled-message">
-      Comments have been disabled for this post.
-    </div>
-    {% else -%}
+    {%- if page.comments == false -%}
+    <div class="comments-disabled-message">Comments have been disabled for this post.</div>
+    {%- else -%}
       {%- include comments.html -%}
-    {% endif -%}
-  {% endif -%}
+    {%- endif -%}
+  {%- endif %}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+<!-- ══ MÁS ARTÍCULOS ══ -->
+{%- if recent_posts.size > 0 -%}
+<section class="post-recents">
+  <h2 class="post-recents__heading">Más artículos</h2>
+  <div class="post-recents__grid">
+    {%- for post in recent_posts limit: 4 -%}
+    <article class="recent-card">
+      {%- if post.cover_image -%}
+      <a href="{{ post.url | relative_url }}" class="recent-card__img-link" tabindex="-1">
+        <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="recent-card__img" loading="lazy" />
+      </a>
+      {%- endif -%}
+      <div class="recent-card__body">
+        {%- if post.categories.size > 0 -%}
+          <span class="post-category">{{ post.categories | first }}</span>
+        {%- endif -%}
+        <h3 class="recent-card__title">
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h3>
+        <p class="recent-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+        <span class="post-meta">{{ post.date | date: "%-d de %B de %Y" }}</span>
+      </div>
+    </article>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}

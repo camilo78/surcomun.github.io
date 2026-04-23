@@ -23,6 +23,9 @@ layout: base
     {%- endif -%}
   {%- endfor -%}
 
+  {%- comment -%}── Destacados: marcados con featured: true (máx 4) ──{%- endcomment -%}
+  {%- assign featured_posts = site.posts | where: "featured", true | limit: 4 -%}
+
   {%- comment -%}── Grid: posts paginados sin editorial ──{%- endcomment -%}
   {%- assign grid_posts = "" | split: "" -%}
   {%- for post in paged_posts -%}
@@ -53,11 +56,16 @@ layout: base
   {%- if current_page == 1 and editorial_post -%}
   <section class="editorial-feature">
     {%- if editorial_post.cover_image -%}
-    <a href="{{ editorial_post.url | relative_url }}" class="editorial-feature__img-link">
-      <img src="{{ editorial_post.cover_image }}"
-           alt="{{ editorial_post.title | escape }}"
-           class="editorial-feature__img" />
-    </a>
+    <div class="editorial-feature__img-wrap">
+      <a href="{{ editorial_post.url | relative_url }}" class="editorial-feature__img-link">
+        <img src="{{ editorial_post.cover_image }}"
+             alt="{{ editorial_post.title | escape }}"
+             class="editorial-feature__img" />
+      </a>
+      {%- if editorial_post.cover_caption -%}
+      <p class="editorial-feature__caption">{{ editorial_post.cover_caption }}</p>
+      {%- endif -%}
+    </div>
     {%- endif -%}
     <div class="editorial-feature__body">
       <span class="section-badge">Editorial</span>
@@ -80,6 +88,64 @@ layout: base
   </section>
   {%- endif -%}
 
+
+  <!-- ══════════════════════════════════════════════
+       DESTACADOS — solo página 1
+  ══════════════════════════════════════════════ -->
+  {%- if current_page == 1 and featured_posts.size > 0 -%}
+  {%- assign main_post = featured_posts | first -%}
+  {%- assign main_mins = main_post.content | number_of_words | divided_by: 200 -%}
+  {%- if main_mins < 1 -%}{%- assign main_mins = 1 -%}{%- endif -%}
+  <section class="featured-section">
+
+    <article class="featured-main">
+      <div class="featured-main__text">
+        {%- if main_post.categories.size > 0 -%}
+          <div class="featured-main__kicker">{{ main_post.categories | first }}</div>
+        {%- endif -%}
+        <h2 class="featured-main__title">
+          <a href="{{ main_post.url | relative_url }}">{{ main_post.title | escape }}</a>
+        </h2>
+        <p class="featured-main__excerpt">{{ main_post.excerpt | strip_html | truncatewords: 28 }}</p>
+        <span class="featured-main__readtime">{{ main_mins }} MIN DE LECTURA</span>
+      </div>
+      {%- if main_post.cover_image -%}
+      <div class="featured-main__img-wrap">
+        <a href="{{ main_post.url | relative_url }}">
+          <img src="{{ main_post.cover_image }}" alt="{{ main_post.title | escape }}" class="featured-main__img" />
+        </a>
+        {%- if main_post.cover_caption -%}
+          <p class="featured-main__caption">{{ main_post.cover_caption }}</p>
+        {%- endif -%}
+      </div>
+      {%- endif -%}
+    </article>
+
+    {%- if featured_posts.size > 1 -%}
+    <div class="featured-list">
+      {%- for post in featured_posts offset: 1 -%}
+      {%- assign mins = post.content | number_of_words | divided_by: 200 -%}
+      {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
+      <article class="featured-item">
+        <div class="featured-item__body">
+          <h3 class="featured-item__title">
+            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </h3>
+          <p class="featured-item__excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+          <span class="featured-item__readtime">{{ mins }} MIN DE LECTURA</span>
+        </div>
+        {%- if post.cover_image -%}
+        <a href="{{ post.url | relative_url }}" class="featured-item__img-link" tabindex="-1">
+          <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="featured-item__img" loading="lazy" />
+        </a>
+        {%- endif -%}
+      </article>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+
+  </section>
+  {%- endif -%}
 
   <!-- ══════════════════════════════════════════════
        CUERPO: main (68%) + aside (30%)
