@@ -123,10 +123,10 @@
 }
 
 .cw-cell {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  max-width: 40px;
+  width: var(--cw-cell, 40px);
+  height: var(--cw-cell, 40px);
+  min-width: var(--cw-cell, 40px);
+  max-width: var(--cw-cell, 40px);
   box-sizing: border-box;
   border: 1px solid #9ca3af;
   position: relative;
@@ -178,7 +178,7 @@
   position: absolute;
   top: 1px;
   left: 2px;
-  font-size: 9px;
+  font-size: calc(var(--cw-cell, 40px) * 0.23);
   line-height: 1;
   font-weight: 700;
   color: #374151;
@@ -192,7 +192,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
+  font-size: calc(var(--cw-cell, 40px) * 0.43);
   font-weight: 700;
   color: #111;
   pointer-events: none;
@@ -420,21 +420,6 @@ html[data-theme="dark"] .cw-title { color: #f9fafb; }
     grid-template-columns: 1fr;
   }
 
-  .cw-cell {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
-    max-width: 28px;
-  }
-
-  .cw-letter {
-    font-size: 13px;
-  }
-
-  .cw-num {
-    font-size: 7px;
-  }
-
   .cw-clues {
     grid-template-columns: 1fr;
   }
@@ -532,22 +517,6 @@ html[data-theme="dark"] .cw-title { color: #f9fafb; }
 .pasatiempos__frame .cw-table-wrap {
   display: flex;
   justify-content: center;
-}
-
-/* Celdas más pequeñas: 26 px → 13×13 = 338 px de ancho */
-.pasatiempos__frame .cw-cell {
-  width: 26px;
-  height: 26px;
-  min-width: 26px;
-  max-width: 26px;
-}
-
-.pasatiempos__frame .cw-letter {
-  font-size: 13px;
-}
-
-.pasatiempos__frame .cw-num {
-  font-size: 7px;
 }
 
 /* Pistas: 2 columnas lado a lado debajo de la cuadrícula */

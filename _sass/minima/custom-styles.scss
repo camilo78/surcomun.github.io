@@ -116,6 +116,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  
   }
 
   .site-logo {
@@ -242,8 +243,25 @@ html[data-theme="dark"] {
   }
 }
 
+// — Móvil: [toggle | logo | search | hamburger] en una sola barra —
 @media (max-width: 768px) {
+  .site-header { position: relative; }
+
   .nav-hamburger { display: flex; }
+
+  .site-masthead {
+    .wrapper {
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 3px double #E93C35;
+    }
+    .site-logo { height: 48px; }
+  }
+
+  .site-navbar__inner {
+    position: static;
+    border-bottom: none;
+  }
 
   .site-nav-links {
     display: none;
@@ -269,9 +287,6 @@ html[data-theme="dark"] {
     font-size: 0.78rem;
     &:last-child { border-bottom: none; }
   }
-
-  .site-navbar__inner { position: relative; }
-  .site-masthead .site-logo { height: 36px; }
 }
 
 // ============================================================
@@ -1112,7 +1127,7 @@ body.search-open { overflow: hidden; }
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--minima-heading-color);
-    padding: 0.75rem 0;
+    padding: 0.75rem 0rem;
     border-bottom: 1px solid var(--minima-border-color-01);
     margin: 0;
   }
@@ -1127,7 +1142,7 @@ body.search-open { overflow: hidden; }
     display: flex;
     gap: 0.9rem;
     align-items: flex-start;
-    padding: 0.9rem 1rem;
+    padding: 0.9rem 0rem;
     border-bottom: 1px solid var(--minima-border-color-02);
 
     &:last-child { border-bottom: none; }
@@ -1185,9 +1200,12 @@ body.search-open { overflow: hidden; }
     grid-template-columns: 1fr;
     min-height: auto;
 
-    &__body { padding: 1.5rem; }
+    &__body { padding: 1.5rem 0rem; }
     &__title { font-size: 1.4rem; }
   }
+   .site-title{
+    padding-left: 90px;
+   }
 
   .home-body {
     grid-template-columns: 1fr;
@@ -1514,7 +1532,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: start;
   //background: var(--minima-code-background-color);
   border-radius: 4px;
-  padding: 1.5rem;
+  //padding: 1.5rem;
 
   &__heading {
     font-size: 0.75rem;

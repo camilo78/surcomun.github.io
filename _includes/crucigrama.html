@@ -103,6 +103,35 @@
 })();
 </script>
 
+<!-- Tamaño de celda responsive: calcula --cw-cell según el ancho del wrapper -->
+<script>
+(function () {
+  var cols    = {{ cw_data.ancho }};
+  var wrapper = document.getElementById('cw-{{ cw_id }}');
+  if (!wrapper) return;
+  var body = wrapper.querySelector('.cw-body');
+  if (!body) return;
+  var MAX_CELL = 40, MIN_CELL = 16, raf = null;
+
+  function updateSize() {
+    raf = null;
+    var w = body.offsetWidth;
+    if (!w) return;
+    var size = Math.max(MIN_CELL, Math.min(MAX_CELL, Math.floor(w / cols)));
+    wrapper.style.setProperty('--cw-cell', size + 'px');
+  }
+
+  function schedule() { if (!raf) raf = requestAnimationFrame(updateSize); }
+
+  schedule();
+  if (window.ResizeObserver) {
+    new ResizeObserver(schedule).observe(body);
+  } else {
+    window.addEventListener('resize', schedule);
+  }
+})();
+</script>
+
 {% else %}
 <p><em>No se encontró el crucigrama con id "{{ cw_id }}".</em></p>
 {% endif %}
