@@ -345,6 +345,7 @@
    DARK MODE
    ============================================================ */
 @media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .cw-wrapper { background-color: #2B3034; color: #B9C7D2; }
   html:not([data-theme="light"]) .cw-timer { color: #e5e7eb; background: #374151; }
   html:not([data-theme="light"]) .cw-btn { background: #1f2937; color: #e5e7eb; border-color: #4b5563; }
   html:not([data-theme="light"]) .cw-btn:hover { background: #374151; border-color: #6b7280; }
@@ -379,6 +380,7 @@
   html:not([data-theme="light"]) .cw-title { color: #f9fafb; }
 }
 
+html[data-theme="dark"] .cw-wrapper { background-color: #2B3034; color: #B9C7D2; }
 html[data-theme="dark"] .cw-timer { color: #e5e7eb; background: #374151; }
 html[data-theme="dark"] .cw-btn { background: #1f2937; color: #e5e7eb; border-color: #4b5563; }
 html[data-theme="dark"] .cw-btn:hover { background: #374151; border-color: #6b7280; }
