@@ -53,7 +53,7 @@ layout: base
   <!-- ══════════════════════════════════════════════
        EDITORIAL — solo en página 1
   ══════════════════════════════════════════════ -->
-  {%- if current_page == 1 and editorial_post -%}
+  {%- if editorial_post -%}
   <section class="editorial-feature">
     {%- if editorial_post.cover_image -%}
     <div class="editorial-feature__img-wrap">
@@ -92,7 +92,7 @@ layout: base
   <!-- ══════════════════════════════════════════════
        DESTACADOS — solo página 1
   ══════════════════════════════════════════════ -->
-  {%- if current_page == 1 and featured_posts.size > 0 -%}
+  {%- if featured_posts.size > 0 -%}
   {%- assign main_post = featured_posts | first -%}
   {%- assign main_mins = main_post.content | number_of_words | divided_by: 200 -%}
   {%- if main_mins < 1 -%}{%- assign main_mins = 1 -%}{%- endif -%}
@@ -147,6 +147,7 @@ layout: base
   </section>
   {%- endif -%}
 
+
   <!-- ══════════════════════════════════════════════
        CUERPO: main (68%) + aside (30%)
   ══════════════════════════════════════════════ -->
@@ -186,7 +187,7 @@ layout: base
       {%- endif -%}
 
       <!-- ── PAGINACIÓN ── -->
-      {%- if site.pagination.enabled and paginator.total_pages > 1 -%}
+      {%- if paginator.total_pages > 1 -%}
       <nav class="pagination" aria-label="Paginación">
         {%- if paginator.previous_page -%}
           <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination__btn pagination__btn--prev">
@@ -203,7 +204,7 @@ layout: base
             {%- elsif i == 1 -%}
               <a href="{{ '/' | relative_url }}" class="pagination__page">{{ i }}</a>
             {%- else -%}
-              <a href="{{ site.pagination.permalink | replace: ':num', i | prepend: site.baseurl }}" class="pagination__page">{{ i }}</a>
+              <a href="{{ site.paginate_path | replace: ':num', i | relative_url }}" class="pagination__page">{{ i }}</a>
             {%- endif -%}
           {%- endfor -%}
         </div>
@@ -291,14 +292,14 @@ layout: base
   <div class="promo-banner">
     <div class="promo-banner__video">
       <div class="promo-banner__video-wrap">
-        <iframe src="https://www.youtube.com/embed/DHsE9PIkFe8?si=OLhPfa11DDlKVLjd&autoplay=1&mute=1&loop=1&playlist=DHsE9PIkFe8" title="Sur Común — Video institucional" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/DwF3osDXuN4?si=p-gO1Tg9ILKy5l-Q&autoplay=1&mute=1" title="Sur Común — Video institucional" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
     <div class="promo-banner__body">
-      <span class="promo-banner__kicker">Quiénes somos</span>
-      <h2 class="promo-banner__headline">El periodismo que informa,<br>el análisis que transforma.</h2>
-      <p class="promo-banner__text">Desde 2016, Sur Común investiga, cuestiona y cuenta las historias que importan. Periodismo independiente al servicio de la verdad.</p>
-      <a href="{{ '/about' | relative_url }}" class="promo-banner__btn">Conoce nuestra historia &rarr;</a>
+      <span class="promo-banner__kicker">Acerca de Sur Común</span>
+      <h2 class="promo-banner__headline">¿Por qué “Sur Común”?</h2>
+      <p class="promo-banner__text">Sur por el lugar desde el que escribimos, con sus condiciones materiales y su tradición intelectual propia. Común por aquello que no debería estar cercado: el conocimiento, la cultura, lo público. El nombre es una posición, no una consigna.</p>
+      <a href="{{ '/about' | relative_url }}" class="promo-banner__btn">Conocenos &rarr;</a>
     </div>
   </div>
 <!-- <hr class="divisor"> -->

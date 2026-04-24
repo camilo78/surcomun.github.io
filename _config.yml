@@ -95,16 +95,6 @@ footer:
           url: /categorias/ciencia/
         - text: Diseño
           url: /categorias/diseno/
-    - heading: Nosotros
-      links:
-        - text: Quiénes somos
-          url: /about/
-        - text: Contacto
-          url: /contacto/
-        - text: Publicidad
-          url: /publicidad/
-        - text: Trabaja con nosotros
-          url: /trabaja-con-nosotros/
     - heading: Legal
       links:
         - text: Política de privacidad
@@ -113,6 +103,12 @@ footer:
           url: /terminos/
         - text: Política de cookies
           url: /cookies/
+    - heading: Nosotros
+      links:
+        - text: Quiénes somos
+          url: /about/
+        - text: Contacto
+          url: /contacto/
 
 kofi:
   username: camiloalvarado
