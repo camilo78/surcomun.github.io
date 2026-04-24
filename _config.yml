@@ -91,10 +91,10 @@ footer:
           url: /categorias/tecnologia/
         - text: Cultura
           url: /categorias/cultura/
-        - text: Ciencia
-          url: /categorias/ciencia/
-        - text: Diseño
-          url: /categorias/diseno/
+      # - text: Ciencia
+      #  url: /categorias/ciencia/
+      #- text: Diseño
+      #  url: /categorias/diseno/
     - heading: Legal
       links:
         - text: Política de privacidad
