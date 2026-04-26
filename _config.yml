@@ -69,9 +69,9 @@ footer:
     - platform: Facebook
       url: "https://www.facebook.com/profile.php?id=61560191371333"
       icon: facebook
-    - platform: Instagram
-      url: "https://www.instagram.com/sur_comun/"
-      icon: instagram
+    # - platform: Instagram
+    #   url: "https://www.instagram.com/sur_comun/"
+    #   icon: instagram
     - platform: X
       url: "https://x.com/sur_comun"
       icon: x-twitter
