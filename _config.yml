@@ -3,7 +3,7 @@
 title: Sur Común
 author:
   name: Tu Nombre
-  email: tu-email@ejemplo.com
+  email: redaccion@surcomun.com
 
 description: >
   Un sitio web creado con Jekyll y el tema Minima.
@@ -62,7 +62,7 @@ minima:
 # ── Footer ────────────────────────────────────────────────
 footer:
   description: "Periodismo independiente dedicado a informar, analizar y cuestionar. Desde 2016 contando las historias que importan."
-  email: "contacto@gaceta.ejemplo.com"
+  email: "contacto@surcomun.com"
   copyright: "© 2025 Sur Común. Todos los derechos reservados."
 
   social:
@@ -109,6 +109,8 @@ footer:
           url: /about/
         - text: Contacto
           url: /contacto/
+        - text: Apoya Sur Común
+          url: /apoyar/  
 
 kofi:
   username: camiloalvarado

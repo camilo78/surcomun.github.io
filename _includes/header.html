@@ -76,7 +76,37 @@
   </div>
   <div class="search-overlay__backdrop" id="search-backdrop"></div>
 </div>
-
+<div class="site-date">
+  <div class="wrapper site-date__inner">
+    <span class="site-date__month" id="date-month"></span>
+    <span class="site-date__sep">·</span>
+    <span class="site-date__day"   id="date-day"></span>
+    <span class="site-date__sep">·</span>
+    <span class="site-date__year"  id="date-year"></span>
+    <span class="site-date__sep site-date__sep--pipe">|</span>
+    <span class="site-date__time"  id="date-time"></span>
+  </div>
+</div>
+<script>
+(function () {
+  var MESES = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO',
+               'JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE'];
+  var elMonth = document.getElementById('date-month');
+  var elDay   = document.getElementById('date-day');
+  var elYear  = document.getElementById('date-year');
+  var elTime  = document.getElementById('date-time');
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+  function tick() {
+    var now = new Date();
+    elMonth.textContent = MESES[now.getMonth()];
+    elDay.textContent   = pad(now.getDate());
+    elYear.textContent  = now.getFullYear();
+    elTime.textContent  = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
 <script>
 (function () {
   // ── Tema claro/oscuro ──

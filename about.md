@@ -1,10 +1,8 @@
 ---
-layout: page
+layout: page-with-toc
 title: Acerca de Sur Común
 permalink: /about/
 ---
-
-<img src="/assets/img/logo.png" alt="Logo Sur Común" style="float: right; margin: 1.5rem; width: 300px;">
 
 **Sur Común** es una revista digital independiente dedicada al análisis, la crítica y la divulgación. No aspiramos a ser un medio de noticias ni a competir en la carrera del último titular: nos interesa el paso más lento, el que permite entender antes que reaccionar.
 
@@ -26,4 +24,4 @@ Publicamos sobre política, tecnología, ciencia y cultura con la convicción de
 
 Sur Común no depende de grupos económicos, partidos ni agencias de cooperación. Esa independencia define lo que podemos y lo que no podemos publicar, y nos parece una condición mínima para merecer la lectura de alguien.
 
-¿Tienes una historia que contar o quieres colaborar con nosotros? Escríbenos a [redaccion@gaceta.ejemplo.com](mailto:redaccion@gaceta.ejemplo.com).
+¿Tienes una historia que contar o quieres colaborar con nosotros? Escríbenos a [redaccion@surcomun.com](mailto:redaccion@surcomun.com).

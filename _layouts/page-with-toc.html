@@ -1,0 +1,167 @@
+---
+layout: base
+---
+<style>
+.toc-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.toc-layout-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.toc-sidebar {
+  width: 210px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.toc-sidebar-logo {
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  margin: 0 auto 1.5rem;
+}
+
+.toc-sidebar-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.toc-sidebar-divider {
+  border: none;
+  border-top: 1px solid;
+  opacity: 0.15;
+  margin: 0 0 1rem;
+}
+
+.toc-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  opacity: 0.45;
+  margin: 0 0 0.6rem;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-list li {
+  margin: 0;
+}
+
+.toc-list a {
+  display: block;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  padding: 0.22rem 0.4rem;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.15s, border-color 0.15s;
+  color: inherit;
+}
+
+.toc-list a:hover {
+  opacity: 0.9;
+}
+
+.toc-list a.toc-active {
+  opacity: 1;
+  border-left-color: currentColor;
+  font-weight: 500;
+}
+
+@media (max-width: 860px) {
+  .toc-layout {
+    flex-direction: column;
+  }
+
+  .toc-sidebar {
+    position: static;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    opacity: 0.9;
+    order: -1;
+  }
+}
+</style>
+
+<div class="toc-layout">
+
+  <article class="post toc-layout-main">
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title | escape }}</h1>
+    </header>
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </article>
+
+  <aside class="toc-sidebar" aria-label="Tabla de contenido">
+    <a href="{{ '/' | relative_url }}" class="toc-sidebar-logo">
+      <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="Sur Común">
+    </a>
+    <hr class="toc-sidebar-divider">
+    <p class="toc-label">Contenido</p>
+    <nav>
+      <ul class="toc-list" id="toc-list"></ul>
+    </nav>
+  </aside>
+
+</div>
+
+<script>
+(function () {
+  var main    = document.querySelector('.toc-layout-main .post-content');
+  var tocList = document.getElementById('toc-list');
+  if (!main || !tocList) return;
+
+  var headings = main.querySelectorAll('h2');
+  if (!headings.length) return;
+
+  headings.forEach(function (h, i) {
+    if (!h.id) h.id = 'sec-' + i;
+
+    var li = document.createElement('li');
+
+    var a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    a.dataset.target = h.id;
+
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById(this.dataset.target).scrollIntoView({ behavior: 'smooth' });
+    });
+
+    li.appendChild(a);
+    tocList.appendChild(li);
+  });
+
+  var links = tocList.querySelectorAll('a');
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        links.forEach(function (l) { l.classList.remove('toc-active'); });
+        var active = tocList.querySelector('[data-target="' + entry.target.id + '"]');
+        if (active) active.classList.add('toc-active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -70% 0px', threshold: 0 });
+
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
