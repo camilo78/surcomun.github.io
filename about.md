@@ -25,3 +25,9 @@ Publicamos sobre política, tecnología, ciencia y cultura con la convicción de
 Sur Común no depende de grupos económicos, partidos ni agencias de cooperación. Esa independencia define lo que podemos y lo que no podemos publicar, y nos parece una condición mínima para merecer la lectura de alguien.
 
 ¿Tienes una historia que contar o quieres colaborar con nosotros? Escríbenos a [redaccion@surcomun.com](mailto:redaccion@surcomun.com).
+
+## Seguinos en redes
+
+- **Facebook:** [Sur Común](https://www.facebook.com/profile.php?id=61560191371333)
+- **Instagram:** [@sur\_comun](https://www.instagram.com/sur_comun/)
+- **X:** [@sur\_comun](https://x.com/sur_comun)

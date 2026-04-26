@@ -69,10 +69,11 @@ Las respuestas, matices y desacuerdos son parte de cualquier revista que se tome
 ---
  
 ## Redes sociales
- 
+
 También podés encontrarnos en:
- 
-- **Mastodon:** [@surcomun@mastodon.social](https://mastodon.social/@surcomun)
-- **X:** [@surcomun](https://x.com/surcomun)
-- **Instagram:** [@surcomun](https://instagram.com/surcomun)
+
+- **Facebook:** [Sur Común](https://www.facebook.com/profile.php?id=61560191371333)
+- **Instagram:** [@sur\_comun](https://www.instagram.com/sur_comun/)
+- **X:** [@sur\_comun](https://x.com/sur_comun)
+
 Leemos menciones y mensajes directos, aunque para asuntos que requieran respuesta detallada preferimos el correo. Las redes son un canal de difusión, no nuestro lugar de trabajo.

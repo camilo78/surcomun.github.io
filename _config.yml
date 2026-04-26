@@ -67,20 +67,14 @@ footer:
 
   social:
     - platform: Facebook
-      url: "https://facebook.com/gaceta"
+      url: "https://www.facebook.com/profile.php?id=61560191371333"
       icon: facebook
     - platform: Instagram
-      url: "https://instagram.com/gaceta"
+      url: "https://www.instagram.com/sur_comun/"
       icon: instagram
     - platform: X
-      url: "https://x.com/gaceta"
+      url: "https://x.com/sur_comun"
       icon: x-twitter
-    - platform: YouTube
-      url: "https://youtube.com/gaceta"
-      icon: youtube
-    - platform: LinkedIn
-      url: "https://linkedin.com/company/gaceta"
-      icon: linkedin
 
   columns:
     - heading: Secciones
