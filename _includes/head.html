@@ -2,6 +2,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- if page.cover_image -%}
+    {%- if page.cover_image contains "://" -%}
+      {%- assign _og_img = page.cover_image -%}
+    {%- else -%}
+      {%- assign _og_img = page.cover_image | absolute_url -%}
+    {%- endif -%}
+  <meta property="og:image" content="{{ _og_img }}">
+  {%- endif -%}
   {%- seo -%}
   <link id="main-stylesheet" rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   {%- feed_meta -%}
