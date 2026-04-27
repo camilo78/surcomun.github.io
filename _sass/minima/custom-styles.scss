@@ -83,24 +83,9 @@ a:hover { text-decoration: none; }
 // WRAPPER — márgenes laterales estilo NYT
 // ============================================================
 
-.wrapper {
-  padding-right: 80px;
-  padding-left:  80px;
-}
 
-@media (max-width: 1024px) {
-  .wrapper {
-    padding-right: 24px;
-    padding-left:  24px;
-  }
-}
 
-@media (max-width: 768px) {
-  .wrapper {
-    padding-right: 16px;
-    padding-left:  16px;
-  }
-}
+
 
 // ============================================================
 // HEADER — Masthead + Navbar (estilo NYT)
@@ -123,6 +108,8 @@ a:hover { text-decoration: none; }
   .wrapper {
     display: flex;
     align-items: center;
+    padding-left: 80px;
+    padding-right: 80px;
   }
 
   .theme-toggle {
@@ -296,6 +283,9 @@ html[data-theme="dark"] {
   }
 }
 
+// — Tablet: masthead respeta los márgenes globales (1024px) —
+
+
 // — Móvil: [toggle | logo | search | hamburger] en una sola barra —
 @media (max-width: 768px) {
   .site-header { position: relative; }
@@ -303,10 +293,11 @@ html[data-theme="dark"] {
   .nav-hamburger { display: flex; }
 
   .site-masthead {
-    border-bottom: 3px double #E93C35;
     .wrapper {
+      border-bottom: 3px double #E93C35;
       padding-top: 0.25rem;
       padding-bottom: 0.25rem;
+
     }
     .site-logo { height: 48px; }
   }
@@ -327,7 +318,6 @@ html[data-theme="dark"] {
     align-items: flex-start;
     z-index: 200;
     padding: 0.4rem 0;
-    border-bottom: 3px double #E93C35;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 
     &.is-open { display: flex; }
@@ -352,19 +342,13 @@ html[data-theme="dark"] {
     align-items: baseline;
     justify-content: center;
     gap: 0.55rem;
-    padding: 0.28rem 0;
+    padding-top: 0.28rem;
+    padding-bottom: 0.28rem;
+    
     border-bottom: 1px solid var(--minima-heading-color);
     font-family: 'Libre Franklin', Arial, sans-serif;
     font-size: 0.7rem;
     letter-spacing: 0.11em;
-  }
-
-  @media (max-width: 1024px) {
-    &__inner { margin-left: 24px; margin-right: 24px; }
-  }
-
-  @media (max-width: 768px) {
-    &__inner { margin-left: 16px; margin-right: 16px; }
   }
 
   &__month,
@@ -1825,20 +1809,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // ── Bloque superior: borde double igual que navbar ──
-.footer-top {
-  //padding: 2.5rem 0 0;
-
-  &__inner {
-    display: grid;
-    grid-template-columns: 1.6fr repeat(3, 1fr);
-    gap: 0.5rem 3rem;
-    align-items: start;
-    padding-top: 2rem;
-    margin-left: 80px;
-    margin-right: 80px;
-    border-top: 4px double #E93C35;
-
-  }
+.footer-top__inner {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: 0.5rem 3rem;
+  align-items: start;
+  padding-top: 2rem;
+  border-top: 4px double #E93C35;
 }
 
 // ── Marca / descripción ──
@@ -1935,7 +1912,8 @@ h1, h2, h3, h4, h5, h6 {
 
 // ── Barra inferior ──
 .footer-bottom {
-  padding: 1.25rem 0;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 
   &__inner {
     display: flex;
@@ -1944,8 +1922,6 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1rem;
     border-top: 1px solid var(--minima-border-color-01);
     padding-top: 1.25rem;
-    margin-left: 80px;
-    margin-right: 80px;
   }
 
   &__copy {
@@ -2014,12 +1990,6 @@ h1, h2, h3, h4, h5, h6 {
   .footer-top__inner {
     grid-template-columns: 1fr repeat(3, 1fr);
     gap: 1.5rem;
-    margin-left: 24px;
-    margin-right: 24px;
-  }
-  .footer-bottom__inner {
-    margin-left: 24px;
-    margin-right: 24px;
   }
 }
 
@@ -2027,28 +1997,16 @@ h1, h2, h3, h4, h5, h6 {
   .footer-top__inner {
     grid-template-columns: 1fr 1fr;
     gap: 2rem 1.5rem;
-    margin-left: 16px;
-    margin-right: 16px;
   }
-  .footer-bottom__inner {
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-
   .footer-brand { grid-column: 1 / -1; }
   .footer-brand__desc { max-width: 100%; }
 }
 
 @media (max-width: 480px) {
-  .footer-top {
-    //padding: 2rem 0 1.5rem;
-
-    &__inner {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
+  .footer-top__inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-
   .footer-bottom__inner {
     flex-direction: column;
     align-items: flex-start;

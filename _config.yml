@@ -8,6 +8,8 @@ author:
 description: >
   Un sitio web creado con Jekyll y el tema Minima.
 
+lang: es
+
 # Build settings
 # --------------
 theme: minima
