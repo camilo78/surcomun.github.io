@@ -14,7 +14,7 @@ published_by: Sur Común
 license: CC BY-SA 4.0
 featured: true
 popular: true
-cover_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Piotr_czerski_3.jpg/1280px-Piotr_czerski_3.jpg"
+cover_image: "/assets/img/posts/piotr-czerski.jpg"
 cover_caption: "Piotr Czerski. Fuente: Wikimedia Commons (CC BY-SA)"
 ---
 

@@ -6,7 +6,7 @@ categories: [editorial]
 tags: [honduras, partido-liberal, partido-nacional, juicio-político, marlon-ochoa, nasry-asfura, congreso-nacional, editorial]
 excerpt: "Entre el 7 y el 17 de abril de 2026, Casa Presidencial entregó bonos de 100.000 lempiras a diputados liberales y esos mismos diputados votaron junto al Partido Nacional la destitución del consejero del CNE que denunció fraude. No es alianza ni coincidencia: es el funcionamiento normal de un solo bloque de poder con dos marcas."
 author: Sur Común
-cover_image: "https://www.infobae.com/resizer/v2/4IRW5ZR6SFAH7L3UDJCZBKXENA.JPG?auth=e091e537adf2730721866aa8f8cf7e745dc9727441c776f57806f806e87bd26e&smart=true&width=992&height=661&quality=85"
+cover_image: "/assets/img/posts/cien-mil-lempiras.jpg"
 cover_caption: "Toma de poseción de Nasri Asfura en el Congreso Nacional / infobae"
 hidden: true
 ---

@@ -8,7 +8,7 @@ excerpt: "La historia, la vida y la trágica muerte del niño prodigio que codis
 author: Camilo Alvarado
 featured: true
 popular: true
-cover_image: "https://ca-times.brightspotcdn.com/dims4/default/d24c2d9/2147483647/strip/true/crop/2048x1245+0+0/resize/1200x729!/format/webp/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F01%2Fea%2F1d04aee6b733e9a9903b95f18faf%2Fla-la-et-internets-own-boy-sundance-jpg-20160106"
+cover_image: "/assets/img/posts/aaron-swartz.webp"
 cover_caption: "Escena del documental “El chico de Internet: La historia de Aaron Swartz”. (Noah Berger / Instituto Sundance)"
 ---
 

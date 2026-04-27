@@ -20,4 +20,4 @@ La impunidad sistémica en Honduras sigue siendo una herida abierta. Aunque la C
 
 La figura de Jeannette Kawas no es un recuerdo estático; es el primer eslabón de una cadena de sangre y resistencia que conecta directamente con Berta Cáceres, Juan López y otros defensores de la tierra. Al observar hoy los manglares de la Laguna de los Micos, entendemos que el Parque Nacional que lleva su nombre no es un regalo del Estado, sino un territorio ganado en un conflicto latente. Su memoria nos interpela. La defensa de nuestra "casa común" sigue siendo una actividad de alto riesgo, pero necesaria para la supervivencia colectiva.
 
-[^1]: Corte Interamericana de Derechos Humanos. (2009, 3 de abril). *Caso Kawas Fernández vs. Honduras. Fondo, Reparaciones y Costas*. Serie C No. 196. <https://www.corteidh.or.cr/docs/casos/articulos/seriec_196_esp.pdf>
+[^1]: Corte Interamericana de Derechos Humanos. (2009, 3 de abril). *Caso Kawas Fernández vs. Honduras. Fondo, Reparaciones y Costas*. Serie C No. 196. [/assets/pdf/kawas-fernandez-vs-honduras-cidh-2009.pdf](/assets/pdf/kawas-fernandez-vs-honduras-cidh-2009.pdf)

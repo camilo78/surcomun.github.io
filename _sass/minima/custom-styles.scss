@@ -451,6 +451,19 @@ html[data-theme="dark"] {
       opacity: 0.5;
       font-style: italic;
     }
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 18px;
+      width: 18px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E93C35' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer;
+      opacity: 0.85;
+      &:hover { opacity: 1; }
+    }
   }
 
   &__results {
@@ -1450,7 +1463,7 @@ body.search-open { overflow: hidden; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  margin-top: 2rem;
+  //margin-top: 2rem;
   background: #2B3034;
   border-top: 4px solid #E93C35;
   border-radius: 4px;

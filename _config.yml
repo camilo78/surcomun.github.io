@@ -85,6 +85,8 @@ footer:
           url: /categorias/tecnologia/
         - text: Cultura
           url: /categorias/cultura/
+        - text: Política
+          url: /categorias/politica/  
       # - text: Ciencia
       #  url: /categorias/ciencia/
       #- text: Diseño

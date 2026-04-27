@@ -8,7 +8,7 @@ excerpt: "Un hombre recorre su trayecto habitual hacia el trabajo, inmerso en un
 author: Camilo Alvarado
 featured: false
 popular: true
-cover_image: " https://m.media-amazon.com/images/M/MV5BMDdjNjhiYzYtNDFiMy00NjRlLTk5MDUtYjlhZjU0OWY0MmY1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+cover_image: "/assets/img/posts/el-empleo.jpg"
 cover_caption: "Escena del cortometraje El Empleo (The Employment)/ Opusbou"
 ---
 
