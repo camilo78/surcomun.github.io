@@ -141,6 +141,7 @@ Esta política puede actualizarse cuando cambien las prácticas técnicas del si
 - La fecha de "Última actualización" al inicio de esta página reflejará la versión vigente.
 - Si los cambios afectan compromisos sustantivos (por ejemplo, si en algún momento incorporáramos una herramienta de analítica), lo anunciaremos visiblemente en la portada del sitio antes de su entrada en vigor.
 - Mantenemos disponibles versiones anteriores de esta política a solicitud, para fines de transparencia.
+  
 ---
  
 ## 11. Contacto
