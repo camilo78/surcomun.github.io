@@ -5,7 +5,7 @@ permalink: /privacidad/
 ---
 
 *Última actualización: abril de 2026*
- 
+
 En **Sur Común** creemos que la privacidad es un derecho, no una concesión. Por eso esta política empieza con una afirmación sencilla: **no recopilamos datos personales de quienes nos leen, no rastreamos su navegación y no perfilamos su comportamiento**. La revista se publica para ser leída, no para extraer información de quien lee.
  
 Esta política explica, en lenguaje claro, qué hacemos y qué no hacemos con tu información cuando visitás surcomun.com, y cuál es el marco legal hondureño que respalda esos compromisos.
@@ -53,12 +53,14 @@ Una cookie es un pequeño archivo de texto que un sitio guarda en tu navegador p
 - **Preferencias visuales.** Si elegís el tema oscuro o claro, el tamaño de fuente, o cualquier otra preferencia de visualización, una cookie recuerda tu elección para que no tengas que repetirla en cada visita.
 - **Estado de elementos interactivos.** Algunos artículos incluyen widgets, juegos o herramientas (un crucigrama, un cuestionario, una calculadora, un visor de imágenes). Esas piezas pueden guardar localmente —en tu navegador, no en nuestros servidores— el progreso de tu partida, las imágenes ya cargadas, o la última posición que dejaste. Si cerrás la pestaña y volvés mañana, podés retomar donde lo dejaste. Si limpiás las cookies o el almacenamiento local, esos progresos se pierden.
 - **Cookies funcionales del proveedor de hosting.** Nuestro alojamiento puede establecer cookies estrictamente técnicas para el balanceo de carga o para detectar tráfico automatizado malicioso. No identifican personas: identifican conexiones.
+  
 ### Cookies que **no** utilizamos
  
 - Cookies de publicidad o seguimiento entre sitios.
 - Cookies de analítica (Google Analytics, Matomo, etc.).
 - Cookies de redes sociales (botones de "Me gusta" que rastrean tu actividad fuera de la red social).
 - Cookies de afiliación o marketing.
+  
 ### Cómo gestionar las cookies
  
 Podés bloquear, eliminar o restringir las cookies desde la configuración de tu navegador. Si bloqueás las cookies de Sur Común, el sitio sigue funcionando: simplemente no recordará tus preferencias visuales ni el progreso de elementos interactivos.
