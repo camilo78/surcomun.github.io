@@ -3,7 +3,7 @@ layout: post
 title: "Aaron Swartz, el hijo legítimo de Internet: vida, obra y persecución del hacker que quiso liberar el saber"
 date: 2026-04-23 10:00:00 -0600
 categories: [cultura, tecnología]
-tags: [aaron-swartz, documental, internet, software-libre, cultura-libre, acceso-abierto, activismo]
+tags: [documental, internet, software-libre, cultura-libre, acceso-abierto, activismo]
 excerpt: "La historia, la vida y la trágica muerte del niño prodigio que codiseñó Markdown, peleó contra la ley SOPA y fue empujado al suicidio por una persecución judicial desproporcionada."
 author: Camilo Alvarado
 featured: false
