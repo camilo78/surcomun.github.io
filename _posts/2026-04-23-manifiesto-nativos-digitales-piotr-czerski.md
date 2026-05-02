@@ -22,13 +22,13 @@ cover_caption: "Piotr Czerski. Fuente: Wikimedia Commons (CC BY-SA)"
 
 > No necesitamos monumentos. Necesitamos un sistema que esté a la altura de nuestras expectativas, un sistema que sea transparente y competente. Y hemos aprendido que el cambio es posible: que cada sistema que no es confortable para nosotros puede ser reemplazado y sustituido por uno nuevo, uno que sea más eficiente, más adecuado a nuestras necesidades, que dé más oportunidades.
 
-Piotr Czerski —en realidad **Kordian Peter Klecha** (n. 1 de abril de 1981)— es un poeta y escritor polaco, cofundador de la banda Towary Zastępcze, graduado en ciencias informáticas en el Politécnico Universitario de Gdańsk, con estudios de filosofía en la Universidad de Gdańsk.
+Piotr Czerski —en realidad **Kordian Peter Klecha** (n. **1 de abril de 1981**)— es un poeta y escritor polaco, cofundador de la banda Towary Zastępcze, graduado en ciencias informáticas en el Politécnico Universitario de Gdańsk, con estudios de filosofía en la Universidad de Gdańsk.
 
 ---
 
 ## "Nosotros, los niños web"
 
-Probablemente no existe otra palabra tan usada en exceso dentro del discurso de los medios como "generación". Una vez traté de contar las "generaciones" que han sido proclamadas en los últimos diez años, desde el conocido artículo sobre la llamada "Generación Nada", y creo que eran tantas como doce. Todas tenían algo en común: sólo existían en papel. *La realidad nunca nos ha dado un solo impulso tangible, significativo e inolvidable*, una experiencia común que siempre nos distinguirá de las generaciones anteriores. Lo hemos estado buscando, pero en cambio vino un cambio sustancial e inadvertido, junto con la televisión por cable, los teléfonos móviles y, sobre todo, el acceso a Internet. Es sólo hoy cuando podemos comprender plenamente cuánto ha cambiado durante los últimos quince años.
+Probablemente no existe otra palabra tan usada en exceso dentro del discurso de los medios como "generación". Una vez traté de contar las "generaciones" que han sido proclamadas en los últimos diez años, desde el conocido artículo sobre la llamada "Generación Nada", y creo que eran tantas como **doce**. Todas tenían algo en común: sólo existían en papel. *La realidad nunca nos ha dado un solo impulso tangible, significativo e inolvidable*, una experiencia común que siempre nos distinguirá de las generaciones anteriores. Lo hemos estado buscando, pero en cambio vino un cambio sustancial e inadvertido, junto con la televisión por cable, los teléfonos móviles y, sobre todo, el acceso a Internet. Es sólo hoy cuando podemos comprender plenamente cuánto ha cambiado durante los últimos **quince años**.
 
 Nosotros, los niños web, quienes crecimos con Internet y en Internet, somos una generación que cumple los criterios de este término de una forma un tanto subversiva. *No hemos tenido un impulso de la realidad, sino más bien una metamorfosis de la realidad misma.* Lo que nos une no es un contexto cultural común y limitado, sino la creencia de que el contexto se define por sí mismo y es un efecto de la elección libre.
 

@@ -43,5 +43,5 @@ Unos trabajamos frente a una computadora, otros detrás de un escritorio, otros 
 - **Diseño de personajes:** Patricio Plaza
 - **Postproducción y efectos:** Santiago "Bou" Grasso
 - **Productora:** Opusbou
-- **Premios:** Ganador de más de 100 premios internacionales
+- **Premios:** Ganador de más de **100 premios internacionales**
  

@@ -17,7 +17,7 @@ cover_caption: "Escena del documental “El chico de Internet: La historia de Aa
 >
 > — **Tim Berners-Lee**, científico de la computación británico, padre de la Web.
 
-*The Internet's Own Boy* —*El hijo legítimo del Internet*, en traducción libre— es un documental que cuenta la historia, la vida y la trágica muerte de Aaron Swartz: el niño prodigio friki, líder de su generación, perseguido hasta el suicidio a los 26 años. La película está disponible en inglés en Internet Archive y con subtítulos en español en YouTube. Si no tenés planes para el fin de semana, vale la pena verlo: es una fuente reveladora de cómo los estados pretenden hacerse con el control de Internet y las corporaciones intentan privatizar el conocimiento y la cultura.
+*The Internet's Own Boy* —*El hijo legítimo del Internet*, en traducción libre— es un documental que cuenta la historia, la vida y la trágica muerte de Aaron Swartz: el niño prodigio friki, líder de su generación, perseguido hasta el suicidio a los **26 años**. La película está disponible en inglés en Internet Archive y con subtítulos en español en YouTube. Si no tenés planes para el fin de semana, vale la pena verlo: es una fuente reveladora de cómo los estados pretenden hacerse con el control de Internet y las corporaciones intentan privatizar el conocimiento y la cultura.
 
 > "El Internet es la forma de expresión más emocionante, moderna y desarrollada que existe. Y la expresión es un derecho humano. Claro que la internet debería serlo también."
 >
@@ -25,7 +25,7 @@ cover_caption: "Escena del documental “El chico de Internet: La historia de Aa
 
 ## El niño prodigio
 
-Son pocos los que logran involucrarse en proyectos tan importantes a tan corta edad. Decir que Swartz era un prodigio es un eufemismo: era mucho más que un programador inmensamente dotado. El documental incluye videos caseros que muestran al niño fascinante y vorazmente inquisitivo que fue. Amigos y conocidos han comentado en varias ocasiones lo intenso de conocerlo en persona y de verlo involucrado, desde los 14 años, en proyectos decisivos para la web moderna:
+Son pocos los que logran involucrarse en proyectos tan importantes a tan corta edad. Decir que Swartz era un prodigio es un eufemismo: era mucho más que un programador inmensamente dotado. El documental incluye videos caseros que muestran al niño fascinante y vorazmente inquisitivo que fue. Amigos y conocidos han comentado en varias ocasiones lo intenso de conocerlo en persona y de verlo involucrado, desde los **14 años**, en proyectos decisivos para la web moderna:
 
 - Fue coautor de las especificaciones **RSS**.
 - Se convirtió en miembro de la **W3C**.
@@ -43,7 +43,7 @@ Son pocos los que logran involucrarse en proyectos tan importantes a tan corta e
 
 A medida que crecía, podía vérselo cada vez más interesado en la política. Era previsible: nadie con una inteligencia tan afilada como la suya podía dejar de percibir en el capitalismo neoliberal la injusticia, la hipocresía y la desigualdad que lo constituyen. Así se transformó en el activista político más dotado tecnológicamente de la historia. Miraba la injusticia y escribía software para remediarla.
 
-Un ejemplo: cuando se enteró de que para acceder al archivo de transcripciones de la corte federal de los Estados Unidos había que pagar —es decir, que se estaba mercantilizando un derecho civil—, se unió a otros activistas para corregir el problema. La ley sólo podía leerla quien tuviera dinero. Se puso manos a la obra y mejoró un software pensado para almacenar, en un servidor de acceso público, los documentos que otros usuarios habían descargado previamente. La información empezó a llegar y, en un tiempo sorprendentemente corto, había 760 GB de documentos: unos 20 millones de páginas. Los prodigios tecnológicos de Aaron habían hecho efectivo un derecho civil violado.
+Un ejemplo: cuando se enteró de que para acceder al archivo de transcripciones de la corte federal de los Estados Unidos había que pagar —es decir, que se estaba mercantilizando un derecho civil—, se unió a otros activistas para corregir el problema. La ley sólo podía leerla quien tuviera dinero. Se puso manos a la obra y mejoró un software pensado para almacenar, en un servidor de acceso público, los documentos que otros usuarios habían descargado previamente. La información empezó a llegar y, en un tiempo sorprendentemente corto, había **760 GB de documentos**: unos **20 millones de páginas**. Los prodigios tecnológicos de Aaron habían hecho efectivo un derecho civil violado.
 
 > Compartir no es inmoral: es un imperativo moral. Solo quienes están cegados por la ambición podrían rehusarse a dejar que un amigo obtenga una copia [de los documentos guardados celosamente en bases de datos]. […] No hay justicia al cumplir leyes injustas. Es hora de salir a la luz y, siguiendo la tradición de la desobediencia civil, oponernos a este robo privado de la cultura pública.
 >
@@ -51,7 +51,7 @@ Un ejemplo: cuando se enteró de que para acceder al archivo de transcripciones 
 
 ## La caída
 
-Su caída se produjo cuando volvió la atención hacia **JSTOR**, un sistema de archivo en línea de publicaciones académicas. JSTOR es una sociedad estadounidense "sin ánimo de lucro" que mantiene una biblioteca digital de artículos ocultos detrás de un muro de pago: las membresías institucionales de consulta van desde los 35 000 dólares al año.
+Su caída se produjo cuando volvió la atención hacia **JSTOR**, un sistema de archivo en línea de publicaciones académicas. JSTOR es una sociedad estadounidense "sin ánimo de lucro" que mantiene una biblioteca digital de artículos ocultos detrás de un muro de pago: las membresías institucionales de consulta van desde los **35 000 dólares al año**.
 
 Aaron ideó un método para descargar un gran número de artículos de JSTOR, usando un ordenador escondido en un armario del Instituto Tecnológico de Massachusetts (MIT). Fue detenido en enero de 2011 y perseguido por los fiscales federales con un celo implacable, acusado de una serie de cargos que conllevaban una posible sentencia de hasta **35 años de cárcel**. Abrumado por la presión federal, se suicidó el **11 de enero de 2013**.
 
