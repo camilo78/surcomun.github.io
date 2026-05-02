@@ -118,3 +118,4 @@ kofi:
 permalink: /:year/:month/:day/:title:output_ext
 
 incremental: true
+future: true

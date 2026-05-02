@@ -8,6 +8,8 @@ layout: base
 {%- assign pdate = page.date | date_to_xmlschema -%}
 {%- assign popular_posts = site.posts | where: "popular", true -%}
 {%- assign recent_posts = site.posts | where_exp: "p", "p.url != page.url" -%}
+{%- assign reading_mins = page.content | number_of_words | divided_by: 200 -%}
+{%- if reading_mins < 1 -%}{%- assign reading_mins = 1 -%}{%- endif -%}
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -45,6 +47,8 @@ layout: base
         <time class="post-meta-bar__date dt-published" datetime="{{ pdate }}" itemprop="datePublished">
           {{ page.date | date: "%-d" }} de {{ month_name }} de {{ page.date | date: "%Y" }}
         </time>
+        <span class="post-meta-bar__sep" aria-hidden="true">·</span>
+        <span class="post-meta-bar__readtime">{{ reading_mins }} min de lectura</span>
       </div>
 
       <div class="post-meta-bar__share">

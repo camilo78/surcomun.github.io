@@ -157,9 +157,11 @@ layout: base
       <!-- ── ÚLTIMAS NOTICIAS: grid 3 columnas paginado ── -->
       {%- if grid_posts.size > 0 -%}
       <section class="home-section">
-        <h2 class="home-section__heading">Últimas noticias</h2>
+        <h2 class="home-section__heading">Últimas publicaciones</h2>
         <div class="latest-grid">
           {%- for post in grid_posts -%}
+          {%- assign mins = post.content | number_of_words | divided_by: 200 -%}
+          {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
           <article class="news-card">
             {%- if post.cover_image -%}
             <a href="{{ post.url | relative_url }}" class="news-card__img-link">
@@ -178,7 +180,10 @@ layout: base
                 <span class="news-card__author">Por: {{ author_display }}</span>
               {%- endif -%}
               <p class="news-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 16 }}</p>
-              <span class="post-meta">{{ post.date | date: date_format }}</span>
+              <div class="news-card__footer">
+                <span class="post-meta">{{ post.date | date: date_format }}</span>
+                <span class="news-card__readtime">{{ mins }} min de lectura</span>
+              </div>
             </div>
           </article>
           {%- endfor -%}
