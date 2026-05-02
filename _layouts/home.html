@@ -60,7 +60,9 @@ layout: base
       <a href="{{ editorial_post.url | relative_url }}" class="editorial-feature__img-link">
         <img src="{{ editorial_post.cover_image }}"
              alt="{{ editorial_post.title | escape }}"
-             class="editorial-feature__img" />
+             class="editorial-feature__img"
+             width="800" height="500"
+             fetchpriority="high" />
       </a>
       {%- if editorial_post.cover_caption -%}
       <p class="editorial-feature__caption">{{ editorial_post.cover_caption }}</p>
@@ -112,7 +114,7 @@ layout: base
       {%- if main_post.cover_image -%}
       <div class="featured-main__img-wrap">
         <a href="{{ main_post.url | relative_url }}">
-          <img src="{{ main_post.cover_image }}" alt="{{ main_post.title | escape }}" class="featured-main__img" />
+          <img src="{{ main_post.cover_image }}" alt="{{ main_post.title | escape }}" class="featured-main__img" width="720" height="450" fetchpriority="high" />
         </a>
         {%- if main_post.cover_caption -%}
           <p class="featured-main__caption">{{ main_post.cover_caption }}</p>

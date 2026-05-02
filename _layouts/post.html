@@ -79,6 +79,8 @@ layout: base
     <img src="{{ page.cover_image }}"
          alt="{{ page.title | escape }}"
          class="post-cover-image"
+         width="1200" height="675"
+         fetchpriority="high"
          itemprop="image" />
     {%- if page.cover_caption -%}
     <figcaption class="post-cover-caption">{{ page.cover_caption }}</figcaption>
@@ -147,7 +149,7 @@ layout: base
     <article class="recent-card">
       {%- if post.cover_image -%}
       <a href="{{ post.url | relative_url }}" class="recent-card__img-link" tabindex="-1">
-        <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="recent-card__img" loading="lazy" />
+        <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="recent-card__img" width="300" height="200" loading="lazy" />
       </a>
       {%- endif -%}
       <div class="recent-card__body">
