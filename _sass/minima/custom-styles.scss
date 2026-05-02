@@ -893,6 +893,83 @@ body.search-open { overflow: hidden; }
     border: 1px solid var(--minima-border-color-01);
     padding: 2px 8px;
     border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover {
+      background: var(--minima-brand-color);
+      color: #fff;
+      border-color: var(--minima-brand-color);
+    }
+  }
+}
+
+// ============================================================
+// PÁGINA DE ETIQUETAS
+// ============================================================
+
+.tags-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--minima-border-color-01);
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--minima-heading-color);
+    border: 1px solid var(--minima-border-color-01);
+    padding: 3px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+
+    &:hover, &--active {
+      background: #E93C35;
+      color: #fff;
+      border-color: #E93C35;
+
+      .tags-index__count { color: rgba(255,255,255,0.8); }
+    }
+  }
+
+  &__count {
+    font-size: 0.68rem;
+    font-weight: 400;
+    color: var(--minima-brand-color);
+  }
+}
+
+.tag-section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 80px;
+
+  &__heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: var(--minima-heading-color);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #E93C35;
+    margin-bottom: 1.25rem;
+
+    &::before { content: "#"; color: #E93C35; }
+  }
+
+  &__count {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--minima-brand-color);
+    text-transform: none;
   }
 }
 

@@ -1,0 +1,87 @@
+---
+layout: base
+---
+<div class="home">
+  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+
+  <header class="category-header">
+    <h1 class="category-header__title"># {{ page.tag }}</h1>
+    <p class="category-header__count">
+      {%- assign total = site.tags[page.tag].size -%}
+      {{ total }} artículo{%- if total != 1 -%}s{%- endif -%}
+    </p>
+  </header>
+
+  {%- if page.tag_posts.size > 0 -%}
+  <div class="latest-grid">
+    {%- for post in page.tag_posts -%}
+    {%- assign mins = post.content | number_of_words | divided_by: 200 -%}
+    {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
+    <article class="news-card">
+      {%- if post.cover_image -%}
+      <a href="{{ post.url | relative_url }}" class="news-card__img-link">
+        <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="news-card__img" loading="lazy" />
+      </a>
+      {%- endif -%}
+      <div class="news-card__body">
+        {%- if post.categories.size > 0 -%}
+          <span class="post-category">{{ post.categories | first }}</span>
+        {%- endif -%}
+        <h3 class="news-card__title">
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h3>
+        {%- assign author_display = post.author | join: ", " -%}
+        {%- if author_display != "" -%}
+          <span class="news-card__author">Por: {{ author_display }}</span>
+        {%- endif -%}
+        <p class="news-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+        <div class="news-card__footer">
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <span class="news-card__readtime">{{ mins }} min de lectura</span>
+        </div>
+      </div>
+    </article>
+    {%- endfor -%}
+  </div>
+
+  {%- if page.total_pages > 1 -%}
+  <nav class="pagination" aria-label="Paginación">
+    {%- if page.page_num > 1 -%}
+      {%- if page.page_num == 2 -%}
+        {%- assign prev_url = page.tag_base_url | append: '/' -%}
+      {%- else -%}
+        {%- assign prev_num = page.page_num | minus: 1 -%}
+        {%- assign prev_url = page.tag_base_url | append: '/page' | append: prev_num | append: '/' -%}
+      {%- endif -%}
+      <a href="{{ prev_url | relative_url }}" class="pagination__btn pagination__btn--prev">&larr; Anterior</a>
+    {%- else -%}
+      <span class="pagination__btn pagination__btn--prev pagination__btn--disabled">&larr; Anterior</span>
+    {%- endif -%}
+
+    <div class="pagination__pages">
+      {%- for i in (1..page.total_pages) -%}
+        {%- if i == page.page_num -%}
+          <span class="pagination__page pagination__page--active">{{ i }}</span>
+        {%- elsif i == 1 -%}
+          <a href="{{ page.tag_base_url | append: '/' | relative_url }}" class="pagination__page">{{ i }}</a>
+        {%- else -%}
+          <a href="{{ page.tag_base_url | append: '/page' | append: i | append: '/' | relative_url }}" class="pagination__page">{{ i }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if page.page_num < page.total_pages -%}
+      {%- assign next_num = page.page_num | plus: 1 -%}
+      {%- assign next_url = page.tag_base_url | append: '/page' | append: next_num | append: '/' -%}
+      <a href="{{ next_url | relative_url }}" class="pagination__btn pagination__btn--next">Siguiente &rarr;</a>
+    {%- else -%}
+      <span class="pagination__btn pagination__btn--next pagination__btn--disabled">Siguiente &rarr;</span>
+    {%- endif -%}
+  </nav>
+  {%- endif -%}
+
+  {%- else -%}
+  <p class="category-empty">No hay artículos con esta etiqueta todavía.</p>
+  {%- endif -%}
+
+</div>

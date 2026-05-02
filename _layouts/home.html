@@ -80,7 +80,7 @@ layout: base
       {%- if editorial_post.tags.size > 0 -%}
       <div class="post-tags">
         {%- for tag in editorial_post.tags limit: 4 -%}
-          <span class="post-tag">{{ tag }}</span>
+          <a href="{{ '/tags/' | relative_url }}?tag={{ tag | url_encode }}" class="post-tag"># {{ tag }}</a>
         {%- endfor -%}
       </div>
       {%- endif -%}
@@ -170,7 +170,7 @@ layout: base
             {%- endif -%}
             <div class="news-card__body">
               {%- if post.categories.size > 0 -%}
-                <span class="post-category">{{ post.categories | first }}</span>
+                <a href="{{ '/categorias/' | append: post.categories.first | relative_url }}/" class="post-category">{{ post.categories | first }}</a>
               {%- endif -%}
               <h3 class="news-card__title">
                 <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
@@ -275,7 +275,7 @@ layout: base
             <span class="most-viewed__num">{{ forloop.index }}</span>
             <div class="most-viewed__content">
               {%- if post.categories.size > 0 -%}
-                <span class="post-category">{{ post.categories | first }}</span>
+                <a href="{{ '/categorias/' | append: post.categories.first | relative_url }}/" class="post-category">{{ post.categories | first }}</a>
               {%- endif -%}
               <a href="{{ post.url | relative_url }}" class="most-viewed__title">
                 {{ post.title | escape }}

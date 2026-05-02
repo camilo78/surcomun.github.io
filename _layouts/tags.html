@@ -1,0 +1,162 @@
+---
+layout: base
+---
+<div class="home">
+  {%- assign sorted_tags = site.tags | sort -%}
+  {%- assign date_format  = site.minima.date_format | default: "%b %-d, %Y" -%}
+
+  <header class="category-header">
+    <h1 class="category-header__title" id="tags-heading">Etiquetas</h1>
+    <p class="category-header__count" id="tags-result-count">{{ site.tags.size }} etiqueta{%- if site.tags.size != 1 -%}s{%- endif -%}</p>
+  </header>
+
+  <!-- Índice de etiquetas -->
+  <nav class="tags-index" aria-label="Filtrar por etiqueta">
+    <a href="{{ '/tags/' | relative_url }}" class="tags-index__item tags-index__item--all" data-tag="">
+      Todas <span class="tags-index__count">{{ site.posts.size }}</span>
+    </a>
+    {%- for tag in sorted_tags -%}
+    <a href="?tag={{ tag[0] | url_encode }}"
+       class="tags-index__item"
+       data-tag="{{ tag[0] }}">
+      {{ tag[0] }}<span class="tags-index__count">{{ tag[1].size }}</span>
+    </a>
+    {%- endfor -%}
+  </nav>
+
+  <!-- Grid de resultados (renderizado por JS) -->
+  <section class="home-section">
+    <h2 class="home-section__heading" id="active-tag-heading" style="display:none"></h2>
+    <div class="latest-grid" id="tag-results"></div>
+  </section>
+
+  <!-- Paginación (renderizada por JS) -->
+  <nav class="pagination" id="tag-pagination" aria-label="Paginación" style="display:none"></nav>
+
+  <!-- Datos de posts embebidos como JSON -->
+  <script id="posts-data" type="application/json">
+  [
+    {%- for post in site.posts -%}
+    {
+      "url":      {{ post.url | relative_url | jsonify }},
+      "title":    {{ post.title | jsonify }},
+      "excerpt":  {{ post.excerpt | strip_html | truncatewords: 18 | jsonify }},
+      "date":     {{ post.date | date: date_format | jsonify }},
+      "cover":    {{ post.cover_image | default: "" | jsonify }},
+      "category": {{ post.categories | first | default: "" | jsonify }},
+      "author":   {{ post.author | join: ", " | jsonify }},
+      "tags":     {{ post.tags | jsonify }},
+      "mins":     {{ post.content | number_of_words | divided_by: 200 | at_least: 1 }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+  </script>
+
+  <script>
+  (function () {
+    var PER_PAGE  = 12;
+    var posts     = JSON.parse(document.getElementById('posts-data').textContent);
+    var container = document.getElementById('tag-results');
+    var pagNav    = document.getElementById('tag-pagination');
+    var heading   = document.getElementById('active-tag-heading');
+    var countEl   = document.getElementById('tags-result-count');
+
+    function getParam(key) {
+      return new URLSearchParams(window.location.search).get(key) || '';
+    }
+
+    function render() {
+      var tag  = getParam('tag');
+      var page = parseInt(getParam('page') || '1', 10);
+
+      // Highlight active tag link
+      document.querySelectorAll('.tags-index__item').forEach(function (a) {
+        a.classList.toggle('tags-index__item--active', a.dataset.tag === tag);
+      });
+
+      // Filter
+      var filtered = tag
+        ? posts.filter(function (p) { return p.tags.indexOf(tag) !== -1; })
+        : posts;
+
+      var total = filtered.length;
+      var totalPages = Math.max(Math.ceil(total / PER_PAGE), 1);
+      page = Math.min(Math.max(page, 1), totalPages);
+      var slice = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+
+      // Heading
+      if (tag) {
+        heading.textContent = '# ' + tag;
+        heading.style.display = '';
+        countEl.textContent = total + (total === 1 ? ' artículo' : ' artículos');
+      } else {
+        heading.style.display = 'none';
+        countEl.textContent = '{{ site.tags.size }} etiqueta' + ({{ site.tags.size }} !== 1 ? 's' : '');
+      }
+
+      // Cards
+      container.innerHTML = slice.map(function (p) {
+        var img = p.cover
+          ? '<a href="' + p.url + '" class="news-card__img-link">' +
+            '<img src="' + p.cover + '" alt="" class="news-card__img" loading="lazy"></a>'
+          : '';
+        var cat = p.category
+          ? '<span class="post-category">' + p.category + '</span>'
+          : '';
+        var author = p.author
+          ? '<span class="news-card__author">Por: ' + p.author + '</span>'
+          : '';
+        return '<article class="news-card">' +
+          img +
+          '<div class="news-card__body">' +
+            cat +
+            '<h3 class="news-card__title"><a href="' + p.url + '">' + p.title + '</a></h3>' +
+            author +
+            '<p class="news-card__excerpt">' + p.excerpt + '</p>' +
+            '<div class="news-card__footer">' +
+              '<span class="post-meta">' + p.date + '</span>' +
+              '<span class="news-card__readtime">' + p.mins + ' min de lectura</span>' +
+            '</div>' +
+          '</div></article>';
+      }).join('');
+
+      // Pagination
+      if (totalPages > 1) {
+        pagNav.style.display = '';
+        var base = tag ? '?tag=' + encodeURIComponent(tag) + '&page=' : '?page=';
+        var prev = page > 1
+          ? '<a href="' + base + (page - 1) + '" class="pagination__btn pagination__btn--prev">&larr; Anterior</a>'
+          : '<span class="pagination__btn pagination__btn--prev pagination__btn--disabled">&larr; Anterior</span>';
+        var next = page < totalPages
+          ? '<a href="' + base + (page + 1) + '" class="pagination__btn pagination__btn--next">Siguiente &rarr;</a>'
+          : '<span class="pagination__btn pagination__btn--next pagination__btn--disabled">Siguiente &rarr;</span>';
+        var pages = '';
+        for (var i = 1; i <= totalPages; i++) {
+          pages += i === page
+            ? '<span class="pagination__page pagination__page--active">' + i + '</span>'
+            : '<a href="' + base + i + '" class="pagination__page">' + i + '</a>';
+        }
+        pagNav.innerHTML = prev + '<div class="pagination__pages">' + pages + '</div>' + next;
+      } else {
+        pagNav.style.display = 'none';
+      }
+    }
+
+    // Intercept tag link clicks → update URL without reload
+    document.querySelectorAll('.tags-index__item').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var tag = this.dataset.tag;
+        var url = tag ? '?tag=' + encodeURIComponent(tag) : '{{ "/tags/" | relative_url }}';
+        history.pushState({}, '', url);
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    window.addEventListener('popstate', render);
+    render();
+  })();
+  </script>
+
+</div>
