@@ -53,7 +53,7 @@ Los nombres exactos pueden variar según evolucione el sitio. La función es la 
 
 ### 2.3 Cookies de análisis y rendimiento
 
-Sur Común no instala cookies de Google Analytics, Matomo, Plausible, Hotjar, Mixpanel, Facebook Pixel ni servicios análogos. **Sí utilizamos [GoatCounter](https://www.goatcounter.com/) para contar visitas, pero GoatCounter no usa cookies**: opera completamente sin ellas y no recopila datos personales. Registra datos agregados y anónimos (URL, país, navegador, sistema operativo) y descarta la IP de inmediato sin almacenarla. Los datos de analítica del sitio son públicos y visibles en [surcomun.goatcounter.com](https://surcomun.goatcounter.com/).
+Sur Común no instala cookies de Google Analytics, Matomo, Plausible, Hotjar, Mixpanel, Facebook Pixel ni servicios análogos. **Sí utilizamos [GoatCounter](https://www.goatcounter.com/) para contar visitas, pero GoatCounter no usa cookies**: opera completamente sin ellas y no recopila datos personales. Registra datos agregados y anónimos (URL, país, navegador, sistema operativo) y descarta la IP de inmediato sin almacenarla. Los datos de analítica del sitio son públicos y visibles en [surcomun.goatcounter.com](https://estadisticas.surcomun.com/).
 
 ### 2.4 Cookies publicitarias
 
