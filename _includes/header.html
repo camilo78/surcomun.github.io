@@ -112,8 +112,7 @@
   // ── Tema claro/oscuro ──
   var html = document.documentElement;
   var saved = localStorage.getItem('theme');
-  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  html.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+  html.setAttribute('data-theme', saved || 'light');
 
   document.getElementById('theme-toggle').addEventListener('click', function () {
     var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
