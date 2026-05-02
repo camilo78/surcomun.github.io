@@ -6,7 +6,7 @@ categories: [política, opinión]
 tags: [honduras, derechos-humanos, medio-ambiente, defensores-de-la-tierra]
 excerpt: "Treinta y un años después del disparo que la mató, el legado de Jeannette Kawas sigue vivo en el decreto que blindó Punta Sal y en la jurisprudencia interamericana. Pero la justicia penal hondureña sigue en deuda."
 author: Glenn Flores
-cover_image: "/assets/img/posts/parque-jeannette-kawas.jpg"
+cover_image: "/assets/img/posts/parque-jeannette-kawas.webp"
 cover_caption: "Parque Nacional Jeannette Kawas, Punta Sal, Honduras."
 featured: true
 popular: true

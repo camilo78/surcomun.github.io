@@ -1559,10 +1559,39 @@ body.search-open { overflow: hidden; }
   }
 
   &__video-wrap {
-    // Rellena todo __video con posición absoluta
     position: absolute;
     inset: 0;
     overflow: hidden;
+
+    // Facade de YouTube (antes de hacer clic)
+    .yt-facade {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+      }
+
+      &:hover img { opacity: 1; }
+
+      &__play {
+        position: absolute;
+        font-size: 3.5rem;
+        color: #fff;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        pointer-events: none;
+        line-height: 1;
+      }
+    }
 
     iframe {
       // Técnica "object-fit: cover" para iframes:
