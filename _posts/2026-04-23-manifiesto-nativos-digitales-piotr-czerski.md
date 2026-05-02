@@ -3,7 +3,7 @@ layout: post
 title: "Un manifiesto de los Nativos Digitales, de Piotr Czerski"
 date: 2026-04-23 10:00:00 -0600
 categories: [cultura, tecnología]
-tags: [internet, cultura-libre, democracia, generaciones, piotr-czerski, acceso-abierto, manifiesto]
+tags: [internet, cultura-libre, democracia, acceso-abierto]
 excerpt: "No necesitamos monumentos. Necesitamos un sistema que esté a la altura de nuestras expectativas. El ensayo del poeta polaco Piotr Czerski sobre la primera generación que no aprendió Internet: creció dentro de él."
 author: Piotr Czerski
 translators:

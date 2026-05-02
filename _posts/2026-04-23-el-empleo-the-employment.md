@@ -3,7 +3,7 @@ layout: post
 title: "El Empleo (The Employment): un cortometraje sobre la deshumanización del trabajo asalariado"
 date: 2026-04-23 22:08
 categories: [cultura, cine]
-tags: [cortometraje, animación, argentina, trabajo-asalariado, marxismo, santiago-bou-grasso, opusbou]
+tags: [cortometraje, animación, argentina, trabajo-asalariado, marxismo]
 excerpt: "Un hombre recorre su trayecto habitual hacia el trabajo, inmerso en un sistema donde el uso de las personas como objetos es cotidiano. Seis minutos de animación para entender, sin decirlo, qué es la alienación."
 author: Camilo Alvarado
 license: CC BY-SA 4.0

@@ -3,7 +3,7 @@ layout: post
 title: "Lo que la huelga del 54 todavía le debe a las mujeres"
 date: 2026-05-02 7:00:00 -0600
 categories: [historia, política]
-tags: [huelga-del-54, mujeres, honduras, historia, movimiento-obrero, derechos-de-la-mujer, memoria]
+tags: [huelga-del-54, mujeres, honduras, historia, movimiento-obrero, derechos-de-la-mujer, memoria-histórica]
 excerpt: "Fueron ellas quienes sostuvieron el paro desde adentro. Setenta años después, su nombre sigue faltando en los relatos oficiales de la resistencia."
 author: Glen Flores
 popular: true
