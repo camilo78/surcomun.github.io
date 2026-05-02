@@ -10,7 +10,7 @@
 {% assign cw_data = site.data.crucigramas[cw_id] %}
 
 {% if cw_data %}
-<link rel="stylesheet" href="{{ '/assets/css/crucigrama.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/crucigrama.min.css' | relative_url }}">
 
 <div class="cw-wrapper" id="cw-{{ cw_id }}">
 
@@ -79,7 +79,7 @@
 </div><!-- /cw-wrapper -->
 
 <!-- Motor del crucigrama (cargado primero, sin defer) -->
-<script src="{{ '/assets/js/crucigrama.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/crucigrama.min.js' | relative_url }}"></script>
 
 <!-- Inicialización con los datos del crucigrama -->
  <script>
