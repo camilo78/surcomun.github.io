@@ -4,7 +4,7 @@ title: Política de cookies
 permalink: /cookies/
 ---
 
-*Última actualización: abril de 2026*
+*Última actualización: mayo de 2026*
 
 En **Sur Común** utilizamos cookies y tecnologías de almacenamiento similares **únicamente para que el sitio funcione bien**. No las usamos para rastrear tu navegación, perfilar tu comportamiento, mostrarte publicidad ni medir audiencia con servicios externos. Esta política explica, en detalle, qué cookies puede establecer surcomun.com, para qué sirven y cómo controlarlas.
 
@@ -53,7 +53,7 @@ Los nombres exactos pueden variar según evolucione el sitio. La función es la 
 
 ### 2.3 Cookies de análisis y rendimiento
 
-**No usamos.** Sur Común no instala cookies de Google Analytics, Matomo, Plausible, Hotjar, Mixpanel, Facebook Pixel ni servicios análogos. No medimos qué leés, cuánto tiempo permanecés ni desde dónde llegás. Si en algún momento esto cambia, lo anunciaremos en la portada del sitio antes de la entrada en vigor y actualizaremos esta política.
+Sur Común no instala cookies de Google Analytics, Matomo, Plausible, Hotjar, Mixpanel, Facebook Pixel ni servicios análogos. **Sí utilizamos [GoatCounter](https://www.goatcounter.com/) para contar visitas, pero GoatCounter no usa cookies**: opera completamente sin ellas y no recopila datos personales. Registra datos agregados y anónimos (URL, país, navegador, sistema operativo) y descarta la IP de inmediato sin almacenarla. Los datos de analítica del sitio son públicos y visibles en [surcomun.goatcounter.com](https://surcomun.goatcounter.com/).
 
 ### 2.4 Cookies publicitarias
 

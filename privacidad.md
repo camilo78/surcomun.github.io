@@ -4,7 +4,7 @@ title: Política de privacidad
 permalink: /privacidad/
 ---
 
-*Última actualización: abril de 2026*
+*Última actualización: mayo de 2026*
 
 En **Sur Común** creemos que la privacidad es un derecho, no una concesión. Por eso esta política empieza con una afirmación sencilla: **no recopilamos datos personales de quienes nos leen, no rastreamos su navegación y no perfilamos su comportamiento**. La revista se publica para ser leída, no para extraer información de quien lee.
  
@@ -25,7 +25,7 @@ Para cualquier consulta relacionada con esta política: [privacidad@surcomun.com
 A diferencia de la mayoría de los sitios web, en surcomun.com no encontrarás:
  
 - **Sin cuentas de usuario.** No hay registro, no hay inicio de sesión, no hay perfiles. Por lo tanto, no tenemos tu nombre, tu correo, tu edad, tu ubicación ni cualquier otro dato asociado a una identidad.
-- **Sin rastreadores publicitarios.** No usamos *Google Analytics*, *Facebook Pixel*, *Hotjar*, *Mixpanel* ni servicios similares. No medimos qué leés, cuánto tiempo pasás en cada artículo, desde dónde llegás ni a dónde vas después.
+- **Sin rastreadores publicitarios ni de comportamiento.** No usamos *Google Analytics*, *Facebook Pixel*, *Hotjar*, *Mixpanel* ni servicios similares. No medimos qué leés, cuánto tiempo pasás en cada artículo ni a dónde vas después. Sí contamos visitas mediante **GoatCounter**, una herramienta de analítica sin cookies y sin datos personales, explicada en la sección 3.
 - **Sin pauta publicitaria.** Como no tenemos anunciantes, tampoco tenemos los rastreadores que los anunciantes suelen exigir.
 - **Sin huella digital del navegador (*fingerprinting*).** No identificamos tu dispositivo por su combinación de fuente, resolución, plugins u otras características técnicas.
 - **Sin venta ni cesión de datos a terceros.** No tenemos datos para vender, así que mal podríamos venderlos.
@@ -39,6 +39,7 @@ Por la propia naturaleza de cómo funciona la web, hay información técnica mí
  
 - **Registros del servidor (*logs*).** Nuestro proveedor de alojamiento conserva durante un tiempo limitado los registros estándar de acceso: dirección IP, fecha y hora de la solicitud, URL solicitada, tipo de navegador, código de respuesta. Estos registros se utilizan únicamente para fines técnicos (detectar fallos, prevenir ataques, asegurar la disponibilidad del sitio) y no se cruzan con ninguna otra información ni se usan para perfilar a quien navega.
 - **Cookies técnicas.** Sí utilizamos cookies, pero sólo las estrictamente necesarias para que el sitio funcione bien. Te las explicamos en la siguiente sección.
+- **Analítica anónima con GoatCounter.** Utilizamos [GoatCounter](https://www.goatcounter.com/) para contar visitas al sitio. GoatCounter **no usa cookies**, no recopila datos personales, no rastrea usuarios entre sitios y no construye perfiles de comportamiento. Registra únicamente datos agregados: la URL visitada, el país de origen (derivado de la IP, que se descarta de inmediato y no se almacena), el navegador y el sistema operativo. Estos datos son públicos y podés consultarlos en [surcomun.goatcounter.com](https://surcomun.goatcounter.com/). La política de privacidad del servicio está disponible en [goatcounter.com/help/privacy](https://www.goatcounter.com/help/privacy).
 - **Recursos servidos desde redes de distribución (CDN).** Algunos componentes del sitio —fuentes tipográficas, hojas de estilo, scripts— pueden cargarse desde proveedores externos como Cloudflare, jsDelivr o similares, lo que implica que esos servidores también ven tu IP en el momento exacto de la carga. Trabajamos para reducir esta dependencia al mínimo.
 Ninguna de estas capas técnicas implica recopilación deliberada de datos sobre vos. Son el ruido de fondo de cualquier conexión a Internet.
  
