@@ -284,7 +284,9 @@ html[data-theme="dark"] {
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.75rem 1rem;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   flex-shrink: 0;
 
   span {
@@ -309,11 +311,8 @@ html[data-theme="dark"] {
   .site-masthead {
     .wrapper {
       border-bottom: 3px double #E93C35;
-      padding-top: 0.25rem;
-      padding-bottom: 0.25rem;
-
     }
-    .site-logo { height: 48px; }
+    .site-logo { height: auto; width: auto; }
   }
 
   .site-navbar__inner {
