@@ -121,7 +121,7 @@ a:hover { text-decoration: none; }
   background: var(--minima-background-color);
  
 
-  .wrapper {
+  &__inner {
     display: flex;
     align-items: center;
   }
@@ -309,7 +309,7 @@ html[data-theme="dark"] {
   .nav-hamburger { display: flex; }
 
   .site-masthead {
-    .wrapper {
+    &__inner {
       border-bottom: 3px double #E93C35;
     }
     .site-logo { height: auto; width: auto; }
@@ -1862,6 +1862,22 @@ body.search-open { overflow: hidden; }
 // ============================================================
 // RESPONSIVE
 // ============================================================
+
+// Márgenes laterales para tablets (iPad Air portrait: 820px, landscape: 1180px)
+// _base.scss sólo aplica padding al wrapper en ≤768px; este bloque cubre el hueco.
+@media (min-width: 769px) and (max-width: 1024px) {
+  .wrapper {
+    padding-right: 1.5rem;
+    padding-left:  1.5rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1199px) {
+  .wrapper {
+    padding-right: 2rem;
+    padding-left:  2rem;
+  }
+}
 
 @media (max-width: 1024px) {
   .home-body {
