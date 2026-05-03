@@ -6,6 +6,7 @@ layout: base
   display: flex;
   gap: 2.5rem;
   align-items: flex-start;
+  padding: 0 1.875rem;
 }
 
 .toc-layout-main {
@@ -82,18 +83,14 @@ layout: base
 }
 
 @media (max-width: 860px) {
-  .toc-layout {
-    flex-direction: column;
-  }
-
   .toc-sidebar {
-    position: static;
-    width: 100%;
-    border: 1px solid;
-    border-radius: 6px;
-    padding: 1rem 1.2rem;
-    opacity: 0.9;
-    order: -1;
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .toc-layout {
+    padding: 0;
   }
 }
 </style>
