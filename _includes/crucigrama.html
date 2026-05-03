@@ -10,27 +10,19 @@
 {% assign cw_data = site.data.crucigramas[cw_id] %}
 
 {% if cw_data %}
-<link rel="stylesheet" href="{{ '/assets/css/crucigrama.min.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/crucigrama.min.css' | relative_url }}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="{{ '/assets/css/crucigrama.min.css' | relative_url }}"></noscript>
 
 <div class="cw-wrapper" id="cw-{{ cw_id }}">
 
   <!-- Encabezado -->
   <div class="cw-header">
-    <!-- <h2 class="cw-title">{{ cw_data.titulo | escape }}</h2> -->
-    <!-- {% if cw_data.descripcion %}
-    <p class="cw-description">{{ cw_data.descripcion | escape }}</p>
-    {% endif %} -->
     <div class="cw-meta">
       {% if cw_data.autor %}<span>{{ cw_data.autor | escape }}</span>{% endif %}
       {% if cw_data.fecha %}<span>{{ cw_data.fecha | date: "%d/%m/%Y" }}</span>{% endif %}
       <span class="cw-timer" id="cw-timer-{{ cw_id }}" aria-live="off" aria-atomic="true">00:00</span>
     </div>
   </div>
-
-  <!-- Pista activa (banner bajo el header) -->
-<!--   <div class="cw-active-clue" id="cw-active-clue-{{ cw_id }}" aria-live="polite" aria-atomic="true">
-    Haz clic en una celda para comenzar
-  </div> -->
 
   <!-- Controles -->
   <div class="cw-controls" role="toolbar" aria-label="Controles del crucigrama">
@@ -55,15 +47,11 @@
     <div class="cw-clues" aria-label="Pistas">
       <div class="cw-clues-col">
         <h3>Horizontales</h3>
-        <ul class="cw-clues-list" id="cw-clues-h-{{ cw_id }}" role="listbox" aria-label="Pistas horizontales">
-          <!-- Renderizado por JS -->
-        </ul>
+        <ul class="cw-clues-list" id="cw-clues-h-{{ cw_id }}" role="listbox" aria-label="Pistas horizontales"></ul>
       </div>
       <div class="cw-clues-col">
         <h3>Verticales</h3>
-        <ul class="cw-clues-list" id="cw-clues-v-{{ cw_id }}" role="listbox" aria-label="Pistas verticales">
-          <!-- Renderizado por JS -->
-        </ul>
+        <ul class="cw-clues-list" id="cw-clues-v-{{ cw_id }}" role="listbox" aria-label="Pistas verticales"></ul>
       </div>
     </div>
 
@@ -78,56 +66,47 @@
 
 </div><!-- /cw-wrapper -->
 
-<!-- Motor del crucigrama (cargado primero, sin defer) -->
-<script src="{{ '/assets/js/crucigrama.min.js' | relative_url }}"></script>
-
-<!-- Inicialización con los datos del crucigrama -->
- <script>
-(function () {
-  var data = {{ cw_data | jsonify }};
-  var id   = {{ cw_id | jsonify }};
-
-
-  if (typeof window.CrucigramaInit === 'function') {
-    window.CrucigramaInit(data, id);
-  }
-})();
-</script>
+<!-- Motor + init: diferidos, no bloquean el render -->
+<script src="{{ '/assets/js/crucigrama.min.js' | relative_url }}" defer></script>
 <script>
 (function () {
   var data = {{ cw_data | jsonify }};
   var id   = {{ cw_id | jsonify }};
-  if (typeof window.CrucigramaInit === 'function') {
-    window.CrucigramaInit(data, id);
+  var cols = {{ cw_data.ancho }};
+
+  function init() {
+    if (typeof window.CrucigramaInit === 'function') {
+      window.CrucigramaInit(data, id);
+    }
+
+    var wrapper = document.getElementById('cw-' + id);
+    if (!wrapper) return;
+    var body = wrapper.querySelector('.cw-body');
+    if (!body) return;
+    var MAX_CELL = 40, MIN_CELL = 16, raf = null;
+
+    function updateSize() {
+      raf = null;
+      var w = body.offsetWidth;
+      if (!w) return;
+      var size = Math.max(MIN_CELL, Math.min(MAX_CELL, Math.floor(w / cols)));
+      wrapper.style.setProperty('--cw-cell', size + 'px');
+    }
+
+    function schedule() { if (!raf) raf = requestAnimationFrame(updateSize); }
+
+    schedule();
+    if (window.ResizeObserver) {
+      new ResizeObserver(schedule).observe(body);
+    } else {
+      window.addEventListener('resize', schedule);
+    }
   }
-})();
-</script>
 
-<!-- Tamaño de celda responsive: calcula --cw-cell según el ancho del wrapper -->
-<script>
-(function () {
-  var cols    = {{ cw_data.ancho }};
-  var wrapper = document.getElementById('cw-{{ cw_id }}');
-  if (!wrapper) return;
-  var body = wrapper.querySelector('.cw-body');
-  if (!body) return;
-  var MAX_CELL = 40, MIN_CELL = 16, raf = null;
-
-  function updateSize() {
-    raf = null;
-    var w = body.offsetWidth;
-    if (!w) return;
-    var size = Math.max(MIN_CELL, Math.min(MAX_CELL, Math.floor(w / cols)));
-    wrapper.style.setProperty('--cw-cell', size + 'px');
-  }
-
-  function schedule() { if (!raf) raf = requestAnimationFrame(updateSize); }
-
-  schedule();
-  if (window.ResizeObserver) {
-    new ResizeObserver(schedule).observe(body);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    window.addEventListener('resize', schedule);
+    init();
   }
 })();
 </script>
