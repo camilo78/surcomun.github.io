@@ -31,6 +31,7 @@ pagination:
   sort_reverse: true
 
 sass:
+  style: compressed
   quiet_deps: true
   silence_deprecations: [import]
 

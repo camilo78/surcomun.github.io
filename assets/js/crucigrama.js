@@ -372,16 +372,17 @@
 
     function positionInput() {
       if (!hiddenInput || !tableWrap) return;
-      var td = getCellEl(selectedRow, selectedCol);
-      if (td) {
+      hiddenInput.value = '';
+      requestAnimationFrame(function () {
+        var td = getCellEl(selectedRow, selectedCol);
+        if (!td || !hiddenInput || !tableWrap) return;
         var rect  = td.getBoundingClientRect();
         var wRect = tableWrap.getBoundingClientRect();
         hiddenInput.style.left   = (rect.left - wRect.left + tableWrap.scrollLeft) + 'px';
         hiddenInput.style.top    = (rect.top  - wRect.top)  + 'px';
         hiddenInput.style.width  = rect.width  + 'px';
         hiddenInput.style.height = rect.height + 'px';
-      }
-      hiddenInput.value = '';
+      });
     }
 
     function focusInput() {
