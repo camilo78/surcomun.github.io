@@ -118,7 +118,7 @@ a:hover { text-decoration: none; }
 
 // — Masthead: logo centrado sobre fondo claro —
 .site-masthead {
-  background: var(--minima-background-color);
+  //background: var(--minima-background-color);
  
 
   &__inner {
@@ -685,10 +685,10 @@ body.search-open { overflow: hidden; }
 // ============================================================
 
 .post-layout {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 2.5rem;
-  align-items: start;
+  // display: grid;
+  // grid-template-columns: 1fr 280px;
+  // gap: 2.5rem;
+  // align-items: start;
   margin-top: 2rem;
 }
 
@@ -1984,8 +1984,8 @@ h1, h2, h3, h4, h5, h6 {
 // Cuerpo del post — Spectral serif
 .post-content {
   font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: 1.235rem;
+  line-height: 1.5625rem;
 }
 
 // Nombre del sitio — display bold
@@ -2016,7 +2016,7 @@ h1, h2, h3, h4, h5, h6 {
 // ============================================================
 
 .site-footer {
-  background: var(--minima-background-color);
+  //background: var(--minima-background-color);
   color: var(--minima-text-color);
   font-family: 'Libre Franklin', Arial, sans-serif;
   border: none;
