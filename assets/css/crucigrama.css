@@ -247,12 +247,11 @@
   display: flex;
   gap: 0.4rem;
   font-family: 'Libre Franklin', Arial, sans-serif;
-  font-size: 0.70rem !important;
-  padding: 0.3rem 0.4rem;
+  font-size: 0.8rem !important;
   border-radius: 3px;
   cursor: pointer;
   color: #374151;
-  line-height: 1.35;
+  line-height: 1.35rem;
   transition: background 0.1s;
 }
 
