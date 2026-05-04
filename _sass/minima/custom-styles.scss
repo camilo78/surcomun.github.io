@@ -731,10 +731,10 @@ body.search-open { overflow: hidden; }
   font-family: 'Libre Franklin', Arial, sans-serif;
   font-size: 0.72rem;
   line-height: 1.5;
-  color: var(--minima-brand-color);
+  color: var(--minima-brand-color-dark);
   padding: 0.55rem 0.75rem;
-  border-left: 3px solid var(--minima-border-color-01);
-  background: var(--minima-code-background-color);
+ // border-left: 3px solid var(--minima-border-color-01);
+ // background: var(--minima-code-background-color);
   margin: 0;
   display: block;
 }
@@ -862,12 +862,13 @@ body.search-open { overflow: hidden; }
   figcaption {
     font-family: 'Libre Franklin', Arial, sans-serif;
     font-size: 0.68rem;
-    color: var(--minima-table-text-color);
-    line-height: 1.5;
-    padding: 0.5rem 0.75rem;
-    border-left: 3px solid var(--minima-link-hover-color);
-    background: var(--minima-code-background-color);
-    border-radius: 0 0 4px 4px;
+    color: var(--minima-brand-color-dark);
+    text-align: right;
+    padding-top: 0.35rem;
+    margin: 0;
+    opacity: 0.65;
+    line-height: 1.4;
+    display: block;
   }
 }
 
@@ -1028,7 +1029,7 @@ body.search-open { overflow: hidden; }
   &__caption {
     font-family: 'Libre Franklin', Arial, sans-serif;
     font-size: 0.68rem;
-    color: var(--minima-brand-color);
+    color: var(--minima-brand-color-dark);
     text-align: right;
     padding: 0.35rem 0.5rem 0;
     margin: 0;
@@ -2296,7 +2297,7 @@ h1, h2, h3, h4, h5, h6 {
   &__caption {
     font-family: 'Libre Franklin', Arial, sans-serif;
     font-size: 0.8rem;
-    color: var(--minima-brand-color);
+    color: var(--minima-brand-color-dark);
     text-align: center;
     line-height: 1.5;
     padding: 0 0.5rem;

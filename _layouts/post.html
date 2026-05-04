@@ -74,7 +74,7 @@ layout: base
   </header>
 
   <!-- ══ IMAGEN DE PORTADA ══ -->
-  {%- if page.cover_image -%}
+  {%- if page.cover_image and page.show_cover != false -%}
   <figure class="post-cover">
     <img src="{{ page.cover_image }}"
          alt="{{ page.title | escape }}"
