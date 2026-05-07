@@ -115,11 +115,11 @@
   }
 
   /* ── Celdas colapsables ── */
-/*   .sc-td-inner {
+  .sc-td-inner {
     max-height: 88px;
     overflow: hidden;
     position: relative;
-  } */
+  }
 
   /* Degradado de fade-out */
   .sc-td-inner::after {
@@ -127,11 +127,11 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 32px;
-    background: linear-gradient(
+   /*  background: linear-gradient(
       to bottom,
       transparent,
-      var(--minima-background-color, #f8fafb)
-    );
+      var(--minima-site-title-color, #f8fafb)
+    ); */
     pointer-events: none;
     transition: opacity .2s ease;
   }
