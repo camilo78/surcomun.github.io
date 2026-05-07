@@ -116,7 +116,7 @@
 
   /* ── Celdas colapsables ── */
   .sc-td-inner {
-    max-height: 88px;
+    max-height: 78px;
     overflow: hidden;
     position: relative;
   }
