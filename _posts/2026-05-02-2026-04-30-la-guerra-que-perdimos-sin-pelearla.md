@@ -17,6 +17,8 @@ cover_caption: "Caricatura de Matador (Julio César González)"
 ---
  
 Hace cuarenta años habríamos discutido la relación entre capital y trabajo, la plusvalía, la explotación, los salarios, los medios de producción. Hoy discutimos la lengua, la cultura, el deseo, el sentido común, la épica de lo cotidiano —y descubrimos, tarde, que esos campos no eran subsidiarios: eran el frente principal en el que la izquierda perdió mientras se preparaba para otra guerra. Este texto intenta nombrar esa derrota y, sobre todo, lo que queda por hacer.
+
+Hace cuarenta años se dicutia sobre la relacion entre capital y trabajo, plusvalia, la explotación, los salarios los medios de producción. Hos se dicute la lengua, la cultura, el sentido común —descubrimos, tarde que esos campos no eras secundarios: eran un frente necesario en el que la izquierda perdió mientras se preparaba en el plano de lo teorico económico, político, filosófico y muchos campos de estudios.
  
 ## I. La conquista que nadie nos contó como conquista
  

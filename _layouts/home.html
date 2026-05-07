@@ -26,10 +26,10 @@ layout: base
   {%- comment -%}── Destacados: marcados con featured: true (máx 4) ──{%- endcomment -%}
   {%- assign featured_posts = site.posts | where: "featured", true | limit: 4 -%}
 
-  {%- comment -%}── Grid: posts paginados sin editorial ──{%- endcomment -%}
+  {%- comment -%}── Grid: posts paginados sin editorial (salvo hidden: false) ──{%- endcomment -%}
   {%- assign grid_posts = "" | split: "" -%}
   {%- for post in paged_posts -%}
-    {%- unless post.categories contains "editorial" -%}
+    {%- unless post.categories contains "editorial" and post.hidden != false -%}
       {%- assign grid_posts = grid_posts | push: post -%}
     {%- endunless -%}
   {%- endfor -%}

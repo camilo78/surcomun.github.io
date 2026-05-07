@@ -32,6 +32,9 @@
   {%- endif -%}
 
   {%- include custom-head.html -%}
+  {%- if page.page_styles -%}
+  <style>{{ page.page_styles }}</style>
+  {%- endif -%}
 
   <script data-goatcounter="https://estadisticas.surcomun.com/count"
           async src="//gc.zgo.at/count.js"></script>

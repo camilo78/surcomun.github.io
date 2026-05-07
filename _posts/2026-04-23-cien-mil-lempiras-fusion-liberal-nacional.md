@@ -9,7 +9,9 @@ author: Sur Común
 license: CC BY-SA 4.0
 cover_image: "/assets/img/posts/cien-mil-lempiras.jpg"
 cover_caption: "Toma de poseción de Nasri Asfura en el Congreso Nacional / infobae"
-hidden: true
+featured: false
+popular: true
+hidden: false
 ---
 
 Hay semanas que describen un sistema mejor que cualquier ensayo. La semana del 8 al 16 de abril de 2026 es una de ellas. En **nueve días**, un presidente del Partido Nacional entregó bonos de hasta **100 mil lempiras** a diputados del Partido Liberal, el jefe de la bancada liberal reconoció públicamente haber gestionado esa transferencia, y esos mismos diputados votaron, junto al bloque nacionalista, para destituir al consejero del CNE que venía denunciando irregularidades en la elección de noviembre. Los hechos están encadenados, documentados y admitidos por sus propios protagonistas. Lo único que queda por decir es lo obvio: el Partido Liberal y el Partido Nacional, en este Congreso, no son dos partidos. Son dos corrientes de un mismo aparato, y ya ni siquiera se toman el trabajo de disimularlo.
