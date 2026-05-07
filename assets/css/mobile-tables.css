@@ -1,0 +1,212 @@
+/* ═══════════════════════════════════════════════════════════
+   TABLAS MÓVIL — Patrón "Tarjeta Apilada"
+   Activo solo en pantallas ≤ 599 px (teléfono vertical)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Wrapper: scroll horizontal en escritorio ── */
+.sc-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Botón "Ver tabla completa" (oculto en escritorio) ── */
+.sc-toggle-row {
+  display: none;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.sc-toggle-btn {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 5px 14px;
+  border-radius: 5px;
+  border: 1.5px solid var(--minima-link-base-color);
+  background: transparent;
+  cursor: pointer;
+  color: var(--minima-link-base-color);
+  opacity: .7;
+  transition: opacity .15s;
+  font-family: inherit;
+}
+.sc-toggle-btn:hover { opacity: 1; }
+
+/* ── Botón "Leer más" (oculto en escritorio) ── */
+.sc-btn { display: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE: ≤ 599 px
+   ═══════════════════════════════════════════════════════════ */
+@media screen and (max-width: 599px) {
+
+  .sc-toggle-row { display: flex; }
+
+  /* ── Vista tarjeta (por defecto en móvil) ── */
+  .sc-wrap:not(.sc-full) table {
+    display: block;
+    border: none;
+    margin-bottom: 0;
+    background: transparent;
+    width: 100%;
+  }
+
+  .sc-wrap:not(.sc-full) thead { display: none; }
+
+  .sc-wrap:not(.sc-full) tbody { display: block; }
+
+  .sc-wrap:not(.sc-full) tr {
+    display: block;
+    background: #fff;
+    border-bottom: 3px double var(--minima-table-border-color);
+  }
+
+  .sc-wrap:not(.sc-full) tr:first-child {
+    border-top: 1.5px solid var(--minima-table-border-color);
+  }
+
+  .sc-wrap:not(.sc-full) tr:nth-child(even) {
+    background: var(--minima-table-zebra-color);
+  }
+
+  .sc-wrap:not(.sc-full) td {
+    display: block;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--minima-table-border-color);
+    padding: 9px 13px;
+    text-align: left !important;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .sc-wrap:not(.sc-full) td:last-child {
+    border-bottom: none;
+  }
+
+  /* Primera celda = identificador del decreto, sin fondo especial */
+  .sc-wrap:not(.sc-full) td:first-child {
+    background: transparent;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 10px 13px;
+    color: var(--minima-heading-color);
+    border-bottom: 1px solid var(--minima-table-border-color);
+  }
+
+  .sc-wrap:not(.sc-full) td:first-child::before {
+    display: none !important;
+  }
+
+  /* Etiqueta de columna sobre cada celda */
+  .sc-wrap:not(.sc-full) td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: var(--minima-brand-color);
+    margin-bottom: 4px;
+    line-height: 1.2;
+    opacity: .85;
+  }
+
+  /* ── Celdas colapsables ── */
+/*   .sc-td-inner {
+    max-height: 88px;
+    overflow: hidden;
+    position: relative;
+  } */
+
+  /* Degradado de fade-out */
+  .sc-td-inner::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 32px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--minima-background-color, #f8fafb)
+    );
+    pointer-events: none;
+    transition: opacity .2s ease;
+  }
+
+  .sc-td-inner.sc-open {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .sc-td-inner.sc-open::after { opacity: 0; pointer-events: none; }
+
+  /* Botón expandir/colapsar */
+  .sc-btn {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--minima-link-base-color);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* ── Vista horizontal completa (toggle) ── */
+  .sc-full { overflow-x: auto; }
+
+  .sc-full table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-collapse: collapse;
+    border: 1px solid var(--minima-table-border-color);
+    margin-bottom: 0;
+    min-width: 580px;
+    width: max-content;
+    background: transparent;
+  }
+
+  .sc-full thead { display: table-header-group; }
+  .sc-full tbody { display: table-row-group; }
+
+  .sc-full tr {
+    display: table-row;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    background: transparent;
+  }
+
+  .sc-full tr:nth-child(even) {
+    background: var(--minima-table-zebra-color) !important;
+  }
+
+  .sc-full td {
+    display: table-cell;
+    border: 1px solid var(--minima-table-border-color);
+    padding: 7px 9px;
+    font-size: 12px;
+    line-height: 1.35;
+    white-space: normal;
+    text-align: left !important;
+  }
+
+  .sc-full td::before { display: none !important; }
+
+  .sc-full th {
+    font-size: 12px;
+    padding: 7px 9px;
+  }
+
+  /* Ocultar botones de colapso en vista completa */
+  .sc-full .sc-btn { display: none; }
+}

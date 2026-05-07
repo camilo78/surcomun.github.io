@@ -8,7 +8,8 @@ tags: [100-días, análisis-de-clase, gobierno-asfura, honduras]
 author: Sur Común
 cover_image: "/assets/img/posts/caricatura_100_dias.png"
 cover_caption: "Caricaturas Sur Común."
-page_styles: ".post-content table, .post-content table th, .post-content table td { font-size: 14px; line-height: 1.2; }"
+page_styles: ".post-content table, .post-content table th, .post-content table td { font-size: 14px; line-height: 1.4; }"
+mobile_tables: true
 hidden: true
 
 ---

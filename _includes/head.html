@@ -32,6 +32,9 @@
   {%- endif -%}
 
   {%- include custom-head.html -%}
+  {%- if page.mobile_tables -%}
+  <link rel="stylesheet" href="{{ '/assets/css/mobile-tables.css' | relative_url }}">
+  {%- endif -%}
   {%- if page.page_styles -%}
   <style>{{ page.page_styles }}</style>
   {%- endif -%}
