@@ -14,10 +14,9 @@ cover_caption: "Portada de Lo que flota entre nosotros, de Glenn Flores"
 
 ---
 
-<figure style="float: right; width: 220px; margin: 0 0 1.25rem 1.75rem;">
+<figure class="post-figure-float">
   <img src="/assets/img/posts/lo_que_flota_entre_nosotros.jpeg"
-       alt="Lo que flota entre nosotros, de Glenn Flores"
-       style="width: 100%; height: auto; display: block;">
+       alt="Lo que flota entre nosotros, de Glenn Flores">
   <figcaption class="post-cover-caption">Portada de <em>Lo que flota entre nosotros</em>, de Glenn Flores</figcaption>
 </figure>
 
@@ -37,4 +36,4 @@ Los textos no pretenden ser autobiográficos, pero tampoco son inventados desde 
 
 ---
 
-\**Lety Inestroza. Periodista Cultural y Columnista Independiente radicada en Oporto.*
+\**Lety Inestroza. Periodista Cultural y Columnista Independiente.*
