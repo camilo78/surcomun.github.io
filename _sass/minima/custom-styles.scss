@@ -2040,6 +2040,9 @@ body.search-open { overflow: hidden; }
 }
 
 @media (max-width: 600px) {
+   .featured-main__img-wrap {
+    aspect-ratio: 3/2;
+  }
   .latest-grid {
     grid-template-columns: 1fr;
     .news-card__img-link { height: 200px; }
