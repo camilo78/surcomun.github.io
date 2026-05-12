@@ -108,7 +108,10 @@ layout: base
         <h2 class="featured-main__title">
           <a href="{{ main_post.url | relative_url }}">{{ main_post.title | escape }}</a>
         </h2>
-        <p class="featured-main__excerpt">{{ main_post.excerpt | strip_html | truncatewords: 28 }}</p>
+        <p class="featured-main__excerpt">{{ main_post.content | strip_html | truncatewords: 100 }}</p>
+        {%- if main_post.author -%}
+        <span class="featured-main__author">Por {{ main_post.author }}</span>
+        {%- endif -%}
         <span class="featured-main__readtime">{{ main_mins }} MIN DE LECTURA</span>
       </div>
       {%- if main_post.cover_image -%}
@@ -130,10 +133,16 @@ layout: base
       {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
       <article class="featured-item">
         <div class="featured-item__body">
+          {%- if post.categories.size > 0 -%}
+          <span class="featured-item__kicker">{{ post.categories | first }}</span>
+          {%- endif -%}
           <h3 class="featured-item__title">
             <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
           </h3>
           <p class="featured-item__excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+          {%- if post.author -%}
+          <span class="featured-item__author">Por {{ post.author }}</span>
+          {%- endif -%}
           <span class="featured-item__readtime">{{ mins }} MIN DE LECTURA</span>
         </div>
         {%- if post.cover_image -%}

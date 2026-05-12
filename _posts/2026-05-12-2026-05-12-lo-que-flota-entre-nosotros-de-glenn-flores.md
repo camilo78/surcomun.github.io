@@ -34,6 +34,3 @@ Los textos no pretenden ser autobiográficos, pero tampoco son inventados desde 
 
 "Lo que flota entre nosotros" es un libro que se presta, que se regala, que se cita en conversaciones. Un libro que hace sentir al lector que no está solo en lo que carga. Y eso, en tiempos como estos, no es poca cosa.
 
----
-
-\**Lety Inestroza. Periodista Cultural y Columnista Independiente.*

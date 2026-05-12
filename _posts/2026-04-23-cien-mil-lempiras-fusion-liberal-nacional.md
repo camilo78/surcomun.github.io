@@ -9,7 +9,7 @@ author: Sur Común
 license: CC BY-SA 4.0
 cover_image: "/assets/img/posts/cien-mil-lempiras.jpg"
 cover_caption: "Toma de poseción de Nasri Asfura en el Congreso Nacional / infobae"
-featured: false
+featured: true
 popular: true
 hidden: false
 ---
