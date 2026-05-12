@@ -1016,6 +1016,7 @@ body.search-open { overflow: hidden; }
 .editorial-feature {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  min-height: 420px;
   margin-bottom: 2rem;
   //border-bottom: 3px solid #E93C35;
 
@@ -1029,17 +1030,19 @@ body.search-open { overflow: hidden; }
 
   &__img-link {
     display: block;
+    overflow: hidden;
     flex: 1;
     line-height: 0;
   }
 
   &__img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    transition: opacity 0.2s;
+    transition: transform 0.4s ease;
 
-    &:hover { opacity: 0.9; }
+    &:hover { transform: scale(1.03); }
   }
 
   &__caption {
@@ -1229,7 +1232,8 @@ body.search-open { overflow: hidden; }
 
   &__img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
     display: block;
     transition: opacity 0.2s;
     &:hover { opacity: 0.85; }
@@ -1413,7 +1417,7 @@ body.search-open { overflow: hidden; }
 
 .latest-grid .news-card__img {
   width: 100%;
-  height: auto;
+  height: 180px;
 }
 
 // ── Label de fecha ──
