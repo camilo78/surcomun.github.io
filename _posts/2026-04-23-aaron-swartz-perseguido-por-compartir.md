@@ -6,7 +6,7 @@ categories: [cultura, tecnología]
 tags: [documental, internet, software-libre, cultura-libre, acceso-abierto, activismo]
 excerpt: "La historia, la vida y la trágica muerte del niño prodigio que codiseñó Markdown, peleó contra la ley SOPA y fue empujado al suicidio por una persecución judicial desproporcionada."
 author: Camilo Alvarado
-featured: false
+featured: true
 popular: true
 license: CC BY-SA 4.0
 cover_image: "/assets/img/posts/aaron-swartz.webp"

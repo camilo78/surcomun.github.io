@@ -1567,7 +1567,7 @@ body.search-open { overflow: hidden; }
   border-top: 4px solid #E93C35;
   border-radius: 4px;
   overflow: hidden;
-
+  margin-top: 2rem;
   // ── Video: llena el alto del grid, iframe cubre en 16:9 ──
   &__video {
     position: relative;

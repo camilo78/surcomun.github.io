@@ -8,7 +8,7 @@ excerpt: "Treinta y un años después del disparo que la mató, el legado de Jea
 author: Glenn Flores
 cover_image: "/assets/img/posts/parque-jeannette-kawas.webp"
 cover_caption: "Parque Nacional Jeannette Kawas, Punta Sal, Honduras."
-featured: true
+featured: false
 popular: true
 ---
 

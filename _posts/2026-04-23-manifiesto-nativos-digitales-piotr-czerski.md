@@ -13,7 +13,7 @@ introduction_by: Camilo Alvarado
 published_by: Sur Común
 license: CC BY-SA 4.0
 featured: false
-popular: true
+popular: false
 cover_image: "/assets/img/posts/piotr-czerski.jpg"
 cover_caption: "Piotr Czerski. Fuente: Wikimedia Commons (CC BY-SA)"
 ---
