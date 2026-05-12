@@ -1032,6 +1032,7 @@ body.search-open { overflow: hidden; }
     display: block;
     overflow: hidden;
     flex: 1;
+    aspect-ratio: 4 / 3;
     line-height: 0;
   }
 
@@ -1039,10 +1040,11 @@ body.search-open { overflow: hidden; }
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
-    transition: transform 0.4s ease;
+    transition: opacity 0.2s;
 
-    &:hover { transform: scale(1.03); }
+    &:hover { opacity: 0.9; }
   }
 
   &__caption {
@@ -1180,12 +1182,16 @@ body.search-open { overflow: hidden; }
   }
 
   &__img-wrap {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
     line-height: 0;
   }
 
   &__img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     display: block;
     transition: opacity 0.2s;
     &:hover { opacity: 0.9; }
@@ -1226,14 +1232,17 @@ body.search-open { overflow: hidden; }
   &__img-link {
     order: -1;
     display: block;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
     line-height: 0;
     margin-bottom: 0.85rem;
   }
 
   &__img {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     display: block;
     transition: opacity 0.2s;
     &:hover { opacity: 0.85; }
@@ -1312,7 +1321,13 @@ body.search-open { overflow: hidden; }
   .featured-main {
     grid-template-columns: 1fr;
     gap: 1rem;
-    &__img-wrap { order: -1; }
+    &__img-wrap {
+      order: -1;
+      aspect-ratio: unset;
+    }
+    &__img {
+      height: auto;
+    }
     &__title    { font-size: 1.4rem; }
     &__excerpt  { font-size: 0.95rem; }
   }
@@ -1320,6 +1335,7 @@ body.search-open { overflow: hidden; }
   .featured-list {
     grid-template-columns: repeat(2, 1fr);
     gap: 0 1rem;
+    .featured-item__img-link { aspect-ratio: 4 / 3; }
   }
 }
 
@@ -1348,13 +1364,17 @@ body.search-open { overflow: hidden; }
     &__img-link {
       order: 1;
       flex-shrink: 0;
+      width: 80px;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
       margin-bottom: 0;
     }
 
     &__img {
-      width: 80px;
-      aspect-ratio: 4 / 3;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
     &__body   { order: 0; flex: 1; }
@@ -1412,12 +1432,18 @@ body.search-open { overflow: hidden; }
 
 .latest-grid .news-card__img-link {
   width: 100%;
+  height: 180px;
+  overflow: hidden;
   flex-shrink: 0;
+  display: block;
 }
 
 .latest-grid .news-card__img {
   width: 100%;
-  height: 180px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 // ── Label de fecha ──
@@ -1999,7 +2025,8 @@ body.search-open { overflow: hidden; }
 @media (max-width: 600px) {
   .latest-grid {
     grid-template-columns: 1fr;
-    .news-card__img { height: 200px; }
+    .news-card__img-link { height: 200px; }
+    .news-card__img { height: 100%; }
   }
 }
 
