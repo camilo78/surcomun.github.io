@@ -7,7 +7,7 @@ tags: [cortometraje, animación, argentina, trabajo-asalariado, marxismo]
 excerpt: "Un hombre recorre su trayecto habitual hacia el trabajo, inmerso en un sistema donde el uso de las personas como objetos es cotidiano. Seis minutos de animación para entender, sin decirlo, qué es la alienación."
 author: Camilo Alvarado
 license: CC BY-SA 4.0
-featured: false
+featured: false 
 popular: true
 cover_image: "/assets/img/posts/el-empleo.jpg"
 cover_caption: "Escena del cortometraje El Empleo (The Employment)/ Opusbou"
