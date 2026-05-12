@@ -2019,6 +2019,23 @@ body.search-open { overflow: hidden; }
     grid-template-columns: 1fr;
   }
 
+  // Imagen principal featured: más alta en tablet portrait
+  .featured-main__img-wrap {
+    aspect-ratio: 3/4;
+  }
+
+  // Más vistos: 2 columnas cuando ocupa ancho completo
+  .most-viewed__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 1.5rem;
+  }
+
+  .most-viewed__item {
+    border-bottom: 1px solid var(--minima-border-color-02);
+    &:nth-last-child(-n+2) { border-bottom: none; }
+  }
+
   .news-card__img { width: 120px; height: 75px; }
 }
 
