@@ -2,23 +2,24 @@
 layout: base
 ---
 
-{%- assign months_es = "enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" | split: "," -%}
+{%- assign months_es = "enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" |
+split: "," -%}
 {%- assign month_index = page.date | date: "%-m" | minus: 1 -%}
 {%- assign month_name = months_es[month_index] -%}
 {%- assign pdate = page.date | date_to_xmlschema -%}
 {%- assign popular_posts = site.posts | where: "popular", true -%}
 {%- assign recent_posts = site.posts | where_exp: "p", "p.url != page.url" -%}
 {%- assign reading_mins = page.content | number_of_words | divided_by: 200 -%}
-{%- if reading_mins < 1 -%}{%- assign reading_mins = 1 -%}{%- endif -%}
-
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+{%- if reading_mins < 1 -%}{%- assign reading_mins=1 -%}{%- endif -%} <article class="post h-entry" itemscope
+  itemtype="http://schema.org/BlogPosting">
 
   <!-- ══ CABECERA ══ -->
   <header class="post-header">
 
     {%- if page.categories.size > 0 -%}
     <div class="post-header__section">
-      <a href="{{ '/categorias/' | append: page.categories.first | relative_url }}" class="post-header__section-link">{{ page.categories | first }}</a>
+      <a href="{{ '/categorias/' | append: page.categories.first | relative_url }}" class="post-header__section-link">{{
+        page.categories | first }}</a>
     </div>
     {%- endif -%}
 
@@ -33,15 +34,15 @@ layout: base
     <div class="post-meta-bar">
       <div class="post-meta-bar__left">
         {%- if page.author -%}
-          <span class="post-meta-bar__by">Por</span>
-          {%- for author in page.author -%}
-            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-              <strong class="post-meta-bar__author p-author h-card" itemprop="name">{{ author }}</strong>
-            </span>
-            {%- if forloop.last == false %} y {% endif -%}
-          {%- endfor -%}
+        <span class="post-meta-bar__by">Por</span>
+        {%- for author in page.author -%}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <strong class="post-meta-bar__author p-author h-card" itemprop="name">{{ author }}</strong>
+        </span>
+        {%- if forloop.last == false %} y {% endif -%}
+        {%- endfor -%}
         {%- else -%}
-          <strong class="post-meta-bar__author">Redacción</strong>
+        <strong class="post-meta-bar__author">Redacción</strong>
         {%- endif -%}
         <span class="post-meta-bar__sep" aria-hidden="true">·</span>
         <time class="post-meta-bar__date dt-published" datetime="{{ pdate }}" itemprop="datePublished">
@@ -53,19 +54,25 @@ layout: base
 
       <div class="post-meta-bar__share">
         <a href="https://x.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}&via=sur_comun"
-           target="_blank" rel="noopener noreferrer"
-           class="share-btn share-btn--x" aria-label="Compartir en X">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.258 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          target="_blank" rel="noopener noreferrer" class="share-btn share-btn--x" aria-label="Compartir en X">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.258 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
         </a>
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}"
-           target="_blank" rel="noopener noreferrer"
-           class="share-btn share-btn--fb" aria-label="Compartir en Facebook">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          target="_blank" rel="noopener noreferrer" class="share-btn share-btn--fb" aria-label="Compartir en Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+          </svg>
         </a>
-        <button class="share-btn share-btn--copy"
-                aria-label="Copiar enlace"
-                onclick="navigator.clipboard.writeText('{{ page.url | absolute_url }}').then(()=>{this.setAttribute('data-copied','1');setTimeout(()=>this.removeAttribute('data-copied'),2000)})">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <button class="share-btn share-btn--copy" aria-label="Copiar enlace"
+          onclick="navigator.clipboard.writeText('{{ page.url | absolute_url }}').then(()=>{this.setAttribute('data-copied','1');setTimeout(()=>this.removeAttribute('data-copied'),2000)})">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
         </button>
       </div>
     </div>
@@ -76,12 +83,8 @@ layout: base
   <!-- ══ IMAGEN DE PORTADA ══ -->
   {%- if page.cover_image and page.show_cover != false -%}
   <figure class="post-cover">
-    <img src="{{ page.cover_image }}"
-         alt="{{ page.title | escape }}"
-         class="post-cover-image"
-         width="1200" height="675"
-         fetchpriority="high"
-         itemprop="image" />
+    <img src="{{ page.cover_image }}" alt="{{ page.title | escape }}" class="post-cover-image" width="1200" height="675"
+      fetchpriority="high" itemprop="image" />
     {%- if page.cover_caption -%}
     <figcaption class="post-cover-caption">{{ page.cover_caption }}</figcaption>
     {%- endif -%}
@@ -97,7 +100,7 @@ layout: base
       {%- if page.tags.size > 0 -%}
       <div class="post-tags post-tags--bottom">
         {%- for tag in page.tags -%}
-          <a href="{{ '/tags/' | relative_url }}?tag={{ tag | url_encode }}" class="post-tag"># {{ tag }}</a>
+        <a href="{{ '/tags/' | relative_url }}?tag={{ tag | url_encode }}" class="post-tag"># {{ tag }}</a>
         {%- endfor -%}
       </div>
       {%- endif -%}
@@ -106,8 +109,14 @@ layout: base
     </div>
 
     <aside class="post-aside">
-      <div class="post-aside__widget">
-        <iframe width="100%" height="300" src="https://wid.world/share/#1/countriesmap/sptinc_p99p100_z/all/last/eu/k/p/yearly/s/false/3.87/30/curve/false/country" frameborder="0" loading="lazy"></iframe>
+      <div class="most-viewed">
+        <h2 class="most-viewed__heading">Desigualdad económica mundial</h2>
+        <div class="post-aside__widget">
+          <iframe
+            src="https://ourworldindata.org/grapher/economic-inequality-gini-index?time=2025&country=CHL~BRA~ZAF~USA~FRA~CHN~HND&tab=map"
+            loading="lazy" style="width: 100%; height: 600px; border: 0px none;"
+            allow="web-share; clipboard-write"></iframe>
+        </div>
       </div>
 
       {%- if popular_posts.size > 0 -%}
@@ -119,13 +128,16 @@ layout: base
             <span class="most-viewed__num">{{ forloop.index }}</span>
             <div class="most-viewed__content">
               {%- if post.categories.size > 0 -%}
-                <a href="{{ '/categorias/' | append: post.categories.first | relative_url }}/" class="post-category">{{ post.categories | first }}</a>
+              <a href="{{ '/categorias/' | append: post.categories.first | relative_url }}/" class="post-category">{{
+                post.categories | first }}</a>
               {%- endif -%}
               <a href="{{ post.url | relative_url }}" class="most-viewed__title">
                 {{ post.title | escape }}
               </a>
               {%- if post.author -%}
-              <span class="most-viewed__author">Por: <a href="{{ '/autores/' | relative_url }}?autor={{ post.author | url_encode }}">{{ post.author }}</a></span>
+              <span class="most-viewed__author">Por: <a
+                  href="{{ '/autores/' | relative_url }}?autor={{ post.author | url_encode }}">{{ post.author
+                  }}</a></span>
               {%- endif -%}
               <span class="post-meta">{{ post.date | date: site.minima.date_format }}</span>
             </div>
@@ -139,47 +151,48 @@ layout: base
   </div><!-- /post-layout -->
 
   {% if jekyll.environment == 'production' -%}
-    {%- if page.comments == false -%}
-    <div class="comments-disabled-message">Comments have been disabled for this post.</div>
-    {%- else -%}
-      {%- include comments.html -%}
-    {%- endif -%}
+  {%- if page.comments == false -%}
+  <div class="comments-disabled-message">Comments have been disabled for this post.</div>
+  {%- else -%}
+  {%- include comments.html -%}
+  {%- endif -%}
   {%- endif %}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-</article>
+  </article>
 
-<!-- ══ MÁS ARTÍCULOS ══ -->
-{%- if recent_posts.size > 0 -%}
-<section class="post-recents">
-  <h2 class="post-recents__heading">Más artículos</h2>
-  <div class="post-recents__grid">
-    {%- for post in recent_posts limit: 4 -%}
-    <article class="recent-card">
-      {%- if post.cover_image -%}
-      <a href="{{ post.url | relative_url }}" class="recent-card__img-link" tabindex="-1">
-        <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="recent-card__img" width="300" height="200" loading="lazy" />
-      </a>
-      {%- endif -%}
-      <div class="recent-card__body">
-        {%- if post.categories.size > 0 -%}
-          <span class="post-category">{{ post.categories | first }}</span>
+  <!-- ══ MÁS ARTÍCULOS ══ -->
+  {%- if recent_posts.size > 0 -%}
+  <section class="post-recents">
+    <h2 class="post-recents__heading">Más artículos</h2>
+    <div class="post-recents__grid">
+      {%- for post in recent_posts limit: 4 -%}
+      <article class="recent-card">
+        {%- if post.cover_image -%}
+        <a href="{{ post.url | relative_url }}" class="recent-card__img-link" tabindex="-1">
+          <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="recent-card__img" width="300"
+            height="200" loading="lazy" />
+        </a>
         {%- endif -%}
-        <h3 class="recent-card__title">
-          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h3>
-        <p class="recent-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
-        <span class="post-meta">{{ post.date | date: "%-d de %B de %Y" }}</span>
-      </div>
-    </article>
-    {%- endfor -%}
-  </div>
-</section>
-{%- endif -%}
+        <div class="recent-card__body">
+          {%- if post.categories.size > 0 -%}
+          <span class="post-category">{{ post.categories | first }}</span>
+          {%- endif -%}
+          <h3 class="recent-card__title">
+            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </h3>
+          <p class="recent-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+          <span class="post-meta">{{ post.date | date: "%-d de %B de %Y" }}</span>
+        </div>
+      </article>
+      {%- endfor -%}
+    </div>
+  </section>
+  {%- endif -%}
 
-{%- if page.mobile_tables -%}
-<script src="{{ '/assets/js/mobile-tables.js' | relative_url }}" defer></script>
-{%- endif -%}
-{%- if page.page_scripts -%}
-<script>{{ page.page_scripts }}</script>
-{%- endif -%}
+  {%- if page.mobile_tables -%}
+  <script src="{{ '/assets/js/mobile-tables.js' | relative_url }}" defer></script>
+  {%- endif -%}
+  {%- if page.page_scripts -%}
+  <script>{ { page.page_scripts } }</script>
+  {%- endif -%}
