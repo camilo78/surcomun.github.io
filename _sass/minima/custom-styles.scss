@@ -693,8 +693,6 @@ body.search-open { overflow: hidden; }
 }
 
 .post-aside {
-  position: sticky;
-  top: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -1213,7 +1211,7 @@ body.search-open { overflow: hidden; }
 // ── Fila de tarjetas secundarias (artículos 2–4) ──
 .featured-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0 1.5rem;
 }
 
@@ -1307,13 +1305,26 @@ body.search-open { overflow: hidden; }
 
 // ── Responsive ───────────────────────────────────────────────
 
-// Tablet landscape: comprime columnas
+// Tablet landscape: 4 cols comprimidas
 @media (max-width: 1024px) {
   .featured-main {
     grid-template-columns: 1fr 1.6fr;
     &__title { font-size: 1.7rem; }
   }
-  .featured-list { gap: 0 1rem; }
+  .featured-list { gap: 0 0.75rem; }
+}
+
+// Tablet medio: 2×2
+@media (max-width: 860px) {
+  .featured-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1rem;
+    .featured-item { border-left: none; padding-left: 0; }
+    .featured-item:nth-child(even) {
+      border-left: 1px solid var(--minima-border-color-01);
+      padding-left: 1rem;
+    }
+  }
 }
 
 // Tablet portrait: main pasa a columna, imagen arriba; lista 2 cols
@@ -1911,9 +1922,18 @@ body.search-open { overflow: hidden; }
     &:hover { color: #E93C35; }
   }
 
+  &__author {
+    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--minima-text-color);
+    opacity: 0.6;
+  }
+
   .post-meta { font-size: 0.8rem;
     line-height: 1.5625rem; opacity: 0.55; }
 }
+
 
 // ============================================================
 // ASIDE — ÚLTIMAS PUBLICACIONES

@@ -1,0 +1,157 @@
+---
+layout: base
+---
+<div class="home author-page">
+  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+  {%- assign all_authors = site.posts | map: "author" | compact | uniq | sort -%}
+
+  <header class="category-header">
+    <h1 class="category-header__title" id="authors-heading">Autores</h1>
+    <p class="category-header__count" id="authors-result-count">{{ all_authors.size }} autor{%- if all_authors.size != 1 -%}es{%- endif -%}</p>
+  </header>
+
+  <!-- Índice de autores -->
+  <nav class="tags-index" aria-label="Filtrar por autor">
+    <a href="{{ '/autores/' | relative_url }}" class="tags-index__item tags-index__item--all" data-autor="">
+      Todos <span class="tags-index__count">{{ site.posts.size }}</span>
+    </a>
+    {%- for autor in all_authors -%}
+    {%- assign autor_posts = site.posts | where: "author", autor -%}
+    <a href="?autor={{ autor | url_encode }}"
+       class="tags-index__item"
+       data-autor="{{ autor }}">
+      {{ autor }}<span class="tags-index__count">{{ autor_posts.size }}</span>
+    </a>
+    {%- endfor -%}
+  </nav>
+
+  <!-- Grid de resultados -->
+  <section class="home-section">
+    <h2 class="home-section__heading" id="active-autor-heading" style="display:none"></h2>
+    <div class="latest-grid" id="autor-results"></div>
+  </section>
+
+  <!-- Paginación -->
+  <nav class="pagination" id="autor-pagination" aria-label="Paginación" style="display:none"></nav>
+
+  <!-- Datos embebidos como JSON -->
+  <script id="posts-data-autores" type="application/json">
+  [
+    {%- for post in site.posts -%}
+    {
+      "url":      {{ post.url | relative_url | jsonify }},
+      "title":    {{ post.title | jsonify }},
+      "excerpt":  {{ post.excerpt | strip_html | truncatewords: 18 | jsonify }},
+      "date":     {{ post.date | date: date_format | jsonify }},
+      "cover":    {{ post.cover_image | default: "" | jsonify }},
+      "category": {{ post.categories | first | default: "" | jsonify }},
+      "author":   {{ post.author | jsonify }},
+      "mins":     {{ post.content | number_of_words | divided_by: 200 | at_least: 1 }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+  </script>
+
+  <script>
+  (function () {
+    var PER_PAGE  = 12;
+    var posts     = JSON.parse(document.getElementById('posts-data-autores').textContent);
+    var container = document.getElementById('autor-results');
+    var pagNav    = document.getElementById('autor-pagination');
+    var heading   = document.getElementById('active-autor-heading');
+    var countEl   = document.getElementById('authors-result-count');
+    var totalAutores = {{ all_authors.size }};
+
+    function getParam(key) {
+      return new URLSearchParams(window.location.search).get(key) || '';
+    }
+
+    function render() {
+      var autor = getParam('autor');
+      var page  = parseInt(getParam('page') || '1', 10);
+
+      document.querySelectorAll('.tags-index__item').forEach(function (a) {
+        a.classList.toggle('tags-index__item--active', a.dataset.autor === autor);
+      });
+
+      var filtered = autor
+        ? posts.filter(function (p) { return p.author === autor; })
+        : posts;
+
+      var total      = filtered.length;
+      var totalPages = Math.max(Math.ceil(total / PER_PAGE), 1);
+      page = Math.min(Math.max(page, 1), totalPages);
+      var slice = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+
+      if (autor) {
+        heading.textContent = autor;
+        heading.style.display = '';
+        countEl.textContent = total + (total === 1 ? ' artículo' : ' artículos');
+      } else {
+        heading.style.display = 'none';
+        countEl.textContent = totalAutores + (totalAutores === 1 ? ' autor' : ' autores');
+      }
+
+      container.innerHTML = slice.map(function (p) {
+        var img = p.cover
+          ? '<a href="' + p.url + '" class="news-card__img-link">' +
+            '<img src="' + p.cover + '" alt="" class="news-card__img" loading="lazy"></a>'
+          : '';
+        var cat = p.category
+          ? '<span class="post-category">' + p.category + '</span>'
+          : '';
+        var author = p.author
+          ? '<span class="news-card__author">Por: ' + p.author + '</span>'
+          : '';
+        return '<article class="news-card">' +
+          img +
+          '<div class="news-card__body">' +
+            cat +
+            '<h3 class="news-card__title"><a href="' + p.url + '">' + p.title + '</a></h3>' +
+            author +
+            '<p class="news-card__excerpt">' + p.excerpt + '</p>' +
+            '<div class="news-card__footer">' +
+              '<span class="post-meta">' + p.date + '</span>' +
+              '<span class="news-card__readtime">' + p.mins + ' min de lectura</span>' +
+            '</div>' +
+          '</div></article>';
+      }).join('');
+
+      if (totalPages > 1) {
+        pagNav.style.display = '';
+        var base = autor ? '?autor=' + encodeURIComponent(autor) + '&page=' : '?page=';
+        var prev = page > 1
+          ? '<a href="' + base + (page - 1) + '" class="pagination__btn pagination__btn--prev">&larr; Anterior</a>'
+          : '<span class="pagination__btn pagination__btn--prev pagination__btn--disabled">&larr; Anterior</span>';
+        var next = page < totalPages
+          ? '<a href="' + base + (page + 1) + '" class="pagination__btn pagination__btn--next">Siguiente &rarr;</a>'
+          : '<span class="pagination__btn pagination__btn--next pagination__btn--disabled">Siguiente &rarr;</span>';
+        var pages = '';
+        for (var i = 1; i <= totalPages; i++) {
+          pages += i === page
+            ? '<span class="pagination__page pagination__page--active">' + i + '</span>'
+            : '<a href="' + base + i + '" class="pagination__page">' + i + '</a>';
+        }
+        pagNav.innerHTML = prev + '<div class="pagination__pages">' + pages + '</div>' + next;
+      } else {
+        pagNav.style.display = 'none';
+      }
+    }
+
+    document.querySelectorAll('.tags-index__item').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var autor = this.dataset.autor;
+        var url = autor ? '?autor=' + encodeURIComponent(autor) : '{{ "/autores/" | relative_url }}';
+        history.pushState({}, '', url);
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    window.addEventListener('popstate', render);
+    render();
+  })();
+  </script>
+
+</div>

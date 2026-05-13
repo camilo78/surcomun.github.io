@@ -24,7 +24,7 @@ layout: base
   {%- endfor -%}
 
   {%- comment -%}── Destacados: marcados con featured: true (máx 4) ──{%- endcomment -%}
-  {%- assign featured_posts = site.posts | where: "featured", true | limit: 4 -%}
+  {%- assign featured_posts = site.posts | where: "featured", true | limit: 5 -%}
 
   {%- comment -%}── Grid: posts paginados sin editorial (salvo hidden: false) ──{%- endcomment -%}
   {%- assign grid_posts = "" | split: "" -%}
@@ -110,7 +110,7 @@ layout: base
         </h2>
         <p class="featured-main__excerpt">{{ main_post.content | strip_html | truncatewords: 100 }}</p>
         {%- if main_post.author -%}
-        <span class="featured-main__author">Por {{ main_post.author }}</span>
+        <span class="featured-main__author">Por <a href="{{ '/autores/' | relative_url }}?autor={{ main_post.author | url_encode }}" class="author-link">{{ main_post.author }}</a></span>
         {%- endif -%}
         <span class="featured-main__readtime">{{ main_mins }} MIN DE LECTURA</span>
       </div>
@@ -141,7 +141,7 @@ layout: base
           </h3>
           <p class="featured-item__excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
           {%- if post.author -%}
-          <span class="featured-item__author">Por {{ post.author }}</span>
+          <span class="featured-item__author">Por <a href="{{ '/autores/' | relative_url }}?autor={{ post.author | url_encode }}" class="author-link">{{ post.author }}</a></span>
           {%- endif -%}
           <span class="featured-item__readtime">{{ mins }} MIN DE LECTURA</span>
         </div>
@@ -188,7 +188,7 @@ layout: base
               </h3>
               {%- assign author_display = post.author | join: ", " -%}
               {%- if author_display != "" -%}
-                <span class="news-card__author">Por: {{ author_display }}</span>
+                <span class="news-card__author">Por: <a href="{{ '/autores/' | relative_url }}?autor={{ post.author | url_encode }}">{{ author_display }}</a></span>
               {%- endif -%}
               <p class="news-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 16 }}</p>
               <div class="news-card__footer">
@@ -257,7 +257,7 @@ layout: base
                   </h3>
                   {%- assign author_display = post.author | join: ", " -%}
                   {%- if author_display != "" -%}
-                    <span class="news-card__author">Por: {{ author_display }}</span>
+                    <span class="news-card__author">Por: <a href="{{ '/autores/' | relative_url }}?autor={{ post.author | url_encode }}">{{ author_display }}</a></span>
                   {%- endif -%}
                   <p class="news-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 14 }}</p>
                   <span class="post-meta">{{ post.date | date: date_format }}</span>
@@ -291,6 +291,9 @@ layout: base
               <a href="{{ post.url | relative_url }}" class="most-viewed__title">
                 {{ post.title | escape }}
               </a>
+              {%- if post.author -%}
+              <span class="most-viewed__author">Por: <a href="{{ '/autores/' | relative_url }}?autor={{ post.author | url_encode }}" class="author-link">{{ post.author }}</a></span>
+              {%- endif -%}
               <span class="post-meta">{{ post.date | date: date_format }}</span>
             </div>
           </li>

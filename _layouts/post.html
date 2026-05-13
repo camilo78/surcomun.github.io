@@ -117,8 +117,13 @@ layout: base
               {%- if post.categories.size > 0 -%}
                 <a href="{{ '/categorias/' | append: post.categories.first | relative_url }}/" class="post-category">{{ post.categories | first }}</a>
               {%- endif -%}
-              <a href="{{ post.url | relative_url }}" class="most-viewed__title">{{ post.title | escape }}</a>
-              <span class="post-meta">{{ post.date | date: "%d/%m/%Y" }}</span>
+              <a href="{{ post.url | relative_url }}" class="most-viewed__title">
+                {{ post.title | escape }}
+              </a>
+              {%- if post.author -%}
+              <span class="most-viewed__author">Por: <a href="{{ '/autores/' | relative_url }}?autor={{ post.author | url_encode }}">{{ post.author }}</a></span>
+              {%- endif -%}
+              <span class="post-meta">{{ post.date | date: site.minima.date_format }}</span>
             </div>
           </li>
           {%- endfor -%}
