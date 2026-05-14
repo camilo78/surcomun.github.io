@@ -712,6 +712,16 @@ body.search-open { overflow: hidden; }
     position: static;
     margin-top: 2rem;
   }
+
+  .most-viewed__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 1.5rem;
+  }
+
+  .most-viewed__item {
+    &:nth-last-child(-n+2) { border-bottom: none; }
+  }
 }
 
 // ============================================================
@@ -1358,7 +1368,7 @@ body.search-open { overflow: hidden; }
   }
 }
 
-// Móvil: lista compacta, thumbnail a la derecha
+// Móvil vertical: tarjetas apiladas, imagen arriba
 @media (max-width: 599px) {
   .featured-main {
     &__title { font-size: 1.25rem; }
@@ -1367,26 +1377,24 @@ body.search-open { overflow: hidden; }
   .featured-list {
     display: flex;
     flex-direction: column;
+    gap: 1.25rem;
   }
 
   .featured-item {
-    flex-direction: row;
-    gap: 0.75rem;
-    align-items: start;
-    padding: 0.75rem 0;
+    flex-direction: column;
     border-left: none;
     padding-left: 0;
     border-top: 1px solid var(--minima-border-color-01);
+    padding-top: 1.25rem;
 
-    &:first-child { border-top: none; }
+    &:first-child { border-top: none; padding-top: 0; }
 
     &__img-link {
-      order: 1;
-      flex-shrink: 0;
-      width: 80px;
-      aspect-ratio: 4 / 3;
+      order: -1;
+      width: 100%;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
-      margin-bottom: 0;
+      margin-bottom: 0.75rem;
     }
 
     &__img {
@@ -1396,10 +1404,9 @@ body.search-open { overflow: hidden; }
       object-position: center;
     }
 
-    &__body   { order: 0; flex: 1; }
-    &__kicker { display: none; }
-    &__title  { font-size: 0.9rem; }
-    &__excerpt { display: none; }
+    &__kicker { display: block; }
+    &__title  { font-size: 1.2rem; }
+    &__excerpt { display: block; }
   }
 }
 
@@ -2053,13 +2060,20 @@ body.search-open { overflow: hidden; }
 }
 
 @media (max-width: 600px) {
-   .featured-main__img-wrap {
+  .featured-main__img-wrap {
     aspect-ratio: 3/2;
   }
   .latest-grid {
     grid-template-columns: 1fr;
     .news-card__img-link { height: 200px; }
     .news-card__img { height: 100%; }
+  }
+  .most-viewed__list {
+    grid-template-columns: 1fr;
+  }
+  .most-viewed__item {
+    &:nth-last-child(-n+2) { border-bottom: 1px solid var(--minima-border-color-02); }
+    &:last-child { border-bottom: none; }
   }
 }
 
