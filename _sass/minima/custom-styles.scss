@@ -1,6 +1,20 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
 
+// ── Mixins ────────────────────────────────────────────────────
+
+@mixin label-caps($size: $font-size-label, $spacing: 0.12em) {
+  font-family: $font-sans;
+  font-size: $size;
+  font-weight: 700;
+  letter-spacing: $spacing;
+  text-transform: uppercase;
+}
+
+@mixin transition-color { transition: color 0.15s; }
+@mixin transition-ui    { transition: background 0.15s, color 0.15s; }
+@mixin transition-ui-full { transition: background 0.15s, color 0.15s, border-color 0.15s; }
+
 // ============================================================
 // PALETA: #2B3034 · #627C8C · #989398 · #B9C7D2 · #E93C35
 // ============================================================
@@ -95,12 +109,6 @@ a:hover { text-decoration: none; }
   border: 0;
 }
 
-// ============================================================
-// WRAPPER — márgenes laterales estilo NYT
-// ============================================================
-
-
-
 
 
 // ============================================================
@@ -118,9 +126,6 @@ a:hover { text-decoration: none; }
 
 // — Masthead: logo centrado sobre fondo claro —
 .site-masthead {
-  //background: var(--minima-background-color);
- 
-
   &__inner {
     display: flex;
     align-items: center;
@@ -186,7 +191,7 @@ html[data-theme="dark"] .footer-logo {
 }
 
 .nav-cat {
-  font-family: 'Libre Franklin', Arial, sans-serif;
+  font-family: $font-sans;
   font-size: 0.73rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -359,7 +364,7 @@ html[data-theme="dark"] {
     padding-bottom: 0.28rem;
     
     border-bottom: 1px solid var(--minima-heading-color);
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.7rem;
     letter-spacing: 0.11em;
   }
@@ -435,7 +440,7 @@ html[data-theme="dark"] {
     border: none;
     outline: none;
     background: transparent;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: $font-serif-body;
     font-size: 1.5rem;
     font-weight: 400;
     color: var(--minima-text-color);
@@ -485,7 +490,7 @@ body.search-open { overflow: hidden; }
   &__cat {
     grid-column: 1;
     grid-row: 1;
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -498,7 +503,7 @@ body.search-open { overflow: hidden; }
   &__title {
     grid-column: 2;
     grid-row: 1;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: $font-serif-body;
     font-size: 0.97rem;
     font-weight: 700;
     color: var(--minima-heading-color);
@@ -539,7 +544,7 @@ body.search-open { overflow: hidden; }
 }
 
 .post-header__section-link {
-  font-family: 'Libre Franklin', Arial, sans-serif;
+  font-family: $font-sans;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -556,7 +561,7 @@ body.search-open { overflow: hidden; }
 }
 
 .post-deck {
-  font-family: 'Newsreader', Georgia, serif;
+  font-family: $font-serif-body;
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.55;
@@ -572,7 +577,7 @@ body.search-open { overflow: hidden; }
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  font-family: 'Libre Franklin', Arial, sans-serif;
+  font-family: $font-sans;
   font-size: 0.82rem;
   color: var(--minima-text-color);
   margin-bottom: 1rem;
@@ -664,7 +669,7 @@ body.search-open { overflow: hidden; }
       transform: translateX(-50%);
       background: var(--minima-heading-color);
       color: var(--minima-background-color);
-      font-family: 'Libre Franklin', Arial, sans-serif;
+      font-family: $font-sans;
       font-size: 0.68rem;
       white-space: nowrap;
       padding: 3px 8px;
@@ -726,7 +731,7 @@ body.search-open { overflow: hidden; }
 }
 
 .post-cover-caption {
-  font-family: 'Libre Franklin', Arial, sans-serif;
+  font-family: $font-sans;
   font-size: 0.72rem;
   line-height: 1.5;
   color: var(--minima-brand-color-dark);
@@ -776,7 +781,7 @@ body.search-open { overflow: hidden; }
   border-top: 3px solid var(--minima-heading-color);
 
   &__heading {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -834,7 +839,7 @@ body.search-open { overflow: hidden; }
   }
 
   &__title {
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: $font-serif-body;
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.3;
@@ -855,7 +860,7 @@ body.search-open { overflow: hidden; }
     margin: 0;
   }
 
-  .post-meta { font-size: 0.72rem; opacity: 0.55; margin-top: auto; padding-top: 0.3rem; }
+  .post-meta { font-size: $font-size-meta; opacity: 0.55; margin-top: auto; padding-top: 0.3rem; }
 }
 
 .post-content img {
@@ -877,7 +882,7 @@ body.search-open { overflow: hidden; }
   }
 
   figcaption {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.68rem;
     color: var(--minima-brand-color-dark);
     text-align: right;
@@ -954,7 +959,7 @@ body.search-open { overflow: hidden; }
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--minima-heading-color);
@@ -1016,7 +1021,6 @@ body.search-open { overflow: hidden; }
   grid-template-columns: 1fr 1fr;
   min-height: 420px;
   margin-bottom: 2rem;
-  //border-bottom: 3px solid #E93C35;
 
   &__img-wrap {
     position: relative;
@@ -1046,7 +1050,7 @@ body.search-open { overflow: hidden; }
   }
 
   &__caption {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.68rem;
     color: var(--minima-brand-color-dark);
     text-align: right;
@@ -1062,7 +1066,6 @@ body.search-open { overflow: hidden; }
     flex-direction: column;
     justify-content: center;
     padding: 2rem 0 2rem 2rem;
-    //background-color: var(--minima-background-color);
     gap: 0.75rem;
   }
 
@@ -1081,7 +1084,7 @@ body.search-open { overflow: hidden; }
 
   &__excerpt {
     font-size: 1.1rem;
-    line-height: 1.5625rem;
+    line-height: 1.5;
     color: var(--minima-text-color);
     opacity: 0.85;
     margin: 0;
@@ -1129,8 +1132,8 @@ body.search-open { overflow: hidden; }
   }
 
   &__kicker {
-    font-family: 'Libre Franklin', Arial, sans-serif;
-    font-size: 0.68rem;
+    font-family: $font-sans;
+    font-size: 0.6875rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -1139,10 +1142,10 @@ body.search-open { overflow: hidden; }
   }
 
   &__title {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 2rem;
+    font-family: $font-serif-display;
+    font-size: 2.5rem;
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.07;
     margin: 0;
 
     a {
@@ -1153,24 +1156,24 @@ body.search-open { overflow: hidden; }
   }
 
   &__excerpt {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-family: $font-serif-body;
+    font-size: 1.1rem;
+    line-height: 1.4;
     color: var(--minima-text-color);
     opacity: 0.8;
     margin: 0;
   }
 
   &__author {
-    font-family: 'Libre Franklin', Arial, sans-serif;
-    font-size: 0.72rem;
+    font-family: $font-sans;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--minima-text-color);
     opacity: 0.6;
   }
 
   &__readtime {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.67rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -1196,7 +1199,7 @@ body.search-open { overflow: hidden; }
   }
 
   &__caption {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.68rem;
     color: var(--minima-brand-color);
     text-align: right;
@@ -1253,7 +1256,7 @@ body.search-open { overflow: hidden; }
   }
 
   &__kicker {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -1263,10 +1266,10 @@ body.search-open { overflow: hidden; }
   }
 
   &__title {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1rem;
+    font-family: $font-serif-display;
+    font-size: 1.25rem;
     font-weight: 700;
-    line-height: 1.35;
+    line-height: 1.12;
     margin: 0;
 
     a {
@@ -1277,24 +1280,24 @@ body.search-open { overflow: hidden; }
   }
 
   &__excerpt {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 0.875rem;
-    line-height: 1.5;
+    font-family: $font-serif-body;
+    font-size: 1.1rem;
+    line-height: 1.4;
     color: var(--minima-text-color);
     opacity: 0.7;
     margin: 0;
   }
 
   &__author {
-    font-family: 'Libre Franklin', Arial, sans-serif;
-    font-size: 0.68rem;
+    font-family: $font-sans;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--minima-text-color);
     opacity: 0.55;
   }
 
   &__readtime {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -1508,9 +1511,10 @@ body.search-open { overflow: hidden; }
   }
 
   &__title {
-    font-size: 1.1rem;
-    line-height: 1.5625rem;
+    font-family: $font-serif-display;
+    font-size: 1.25rem;
     font-weight: 700;
+    line-height: 1.12;
     margin: 0;
 
     a {
@@ -1521,16 +1525,17 @@ body.search-open { overflow: hidden; }
   }
 
   &__author {
-    font-family: 'Libre Franklin', Arial, sans-serif;
-    font-size: 0.72rem;
+    font-family: $font-sans;
+    font-size: 0.75rem;
     font-style: italic;
     color: var(--minima-brand-color);
     margin: 0;
   }
 
   &__excerpt {
+    font-family: $font-serif-body;
     font-size: 1.1rem;
-    line-height: 1.5625rem;
+    line-height: 1.4;
     color: var(--minima-text-color);
     opacity: 0.8;
     margin: 0;
@@ -1545,7 +1550,7 @@ body.search-open { overflow: hidden; }
   }
 
   &__readtime {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.67rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -1554,7 +1559,7 @@ body.search-open { overflow: hidden; }
     &::before { content: "·"; margin-right: 0.35rem; }
   }
 
-  .post-meta { font-size: 0.73rem; opacity: 0.55; }
+  .post-meta { font-size: $font-size-meta; opacity: 0.55; }
 
   // Variante pequeña para sección de categorías
   &--sm {
@@ -1655,32 +1660,17 @@ body.search-open { overflow: hidden; }
 }
 
 // ============================================================
-// ASIDE — Más vistos
-// ============================================================
-
-.home-aside {}
-
-// ============================================================
-// BANNER FULL-WIDTH (home)
-// ============================================================
-
-// ============================================================
 // PROMO BANNER — Video + Slogan
 // ============================================================
+
 .divisor {
   border: none;
   border-bottom: 1px solid var(--minima-border-color-02);
-
-  @media (prefers-color-scheme: dark) {
-    border-top-width: 1px;
-    border-bottom: 1px solid var(--minima-border-color-02);
-  }
 }
 .promo-banner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  //margin-top: 2rem;
   background: #2B3034;
   border-top: 4px solid #E93C35;
   border-radius: 4px;
@@ -1760,7 +1750,7 @@ body.search-open { overflow: hidden; }
   }
 
   &__kicker {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -1769,7 +1759,7 @@ body.search-open { overflow: hidden; }
   }
 
   &__headline {
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: $font-serif-body;
     font-size: 1.85rem;
     font-weight: 800;
     line-height: 1.2;
@@ -1781,7 +1771,7 @@ body.search-open { overflow: hidden; }
   &__text {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 1.1rem;
-    line-height: 1.5625rem;
+    line-height: 1.5;
     color: #B9C7D2;
     margin: 0;
   }
@@ -1791,7 +1781,7 @@ body.search-open { overflow: hidden; }
     align-items: center;
     gap: 0.4rem;
     padding: 0.6rem 1.4rem;
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -1913,9 +1903,10 @@ body.search-open { overflow: hidden; }
   }
 
   &__title {
-    font-size: 1.1rem;
-    line-height: 1.5625rem;
+    font-family: $font-serif-display;
+    font-size: 1.25rem;
     font-weight: 700;
+    line-height: 1.12;
     color: var(--minima-heading-color);
     text-decoration: none;
 
@@ -1923,15 +1914,14 @@ body.search-open { overflow: hidden; }
   }
 
   &__author {
-    font-family: 'Libre Franklin', Arial, sans-serif;
-    font-size: 0.72rem;
+    font-family: $font-sans;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--minima-text-color);
     opacity: 0.6;
   }
 
-  .post-meta { font-size: 0.8rem;
-    line-height: 1.5625rem; opacity: 0.55; }
+  .post-meta { font-size: $font-size-meta; line-height: 1.4; opacity: 0.55; }
 }
 
 
@@ -1960,7 +1950,7 @@ body.search-open { overflow: hidden; }
   }
 
   &__title {
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: $font-serif-body;
     font-size: 0.88rem;
     font-weight: 700;
     line-height: 1.3;
@@ -1978,7 +1968,7 @@ body.search-open { overflow: hidden; }
   }
 
   &__readtime {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.67rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -1987,7 +1977,7 @@ body.search-open { overflow: hidden; }
     &::before { content: "·"; margin-right: 0.3rem; }
   }
 
-  .post-meta { font-size: 0.72rem; opacity: 0.55; }
+  .post-meta { font-size: $font-size-meta; opacity: 0.55; }
 }
 
 // ============================================================
@@ -2103,7 +2093,7 @@ body.search-open { overflow: hidden; }
     font-size: 0.8rem;
     color: var(--minima-brand-color);
     margin: 0 auto;
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
@@ -2116,12 +2106,16 @@ body.search-open { overflow: hidden; }
 }
 
 // ============================================================
-// TIPOGRAFÍA — estilo NYT
+// TIPOGRAFÍA
 // ============================================================
 
-// Titulares y encabezados: serif de display
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Newsreader', Georgia, serif;
+// Titulares de display — Cormorant Garamond
+h1, h2, h3 {
+  font-family: $font-serif-display;
+}
+
+h4, h5, h6 {
+  font-family: $font-serif-body;
 }
 
 // Títulos de artículo editorial y noticias
@@ -2130,14 +2124,17 @@ h1, h2, h3, h4, h5, h6 {
 .most-viewed__title,
 .post-title,
 .page-heading {
-  font-family: 'Newsreader', Georgia, serif;
+  font-family: $font-serif-display;
 }
 
-// Cuerpo del post — Spectral serif
+// Cuerpo del post
 .post-content {
-  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
-  font-size: 1.235rem;
-  line-height: 1.5625rem;
+  font-family: $font-serif-body;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  font-feature-settings: "liga", "kern", "onum";
+  font-variant-ligatures: common-ligatures;
+  font-variant-numeric: oldstyle-nums;
 }
 
 // Nombre del sitio — display bold
@@ -2160,17 +2157,27 @@ h1, h2, h3, h4, h5, h6 {
 .pasatiempos__heading,
 .pagination__btn,
 .pagination__page {
-  font-family: 'Libre Franklin', 'Franklin Gothic Medium', Arial, sans-serif;
+  font-family: $font-sans;
 }
+
+// Párrafos y títulos en home
+.home p {
+  font-family: $font-serif-body;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.home h1 { line-height: 1.07; }
+.home h2 { line-height: 1.1;  }
+.home h3 { line-height: 1.15; }
 
 // ============================================================
 // FOOTER
 // ============================================================
 
 .site-footer {
-  //background: var(--minima-background-color);
   color: var(--minima-text-color);
-  font-family: 'Libre Franklin', Arial, sans-serif;
+  font-family: $font-sans;
   border: none;
 }
 
@@ -2207,16 +2214,15 @@ h1, h2, h3, h4, h5, h6 {
 
   &__desc {
     font-size: 0.95rem;
-    line-height: 1.5625rem;
+    line-height: 1.5;
     color: var(--minima-brand-color);
     margin: 0;
     text-align: justify;
-    //max-width: 28ch;
   }
 
   &__email {
     font-size: 0.95rem;
-    line-height: 1.5625rem;
+    line-height: 1.5;
     color: var(--minima-brand-color);
     text-decoration: none;
     transition: color 0.15s;
@@ -2232,9 +2238,9 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.7rem;
 
   &__heading {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.95rem;
-    line-height: 1.5625rem;
+    line-height: 1.5;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #E93C35;
@@ -2256,9 +2262,9 @@ h1, h2, h3, h4, h5, h6 {
 
   &__link {
     font-size: 0.95rem;
-    line-height: 1.5625rem;
+    line-height: 1.5;
     color: var(--minima-brand-color);
-    text-decoration: none !important;
+    text-decoration: none;
     transition: color 0.15s;
     &:hover   { color: #E93C35; }
     &:visited { color: var(--minima-brand-color); }
@@ -2393,9 +2399,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 2.5rem;
   margin: 2rem 0 1rem;
   align-items: start;
-  //background: var(--minima-code-background-color);
   border-radius: 4px;
-  //padding: 1.5rem;
 
   &__heading {
     font-size: 0.75rem;
@@ -2443,7 +2447,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__caption {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.8rem;
     color: var(--minima-brand-color-dark);
     text-align: center;
@@ -2458,7 +2462,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .apoyo-box {
   border-top: 3px solid #E93C35;
-  //border-bottom: 1px solid var(--minima-border-color-01);
   padding: 1.75rem 0;
   margin: 2.5rem 0 0;
 
@@ -2476,7 +2479,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__heading {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 1.1rem;
     font-weight: 800;
     color: var(--minima-heading-color);
@@ -2506,7 +2509,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.65rem 1.5rem;
     background: var(--minima-heading-color);
     color: var(--minima-background-color);
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -2525,7 +2528,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__local {
-    font-family: 'Libre Franklin', Arial, sans-serif;
+    font-family: $font-sans;
     font-size: 0.82rem;
     color: var(--minima-text-color);
 

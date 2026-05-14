@@ -4,7 +4,16 @@ $content-width: 1200px;
 $on-medium:     768px;
 $on-large:      1200px;
 
-// Typography — NYT-inspired
-$base-font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+// ── Familias tipográficas ──────────────────────────────────────
+$font-sans:          'Libre Franklin', Arial, sans-serif;
+$font-serif-body:    'EB Garamond', Georgia, serif;
+$font-serif-display: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+
+// ── Tamaños de referencia ──────────────────────────────────────
+$font-size-label: 0.72rem;
+$font-size-meta:  0.75rem;
+
+// ── Base ───────────────────────────────────────────────────────
+$base-font-family: $font-serif-body;
 $base-font-size:   16px;
 $base-line-height: 1.65;

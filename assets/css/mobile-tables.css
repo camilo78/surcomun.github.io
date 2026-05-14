@@ -8,6 +8,7 @@
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin-bottom: 1.5rem;
+  font-family: Arial, sans-serif;
 }
 
 /* ── Botón "Ver tabla completa" (oculto en escritorio) ── */
@@ -78,8 +79,8 @@
     border-bottom: 1px solid var(--minima-table-border-color);
     padding: 9px 13px;
     text-align: left !important;
-    font-size: 18px;
-    line-height: 1.5;
+    font-size: 20px;
+    line-height: 1.2;
   }
 
   .sc-wrap:not(.sc-full) td:last-child {
@@ -194,8 +195,8 @@
     display: table-cell;
     border: 1px solid var(--minima-table-border-color);
     padding: 7px 9px;
-    font-size: 12px;
-    line-height: 1.35;
+    font-size: 14px;
+    line-height: 1.2;
     white-space: normal;
     text-align: left !important;
   }
