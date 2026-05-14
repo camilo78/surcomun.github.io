@@ -182,6 +182,9 @@ split: "," -%}
             <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
           </h3>
           <p class="recent-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+          {%- if post.author -%}
+          <span class="recent-card__author">Por: <a href="{{ '/autores/' | relative_url }}?autor={{ post.author | url_encode }}">{{ post.author }}</a></span>
+          {%- endif -%}
           <span class="post-meta">{{ post.date | date: "%-d de %B de %Y" }}</span>
         </div>
       </article>

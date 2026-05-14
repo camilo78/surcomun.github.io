@@ -834,15 +834,21 @@ body.search-open { overflow: hidden; }
     flex-direction: column;
     gap: 0.35rem;
     padding-top: 0.75rem;
-    border-top: 3px solid var(--minima-border-color-01);
     flex: 1;
   }
 
+  &__author {
+    font-family: $font-sans;
+    font-size: $font-size-meta;
+    font-style: italic;
+    color: var(--minima-brand-color);
+  }
+
   &__title {
-    font-family: $font-serif-body;
-    font-size: 1rem;
+    font-family: $font-serif-display;
+    font-size: 1.25rem;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.12;
     margin: 0;
 
     a {
@@ -853,8 +859,9 @@ body.search-open { overflow: hidden; }
   }
 
   &__excerpt {
-    font-size: 0.82rem;
-    line-height: 1.5;
+    font-family: $font-serif-body;
+    font-size: 1.1rem;
+    line-height: 1.4;
     color: var(--minima-text-color);
     opacity: 0.75;
     margin: 0;
@@ -1166,10 +1173,9 @@ body.search-open { overflow: hidden; }
 
   &__author {
     font-family: $font-sans;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--minima-text-color);
-    opacity: 0.6;
+    font-size: $font-size-meta;
+    font-style: italic;
+    color: var(--minima-brand-color);
   }
 
   &__readtime {
@@ -1290,10 +1296,9 @@ body.search-open { overflow: hidden; }
 
   &__author {
     font-family: $font-sans;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--minima-text-color);
-    opacity: 0.55;
+    font-size: $font-size-meta;
+    font-style: italic;
+    color: var(--minima-brand-color);
   }
 
   &__readtime {
@@ -1526,10 +1531,9 @@ body.search-open { overflow: hidden; }
 
   &__author {
     font-family: $font-sans;
-    font-size: 0.75rem;
+    font-size: $font-size-meta;
     font-style: italic;
     color: var(--minima-brand-color);
-    margin: 0;
   }
 
   &__excerpt {
@@ -1915,10 +1919,9 @@ body.search-open { overflow: hidden; }
 
   &__author {
     font-family: $font-sans;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--minima-text-color);
-    opacity: 0.6;
+    font-size: $font-size-meta;
+    font-style: italic;
+    color: var(--minima-brand-color);
   }
 
   .post-meta { font-size: $font-size-meta; line-height: 1.4; opacity: 0.55; }
