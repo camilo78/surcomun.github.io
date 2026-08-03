@@ -2,7 +2,7 @@
 layout: post
 title: "El frente que no vimos: notas sobre una derrota y lo que queda por hacer"
 subtitle: "Notas sobre la conquista cultural del neoliberalismo y la tarea pendiente"
-date: 2026-05-02 09:00:00 -0600
+date: 2026-08-03 09:00:00 -0600
 categories: [política, cultura, opinión]
 tags: [hegemonía-cultural, neoliberalismo, honduras, clase-trabajadora, clase-media]
 excerpt: "Hace cuarenta años habríamos discutido capital y trabajo, plusvalía, salarios. Hoy descubrimos, tarde, que la lengua, la cultura y el sentido común eran el frente principal de una guerra que la izquierda perdió mientras se preparaba para otra."
