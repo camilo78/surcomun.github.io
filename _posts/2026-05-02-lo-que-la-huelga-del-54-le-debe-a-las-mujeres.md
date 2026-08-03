@@ -6,8 +6,8 @@ categories: [historia, política]
 tags: [huelga-del-54, mujeres, honduras, historia, movimiento-obrero, derechos-de-la-mujer, memoria-histórica]
 excerpt: "Fueron ellas quienes sostuvieron el paro desde adentro. Setenta años después, su nombre sigue faltando en los relatos oficiales de la resistencia."
 author: Glenn Flores
-popular: true
-featured: true
+popular: false
+featured: false
 cover_image: "/assets/img/posts/mujeres_cocinando_54.jpg"
 cover_caption: "Foto. RPP....Mujeres  cocinando, Huelga 1954."
 ---
