@@ -4,9 +4,11 @@ title: Política de privacidad
 permalink: /privacidad/
 ---
 
-*Última actualización: mayo de 2026*
+*Última actualización: agosto de 2026*
 
 En **Sur Común** creemos que la privacidad es un derecho, no una concesión. Por eso esta política empieza con una afirmación sencilla: **no recopilamos datos personales de quienes nos leen, no rastreamos su navegación y no perfilamos su comportamiento**. La revista se publica para ser leída, no para extraer información de quien lee.
+
+La única excepción es la que vos mismo decidís crear: si te suscribís al boletín por correo, nos das tu dirección de correo electrónico y la guardamos para escribirte cuando publicamos. Es voluntario, es reversible en un clic y está explicado en detalle en la sección 5.4. Leer el sitio no requiere darnos absolutamente nada.
  
 Esta política explica, en lenguaje claro, qué hacemos y qué no hacemos con tu información cuando visitás surcomun.com, y cuál es el marco legal hondureño que respalda esos compromisos.
  
@@ -24,11 +26,11 @@ Para cualquier consulta relacionada con esta política: [privacidad@surcomun.com
  
 A diferencia de la mayoría de los sitios web, en surcomun.com no encontrarás:
  
-- **Sin cuentas de usuario.** No hay registro, no hay inicio de sesión, no hay perfiles. Por lo tanto, no tenemos tu nombre, tu correo, tu edad, tu ubicación ni cualquier otro dato asociado a una identidad.
+- **Sin cuentas de usuario.** No hay registro, no hay inicio de sesión, no hay perfiles. No tenemos tu nombre, tu edad, tu ubicación ni ningún otro dato asociado a una identidad. Si te suscribiste al boletín tenemos tu correo, y nada más que tu correo: no está vinculado a lo que leés ni a ninguna otra información sobre vos (sección 5.4).
 - **Sin rastreadores publicitarios ni de comportamiento.** No usamos *Google Analytics*, *Facebook Pixel*, *Hotjar*, *Mixpanel* ni servicios similares. No medimos qué leés, cuánto tiempo pasás en cada artículo ni a dónde vas después. Sí contamos visitas mediante **GoatCounter**, una herramienta de analítica sin cookies y sin datos personales, explicada en la sección 3.
 - **Sin pauta publicitaria.** Como no tenemos anunciantes, tampoco tenemos los rastreadores que los anunciantes suelen exigir.
 - **Sin huella digital del navegador (*fingerprinting*).** No identificamos tu dispositivo por su combinación de fuente, resolución, plugins u otras características técnicas.
-- **Sin venta ni cesión de datos a terceros.** No tenemos datos para vender, así que mal podríamos venderlos.
+- **Sin venta ni cesión de datos a terceros.** No vendemos, alquilamos ni cedemos información a nadie, en ninguna circunstancia. Esto incluye expresamente las direcciones de la lista de correo.
 Si te conectás a Sur Común desde un navegador en modo privado, sin extensiones de bloqueo y sin red privada virtual, leés exactamente lo mismo y dejás exactamente la misma huella —ninguna— que cualquier otra persona.
  
 ---
@@ -70,7 +72,7 @@ Podés bloquear, eliminar o restringir las cookies desde la configuración de tu
  
 ## 5. Comunicaciones que iniciás vos
  
-Hay tres situaciones en las que nos llegan datos personales tuyos, todas porque vos elegís enviárnoslos:
+Hay cuatro situaciones en las que nos llegan datos personales tuyos, todas porque vos elegís enviárnoslos:
  
 ### 5.1 Correo electrónico
  
@@ -85,6 +87,22 @@ Si decidís contribuir económicamente con la revista a través de las plataform
 ### 5.3 Cartas de lectores publicadas
  
 Cuando enviás una carta para su posible publicación, asumimos que autorizás su difusión bajo tu firma. Si preferís que se publique con seudónimo o sólo iniciales, indicalo en el mensaje. Una vez publicada, la carta queda parte del archivo del sitio bajo la misma licencia abierta que el resto de los contenidos editoriales (ver [Términos de uso](/terminos/)).
+
+### 5.4 Suscripción al boletín por correo
+
+Si te suscribís desde la página [Suscribirse](/suscribirse/) o desde cualquiera de los formularios del sitio, recogemos **únicamente tu dirección de correo electrónico**. No pedimos nombre, país, edad ni ningún otro dato, y no hay campos opcionales escondidos.
+
+**Para qué la usamos.** Sólo para avisarte cuando publicamos un artículo nuevo. No la usamos para publicidad, ni para campañas de terceros, ni para ningún fin distinto del anunciado. La dirección tampoco se cruza con la analítica del sitio: no sabemos ni podemos saber qué artículos leés.
+
+**Quién procesa los envíos.** Usamos [Buttondown](https://buttondown.com), un servicio de boletines con sede en los Estados Unidos, que almacena la lista y realiza los envíos por nuestra cuenta. Esto implica que tu dirección se guarda en servidores fuera de Honduras. Su política de privacidad está en [buttondown.com/privacy](https://buttondown.com/privacy). Es el único tercero con acceso a la lista, y lo tiene en calidad de proveedor, no de destinatario: no puede usar las direcciones para fines propios.
+
+**Confirmación previa.** Aplicamos doble confirmación: después de escribir tu correo recibirás un mensaje pidiéndote que confirmes. Si no lo confirmás, la dirección no se incorpora a la lista. Así evitamos que alguien te suscriba sin tu consentimiento.
+
+**Sin medición de tu lectura.** Muchos boletines incluyen un píxel invisible para saber si abriste el correo y reescriben los enlaces para contar clics. Nosotros **desactivamos el seguimiento de aperturas y de clics**. No sabemos si abriste el boletín, cuándo lo hiciste ni en qué enlaces entraste. Esto es coherente con la sección 2: si no medimos tu lectura en el sitio, tampoco vamos a medirla en tu bandeja de entrada.
+
+**Cómo darte de baja.** Cada correo que enviamos incluye un enlace de baja que funciona en un clic, sin pedir explicaciones ni pasos intermedios. Al usarlo, tu dirección se elimina de la lista. Si además querés que borremos cualquier registro asociado, escribinos a [privacidad@surcomun.com](mailto:privacidad@surcomun.com) y lo hacemos.
+
+**Cuánto tiempo la conservamos.** Mientras sigas suscrito. Si te das de baja, la dirección se elimina de la lista activa. No mantenemos listas de exsuscriptores para reactivación ni para ningún otro uso.
  
 ---
  
@@ -123,6 +141,7 @@ Aunque, como explicamos, prácticamente no recopilamos datos personales tuyos, q
 - **Suprimir** tu información de nuestros archivos (por ejemplo, pedirnos que borremos un correo que nos enviaste).
 - **Oponerte** al tratamiento o solicitar su limitación.
 - **Solicitar copia** de la información asociada a tu persona en formato legible.
+- **Revocar tu consentimiento** en cualquier momento si estás suscrito al boletín, sea con el enlace de baja que incluye cada envío o escribiéndonos. La baja es incondicional: no vamos a pedirte explicaciones ni a intentar retenerte.
 Para ejercer cualquiera de estos derechos, escribinos a [privacidad@surcomun.com](mailto:privacidad@surcomun.com). Responderemos en un plazo razonable, normalmente dentro de los diez días hábiles siguientes a la recepción de la solicitud.
  
 Adicionalmente, en lo que respecta a información sobre sí misma contenida en bases de datos o registros privados, la legislación hondureña reconoce la **garantía constitucional del Hábeas Data** (artículo 182 de la Constitución, reformado por Decreto Legislativo No. 237-2012 y ratificado por Decreto No. 10-2013, y desarrollada por la Ley sobre Justicia Constitucional), que permite a cualquier persona solicitar el acceso, actualización, rectificación o enmienda de sus datos ante la Sala de lo Constitucional de la Corte Suprema de Justicia.
@@ -142,7 +161,7 @@ Ningún sistema conectado a Internet es invulnerable, pero el riesgo se reduce s
 Esta política puede actualizarse cuando cambien las prácticas técnicas del sitio, la legislación hondureña aplicable o nuestro criterio editorial. Cuando lo hagamos:
  
 - La fecha de "Última actualización" al inicio de esta página reflejará la versión vigente.
-- Si los cambios afectan compromisos sustantivos (por ejemplo, si en algún momento incorporáramos una herramienta de analítica), lo anunciaremos visiblemente en la portada del sitio antes de su entrada en vigor.
+- Si los cambios afectan compromisos sustantivos (por ejemplo, si en algún momento incorporáramos una herramienta de analítica, o si cambiáramos el proveedor de envío del boletín), lo anunciaremos visiblemente en la portada del sitio antes de su entrada en vigor. Si el cambio afecta a la lista de correo, además lo avisaremos por el propio boletín.
 - Mantenemos disponibles versiones anteriores de esta política a solicitud, para fines de transparencia.
   
 ---

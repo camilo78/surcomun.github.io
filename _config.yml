@@ -49,6 +49,7 @@ minima:
   nav_pages:
     - about.md
     - apoyar.md
+    - suscribirse.md
 
   # Mostrar extractos en la página de inicio  
   show_excerpts: true
@@ -67,6 +68,17 @@ minima:
 
   # Ocultar el enlace del feed RSS
   hide_site_feed_link: false
+
+# ── Newsletter / suscripción por correo ───────────────────
+# El envío lo hace Buttondown (https://buttondown.com), que lee
+# el feed en /feed.xml y manda un correo por cada post nuevo.
+# IMPORTANTE: `buttondown_username` debe coincidir exactamente con
+# el usuario de la cuenta de Buttondown, o el formulario dará 404.
+newsletter:
+  enabled: true
+  buttondown_username: "surcomun"
+  heading: "Recibí cada publicación en tu correo"
+  description: "Sin publicidad y sin costo. Te escribimos solo cuando publicamos algo nuevo."
 
 # ── Footer ────────────────────────────────────────────────
 footer:

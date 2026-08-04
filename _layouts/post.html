@@ -161,6 +161,8 @@ split: "," -%}
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
   </article>
 
+  {%- include newsletter.html variant="post" -%}
+
   <!-- ══ MÁS ARTÍCULOS ══ -->
   {%- if recent_posts.size > 0 -%}
   <section class="post-recents">

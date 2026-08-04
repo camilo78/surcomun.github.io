@@ -1,0 +1,56 @@
+{%- comment -%}
+  ══════════════════════════════════════════════════════════════
+  Formulario de suscripción (Buttondown)
+  ══════════════════════════════════════════════════════════════
+  Uso:  {%- include newsletter.html variant="footer" -%}
+  Variantes: "footer" | "post" | "page"
+
+  Configuración en _config.yml → bloque `newsletter:`
+  El envío va directo a Buttondown; ellos mandan el correo de
+  confirmación (doble opt-in) y sirven cada post nuevo leyendo
+  el feed en {{ '/feed.xml' | absolute_url }}.
+{%- endcomment -%}
+
+{%- if site.newsletter.enabled and site.newsletter.buttondown_username != empty -%}
+{%- assign variant = include.variant | default: "footer" -%}
+{%- assign bd_user = site.newsletter.buttondown_username -%}
+{%- assign field_id = "newsletter-email-" | append: variant -%}
+
+<section class="newsletter newsletter--{{ variant }}" aria-labelledby="newsletter-heading-{{ variant }}">
+  <div class="newsletter__intro">
+    <h2 class="newsletter__heading" id="newsletter-heading-{{ variant }}">
+      {{ site.newsletter.heading | default: "Recibí cada publicación en tu correo" }}
+    </h2>
+    <p class="newsletter__desc">
+      {{ site.newsletter.description | default: "Sin publicidad y sin costo. Te escribimos solo cuando publicamos algo nuevo." }}
+    </p>
+  </div>
+
+  <form class="newsletter__form"
+        action="https://buttondown.com/api/emails/embed-subscribe/{{ bd_user }}"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/{{ bd_user }}', 'popupwindow')">
+    <label class="newsletter__label" for="{{ field_id }}">Correo electrónico</label>
+    <div class="newsletter__row">
+      <input class="newsletter__input"
+             type="email"
+             name="email"
+             id="{{ field_id }}"
+             placeholder="tu@correo.com"
+             autocomplete="email"
+             required>
+      <button class="newsletter__submit" type="submit">Suscribirme</button>
+    </div>
+    <p class="newsletter__legal">
+      Te enviaremos un correo para confirmar. Podés darte de baja cuando quieras.
+      Leé nuestra <a href="{{ '/privacidad/' | relative_url }}">política de privacidad</a>.
+    </p>
+  </form>
+
+  <p class="newsletter__alt">
+    ¿Preferís un lector de feeds? Suscribite por
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>.
+  </p>
+</section>
+{%- endif -%}

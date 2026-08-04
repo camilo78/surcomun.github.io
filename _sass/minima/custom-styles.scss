@@ -2603,3 +2603,148 @@ h4, h5, h6 {
     border: 0;
   }
 }
+
+// ══════════════════════════════════════════════════════════════
+//  NEWSLETTER — formulario de suscripción (_includes/newsletter.html)
+// ══════════════════════════════════════════════════════════════
+.newsletter {
+  font-family: $font-sans;
+  color: var(--minima-text-color);
+
+  &__heading {
+    font-family: $font-sans;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #E93C35;
+    margin: 0 0 0.5rem;
+  }
+
+  &__desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--minima-brand-color);
+    margin: 0;
+  }
+
+  &__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  &__row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__input {
+    flex: 1 1 14rem;
+    min-width: 0;
+    font-family: $font-sans;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0.6rem 0.75rem;
+    color: var(--minima-text-color);
+    background: var(--minima-background-color);
+    border: 1px solid var(--minima-border-color-01);
+    border-radius: 2px;
+    transition: border-color 0.15s;
+
+    &::placeholder { color: var(--minima-brand-color); opacity: 0.8; }
+
+    &:focus {
+      outline: none;
+      border-color: #E93C35;
+      box-shadow: 0 0 0 2px rgba(233, 60, 53, 0.2);
+    }
+  }
+
+  &__submit {
+    flex: 0 0 auto;
+    font-family: $font-sans;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    color: #fff;
+    background: #E93C35;
+    border: 1px solid #E93C35;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--minima-brand-color-dark);
+      border-color: var(--minima-brand-color-dark);
+    }
+  }
+
+  &__legal,
+  &__alt {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--minima-brand-color);
+    margin: 0.75rem 0 0;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      &:hover { color: #E93C35; }
+    }
+  }
+
+  // ── Variante: pie de página (banda ancha bajo las columnas) ──
+  &--footer {
+    display: grid;
+    grid-template-columns: 1.6fr 2fr;
+    gap: 0.5rem 3rem;
+    align-items: start;
+    margin-top: 2rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--minima-border-color-01);
+
+    .newsletter__alt { display: none; }
+  }
+
+  // ── Variante: final de un artículo ──
+  &--post {
+    max-width: $content-width;
+    margin: 3rem auto 0;
+    padding: 1.75rem;
+    background: var(--minima-code-background-color);
+    border-top: 4px double #E93C35;
+
+    .newsletter__intro { margin-bottom: 1rem; }
+    .newsletter__heading { font-size: 1.05rem; }
+  }
+
+  // ── Variante: página /suscribirse ──
+  &--page {
+    margin: 2rem 0;
+    padding: 1.75rem;
+    background: var(--minima-code-background-color);
+    border-top: 4px double #E93C35;
+
+    .newsletter__intro { margin-bottom: 1rem; }
+    .newsletter__heading { font-size: 1.05rem; }
+  }
+}
+
+@media screen and (max-width: $on-medium) {
+  .newsletter--footer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .newsletter__submit { flex: 1 1 100%; }
+}
