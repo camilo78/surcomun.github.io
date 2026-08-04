@@ -49,3 +49,50 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  # Aviso a la lista de correo: corre solo después de un deploy exitoso,
+  # para que el enlace del boletín ya resuelva cuando sale el correo.
+  notify:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.event_name == 'push'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --quiet pyyaml
+
+      - name: Detect newly added posts
+        id: detect
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            echo "Push inicial o forzado: sin base de comparación, no se avisa nada."
+            : > new_posts.txt
+          elif ! git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            echo "El commit anterior no está disponible; no se avisa nada."
+            : > new_posts.txt
+          else
+            git diff --diff-filter=A --name-only "$BEFORE" "$AFTER" -- '_posts/*.md' > new_posts.txt
+          fi
+          echo "Posts nuevos detectados:"
+          cat new_posts.txt
+
+      - name: Notify subscribers
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          SITE_URL: https://surcomun.com
+          # Cambiá a 'about_to_send' cuando quieras que salga sin revisión previa.
+          SEND_MODE: ${{ vars.BUTTONDOWN_SEND_MODE || 'draft' }}
+        run: python3 .github/scripts/notify_subscribers.py < new_posts.txt
