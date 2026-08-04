@@ -10,10 +10,16 @@ Lee de la entrada una lista de rutas de posts recién agregados (una por
 línea) y crea un correo por cada uno.
 
 Variables de entorno:
-  BUTTONDOWN_API_KEY  (obligatoria)  clave de https://buttondown.com/requests
+  BUTTONDOWN_API_KEY  (obligatoria salvo en DRY_RUN)  clave de
+                      https://buttondown.com/requests
   SITE_URL            (obligatoria)  ej. https://surcomun.com
   SEND_MODE           draft | about_to_send   (por defecto: draft)
-  PERMALINK_STYLE     solo informativo; el sitio usa /:year/:month/:day/:title.html
+  DRY_RUN             1 para imprimir el correo sin tocar la API
+
+Prueba local sin enviar nada:
+
+    SITE_URL=https://surcomun.com DRY_RUN=1 \
+      python3 .github/scripts/notify_subscribers.py <<< "_posts/mi-post.md"
 """
 
 import datetime
@@ -124,8 +130,9 @@ def main():
     api_key = os.environ.get("BUTTONDOWN_API_KEY", "").strip()
     site_url = os.environ.get("SITE_URL", "").strip().rstrip("/")
     send_mode = os.environ.get("SEND_MODE", "draft").strip() or "draft"
+    dry_run = os.environ.get("DRY_RUN", "").strip() in ("1", "true", "yes")
 
-    if not api_key:
+    if not api_key and not dry_run:
         print("BUTTONDOWN_API_KEY no está configurada; no se envía nada.")
         return 0
     if not site_url:
@@ -177,6 +184,16 @@ def main():
 
         url = f"{site_url}/{date:%Y/%m/%d}/{slug}.html"
         body = build_body(front_matter, url)
+
+        if dry_run:
+            print(f"── {filename} ── (DRY_RUN, no se llama a la API)")
+            print(f"Asunto: {title}")
+            print(f"Enlace: {url}")
+            print(f"Modo:   {send_mode}")
+            print("Cuerpo:")
+            print(body)
+            print("─" * 60)
+            continue
 
         try:
             result = create_email(api_key, str(title), body, send_mode)

@@ -1,0 +1,56 @@
+# Prueba manual del boletín. No despliega nada y no corre solo:
+# se dispara a mano desde la pestaña Actions.
+name: Probar boletín
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_path:
+        description: 'Ruta del post, ej. _posts/2026-08-03-el-frente-que-no-vimos-notas-sobre-una-derrota-y-lo-que-queda-por-hacer.md'
+        required: true
+        type: string
+      mode:
+        description: 'dry_run imprime el correo sin tocar la API; draft lo crea en Buttondown para revisarlo'
+        required: true
+        default: dry_run
+        type: choice
+        options:
+          - dry_run
+          - draft
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --quiet pyyaml
+
+      - name: Check that the post exists
+        env:
+          POST_PATH: ${{ inputs.post_path }}
+        run: |
+          set -euo pipefail
+          if [ ! -f "$POST_PATH" ]; then
+            echo "::error::No existe el archivo: $POST_PATH"
+            exit 1
+          fi
+
+      - name: Run notifier
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          SITE_URL: https://surcomun.com
+          SEND_MODE: draft
+          DRY_RUN: ${{ inputs.mode == 'dry_run' && '1' || '' }}
+          POST_PATH: ${{ inputs.post_path }}
+        run: echo "$POST_PATH" | python3 .github/scripts/notify_subscribers.py
