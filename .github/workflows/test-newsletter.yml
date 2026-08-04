@@ -6,8 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       post_path:
-        description: 'Ruta del post, ej. _posts/2026-08-03-el-frente-que-no-vimos-notas-sobre-una-derrota-y-lo-que-queda-por-hacer.md'
-        required: true
+        description: 'Post a probar: ruta, nombre de archivo o URL del artículo. Vacío = el más reciente.'
+        required: false
+        default: ''
         type: string
       mode:
         description: 'dry_run imprime el correo sin tocar la API; draft lo crea en Buttondown para revisarlo'
@@ -26,25 +27,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
       - name: Install dependencies
         run: pip install --quiet pyyaml
 
-      - name: Check that the post exists
+      - name: Resolve the post
+        id: resolve
         env:
-          POST_PATH: ${{ inputs.post_path }}
-        run: |
-          set -euo pipefail
-          if [ ! -f "$POST_PATH" ]; then
-            echo "::error::No existe el archivo: $POST_PATH"
-            exit 1
-          fi
+          POST_INPUT: ${{ inputs.post_path }}
+        run: python3 .github/scripts/resolve_post.py
 
       - name: Run notifier
         env:
@@ -52,5 +49,5 @@ jobs:
           SITE_URL: https://surcomun.com
           SEND_MODE: draft
           DRY_RUN: ${{ inputs.mode == 'dry_run' && '1' || '' }}
-          POST_PATH: ${{ inputs.post_path }}
+          POST_PATH: ${{ steps.resolve.outputs.path }}
         run: echo "$POST_PATH" | python3 .github/scripts/notify_subscribers.py
