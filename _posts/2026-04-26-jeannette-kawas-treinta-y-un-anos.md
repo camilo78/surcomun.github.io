@@ -9,7 +9,11 @@ author: Glenn Flores
 cover_image: "/assets/img/posts/parque-jeannette-kawas.webp"
 cover_caption: "Parque Nacional Jeannette Kawas, Punta Sal, Honduras."
 featured: true
-popular: true
+popular: false
+hidden: false
+show_cover: true
+mobile_tables: true
+published: true
 ---
 
 Han pasado **treinta y un años** desde que la brisa nocturna del Caribe, en el barrio El Centro de Tela, se mezcló con el olor a pólvora. La noche del **6 de febrero de 1995**, un solo disparo calibre **9 milímetros** terminó con la vida de **Blanca Jeannette Kawas Fernández**, pero detonó una onda expansiva de indignación que aún persiste en la jurisprudencia internacional. Al conmemorar más de tres décadas de su martirio, no sólo recordamos a la mujer que fundó PROLANSATE, sino a la arquitecta de una resistencia que transformó la ecología en una defensa frontal de los derechos humanos.

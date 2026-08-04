@@ -6,10 +6,14 @@ categories: [historia, política]
 tags: [huelga-del-54, mujeres, honduras, historia, movimiento-obrero, derechos-de-la-mujer, memoria-histórica]
 excerpt: "Fueron ellas quienes sostuvieron el paro desde adentro. Setenta años después, su nombre sigue faltando en los relatos oficiales de la resistencia."
 author: Glenn Flores
-popular: false
-featured: false
 cover_image: "/assets/img/posts/mujeres_cocinando_54.jpg"
 cover_caption: "Foto. RPP....Mujeres  cocinando, Huelga 1954."
+featured: false
+popular: false
+hidden: false
+show_cover: true
+mobile_tables: true
+published: true
 ---
 
 Hay una fecha que Honduras recuerda mal. La huelga bananera de **1954** aparece en los libros de texto como un hito obrero, como el momento en que el proletariado hondureño le arrancó al sistema sus primeras conquistas, y todo eso es cierto. Pero hay una parte de esa historia que el imaginario colectivo sigue dejando al margen, y es la parte protagonizada por las mujeres.

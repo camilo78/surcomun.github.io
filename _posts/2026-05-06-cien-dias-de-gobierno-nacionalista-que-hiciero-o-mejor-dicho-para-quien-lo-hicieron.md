@@ -9,9 +9,12 @@ author: Sur Común
 cover_image: "/assets/img/posts/caricatura_100_dias.webp"
 cover_caption: "Caricaturas Sur Común."
 page_styles: ".post-content table, .post-content table th, .post-content table td { font-size: 14px; line-height: 1.4; }"
-mobile_tables: true
+featured: true
+popular: false
 hidden: true
-featured: false
+show_cover: true
+mobile_tables: true
+published: true
 ---
 
 Se ha vuelto un lugar común escuchar que en estos primeros cien días de gobierno **"no se ha hecho nada"**. esto se escucha en todos lados, en redes y hasta entre quienes votaron por el oficialismo. Nada más falso. Se ha hecho mucho —demasiado, incluso, para apenas cien días—. La pregunta que importa no es *cuánto* se ha hecho, sino *para quién* se ha hecho.

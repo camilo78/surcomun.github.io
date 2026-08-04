@@ -12,10 +12,14 @@ translators:
 introduction_by: Camilo Alvarado
 published_by: Sur Común
 license: CC BY-SA 4.0
-featured: false
-popular: false
 cover_image: "/assets/img/posts/piotr-czerski.jpg"
 cover_caption: "Piotr Czerski. Fuente: Wikimedia Commons (CC BY-SA)"
+featured: false
+popular: false
+hidden: false
+show_cover: true
+mobile_tables: true
+published: true
 ---
 
 *Un manifiesto de los Nativos Digitales* es un ensayo de **Piotr Czerski** que revela las contradicciones que han surgido con el estado actual de la cultura, Internet y la democracia.

@@ -3,17 +3,19 @@ layout: post
 title: "El frente que no vimos: notas sobre una derrota y lo que queda por hacer"
 subtitle: "Notas sobre la conquista cultural del neoliberalismo y la tarea pendiente"
 date: 2026-08-03 09:00:00 -0600
-categories: [política, cultura, opinión]
+categories: [editorial, política, cultura, opinión]
 tags: [hegemonía-cultural, neoliberalismo, honduras, clase-trabajadora, clase-media]
 excerpt: "Hace cuarenta años habríamos discutido capital y trabajo, plusvalía, salarios. Hoy descubrimos, tarde, que la lengua, la cultura y el sentido común eran el frente principal de una guerra que la izquierda perdió mientras se preparaba para otra."
-featured: true
-popular: true
 author: Sur Común
 license: CC BY 4.0
-show_cover: false
-published: true
 cover_image: "/assets/img/posts/pobre-derecha.jpg"
 cover_caption: "Caricatura de Matador (Julio César González)"
+featured: false
+popular: true
+hidden: true
+show_cover: false
+mobile_tables: true
+published: true
 ---
  
 Hace cuarenta años habríamos discutido la relación entre capital y trabajo, la plusvalía, la explotación, los salarios, los medios de producción. Hoy discutimos la lengua, la cultura, el deseo, el sentido común, la épica de lo cotidiano —y descubrimos, tarde, que esos campos no eran subsidiarios: eran el frente principal en el que la izquierda perdió mientras se preparaba para otra guerra. Este texto intenta nombrar esa derrota y, sobre todo, lo que queda por hacer.

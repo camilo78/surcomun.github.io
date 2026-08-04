@@ -46,10 +46,12 @@ minima:
   skin: auto
 
   # Mostrar páginas específicas en la navegación
+  # Rutas relativas a la raíz del proyecto: el header compara contra
+  # `page.path`, así que deben incluir el directorio.
   nav_pages:
-    - about.md
-    - apoyar.md
-    - suscribirse.md
+    - paginas/about.md
+    - paginas/apoyar.md
+    - paginas/suscribirse.md
 
   # Mostrar extractos en la página de inicio  
   show_excerpts: true
@@ -82,7 +84,7 @@ newsletter:
 
 # ── Footer ────────────────────────────────────────────────
 footer:
-  description: "Periodismo independiente dedicado a informar, analizar y cuestionar. Desde 2016 contando las historias que importan."
+  description: "Revista digital independiente de análisis y crítica. Política, tecnología, ciencia y cultura, sin anunciantes ni patrocinadores."
   email: "contacto@surcomun.com"
   copyright: "© 2025 Sur Común. Todos los derechos reservados."
 

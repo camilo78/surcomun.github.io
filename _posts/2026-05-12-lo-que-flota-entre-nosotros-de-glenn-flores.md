@@ -6,12 +6,14 @@ date: 2026-05-12
 categories: [cultura, literatura]
 tags: [reseña, microficción, literatura latinoamericana]
 excerpt: "Hay libros que se leen y hay libros que se recuerdan. 'Lo que flota entre nosotros' pertenece a esa segunda categoría."
-popular: true
-featured: true
-show_cover: false
 cover_image: "/assets/img/posts/lo_que_flota_entre_nosotros_cover.png"
 cover_caption: "Portada de Lo que flota entre nosotros, de Glenn Flores"
-
+featured: false
+popular: true
+hidden: false
+show_cover: false
+mobile_tables: true
+published: true
 ---
 
 <figure class="post-figure-float">

@@ -7,10 +7,14 @@ tags: [cortometraje, animación, argentina, trabajo-asalariado, marxismo]
 excerpt: "Un hombre recorre su trayecto habitual hacia el trabajo, inmerso en un sistema donde el uso de las personas como objetos es cotidiano. Seis minutos de animación para entender, sin decirlo, qué es la alienación."
 author: Camilo Alvarado
 license: CC BY-SA 4.0
-featured: false 
-popular: true
 cover_image: "/assets/img/posts/el-empleo.jpg"
 cover_caption: "Escena del cortometraje El Empleo (The Employment)/ Opusbou"
+featured: false
+popular: true
+hidden: false
+show_cover: true
+mobile_tables: true
+published: true
 ---
 
 Hoy quiero hablarles de un cortometraje animado que captó mi atención: *El Empleo* (*The Employment*), una producción argentina dirigida por Santiago "Bou" Grasso a partir de una idea original de Patricio Plaza. En esta pieza encontramos a un hombre que realiza su trayecto habitual hacia el trabajo, inmerso en un sistema donde el uso de las personas como objetos es algo cotidiano.
