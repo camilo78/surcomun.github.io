@@ -2620,6 +2620,38 @@ h4, h5, h6 {
     height: 100%;
     border: 0;
   }
+
+  // Pantalla previa dentro de un artículo. La variante de la portada
+  // vive dentro de .promo-banner__video-wrap, que la posiciona distinto.
+  .yt-facade {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    &:hover img,
+    &:focus-visible img { opacity: 1; }
+
+    &__play {
+      position: absolute;
+      font-size: 3.5rem;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      pointer-events: none;
+      line-height: 1;
+    }
+  }
 }
 
 // ══════════════════════════════════════════════════════════════

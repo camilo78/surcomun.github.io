@@ -1,0 +1,20 @@
+{%- comment -%}
+  ══════════════════════════════════════════════════════════════
+  Vídeo de YouTube con pantalla previa (facade)
+  ══════════════════════════════════════════════════════════════
+  Muestra una miniatura servida desde nuestro dominio. YouTube no
+  recibe nada hasta que la persona hace clic para reproducir.
+
+  Uso:
+    {% include youtube.html
+         id="cxUuU1jwMgM"
+         thumb="/assets/img/video-el-empleo-corto.jpg"
+         title="El Empleo (The Employment)" %}
+{%- endcomment -%}
+<div class="yt-facade" data-id="{{ include.id }}" data-title="{{ include.title | escape }}"
+     role="button" tabindex="0"
+     aria-label="Reproducir el vídeo: {{ include.title | escape }}">
+  <img src="{{ include.thumb | relative_url }}" alt="{{ include.title | escape }}"
+       width="480" height="360" loading="lazy">
+  <span class="yt-facade__play" aria-hidden="true">▶</span>
+</div>

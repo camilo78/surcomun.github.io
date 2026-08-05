@@ -10,7 +10,15 @@
     </div>
 
     <div class="apoyo-box__acciones">
-    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#E93C35', 'Q5Q51YGYPF');kofiwidget2.draw();</script> 
+      {%- comment -%}
+        Enlace normal en vez del widget de Ko-fi. El widget cargaba un
+        script desde storage.ko-fi.com en cada visita; así no se contacta
+        a nadie hasta que la persona decide donar.
+      {%- endcomment -%}
+      <a class="apoyo-box__btn-kofi" href="https://ko-fi.com/Q5Q51YGYPF"
+         target="_blank" rel="noopener noreferrer">
+        <span aria-hidden="true">☕</span> Apoyar en Ko-fi
+      </a>
 <!-- 
       <details class="apoyo-box__local">
         <summary>Apoyar desde Honduras</summary>

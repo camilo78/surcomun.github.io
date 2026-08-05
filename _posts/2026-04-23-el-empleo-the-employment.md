@@ -32,7 +32,7 @@ Unos trabajamos frente a una computadora, otros detrás de un escritorio, otros 
 ## El Empleo (The Employment)
  
 <div class="video-container">
-  <iframe src="https://www.youtube.com/embed/cxUuU1jwMgM" frameborder="0" allowfullscreen></iframe>
+  {% include youtube.html id="cxUuU1jwMgM" thumb="/assets/img/video-el-empleo-corto.jpg" title="El Empleo (The Employment)" %}
 </div>
 ## Ficha técnica
  

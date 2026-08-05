@@ -263,32 +263,11 @@ layout: base
   <div class="promo-banner">
     <div class="promo-banner__video">
       <div class="promo-banner__video-wrap">
-        <div class="yt-facade" data-id="DwF3osDXuN4" role="button" tabindex="0" aria-label="Reproducir video de Sur Común">
-          <img src="https://i.ytimg.com/vi/DwF3osDXuN4/hqdefault.jpg"
-               alt="Sur Común — Video institucional"
-               width="480" height="360"
-               loading="lazy">
-          <span class="yt-facade__play" aria-hidden="true">▶</span>
-        </div>
+        {%- include youtube.html
+              id="DwF3osDXuN4"
+              thumb="/assets/img/video-el-empleo.jpg"
+              title="Sur Común — Video institucional" -%}
       </div>
-      <script>
-      (function(){
-        var f = document.querySelector('.yt-facade');
-        if (!f) return;
-        function load() {
-          var id = f.dataset.id;
-          var iframe = document.createElement('iframe');
-          iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1';
-          iframe.title = 'Sur Común — Video institucional';
-          iframe.setAttribute('frameborder','0');
-          iframe.setAttribute('allowfullscreen','');
-          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-          f.parentNode.replaceChild(iframe, f);
-        }
-        f.addEventListener('click', load);
-        f.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' ') load(); });
-      })();
-      </script>
     </div>
     <div class="promo-banner__body">
       <span class="promo-banner__kicker">Acerca de Sur Común</span>
@@ -329,4 +308,8 @@ layout: base
     </div>
 
   </section>
+
+  {%- comment -%}── Apoyo: mismo bloque que usan los artículos y /apoyar/ ──{%- endcomment -%}
+  {%- include apoyo.html -%}
+
 </div><!-- /home -->
