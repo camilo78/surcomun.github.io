@@ -17,7 +17,8 @@
         </svg>
       </button>
       <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
-        <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="{{ site.title | escape }}" class="site-logo" width="2048" height="1000">
+        <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="{{ site.title | escape }}" class="site-logo logo--claro" width="2048" height="1000">
+        <img src="{{ '/assets/img/logo-oscuro.png' | relative_url }}" alt="" aria-hidden="true" class="site-logo logo--oscuro" width="2048" height="1000">
       </a>
       <button class="search-btn" id="search-btn" aria-label="Buscar">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -115,12 +116,24 @@
 <script>
 (function () {
   // ── Tema claro/oscuro ──
+  // Sin preferencia guardada no forzamos nada: dejamos el atributo sin
+  // poner para que mande la media query `prefers-color-scheme` y el sitio
+  // siga al sistema. Antes se escribía 'light' por defecto, así que a quien
+  // tuviera el sistema en oscuro le salía la página clara igual.
   var html = document.documentElement;
   var saved = localStorage.getItem('theme');
-  html.setAttribute('data-theme', saved || 'light');
+  if (saved) html.setAttribute('data-theme', saved);
+
+  function temaActual() {
+    var attr = html.getAttribute('data-theme');
+    if (attr) return attr;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  }
 
   document.getElementById('theme-toggle').addEventListener('click', function () {
-    var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    var next = temaActual() === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
   });
@@ -141,20 +154,40 @@
   var results  = document.getElementById('search-results');
   var posts    = null;
 
+  // Debe coincidir con la transición más larga de .search-overlay__box
+  // al cerrar (ver custom-styles.scss).
+  var DURACION_CIERRE = 180;
+  var timerCierre = null;
+
   function openSearch() {
+    // Si se reabre mientras se estaba cerrando, se cancela el desmontaje.
+    clearTimeout(timerCierre);
     overlay.classList.add('is-open');
     overlay.setAttribute('aria-hidden', 'false');
     document.body.classList.add('search-open');
+    // Un fotograma de margen: el navegador necesita pintar el estado
+    // inicial antes de poder animar hacia el final.
+    requestAnimationFrame(function () {
+      overlay.classList.add('is-visible');
+    });
     input.focus();
     if (!posts) loadPosts();
   }
 
   function closeSearch() {
-    overlay.classList.remove('is-open');
+    if (!overlay.classList.contains('is-open')) return;
+    overlay.classList.remove('is-visible');
     overlay.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('search-open');
-    input.value = '';
-    results.innerHTML = '';
+    // Se espera a que la animación termine para retirar el overlay y
+    // limpiar; si se vaciara ya, el contenido desaparecería de golpe.
+    // El bloqueo del scroll también se suelta al final: hacerlo antes
+    // devuelve la barra a media animación y desplaza la página.
+    timerCierre = setTimeout(function () {
+      overlay.classList.remove('is-open');
+      document.body.classList.remove('search-open');
+      input.value = '';
+      results.innerHTML = '';
+    }, DURACION_CIERRE);
   }
 
   function loadPosts() {

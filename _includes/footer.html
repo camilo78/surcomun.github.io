@@ -8,7 +8,8 @@
       <!-- Descripción -->
       <div class="footer-brand">
         <a class="footer-brand__logo" href="{{ '/' | relative_url }}">
-          <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="{{ site.title | escape }}" class="footer-logo" width="2048" height="1000">
+          <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="{{ site.title | escape }}" class="footer-logo logo--claro" width="2048" height="1000">
+          <img src="{{ '/assets/img/logo-oscuro.png' | relative_url }}" alt="" aria-hidden="true" class="footer-logo logo--oscuro" width="2048" height="1000">
         </a>
         {%- if site.footer.description -%}
         <p class="footer-brand__desc">{{ site.footer.description }}</p>

@@ -15,6 +15,47 @@
 @mixin transition-ui    { transition: background 0.15s, color 0.15s; }
 @mixin transition-ui-full { transition: background 0.15s, color 0.15s, border-color 0.15s; }
 
+// Base compartida por todos los botones del sitio: misma tipografía y
+// mismo grosor de borde, para que al vaciarse el fondo en el hover el
+// contorno se vea igual en todos. Cada botón define aparte su tamaño,
+// sus colores y su relleno.
+@mixin boton-base($size: 0.85rem) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: $font-sans;
+  font-size: $size;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-width: 2px;
+  border-style: solid;
+  white-space: nowrap;
+  cursor: pointer;
+  @include transition-ui-full;
+}
+
+// Botón relleno: el estilo principal del sitio. Rojo de marca con texto
+// blanco que al pasar el ratón se vacía, dejando el contorno rojo y el
+// texto en el color de titulares —casi negro en tema claro, casi blanco
+// en oscuro— para que siga siendo legible en ambos.
+@mixin boton-relleno($size: 0.85rem) {
+  @include boton-base($size);
+  color: #fff;
+  background: #E93C35;
+  border-color: #E93C35;
+
+  &:hover,
+  &:focus-visible {
+    background: transparent;
+    border-color: #E93C35;
+    color: var(--minima-heading-color);
+    text-decoration: none;
+  }
+}
+
 // ============================================================
 // PALETA: #2B3034 · #627C8C · #989398 · #B9C7D2 · #E93C35
 // ============================================================
@@ -27,7 +68,7 @@
   --minima-site-title-color:      #ffffff;
   --minima-heading-color:         #2B3034;
   --minima-text-color:            #2B3034;
-  --minima-background-color:      #f8fafb;
+  --minima-background-color:      #fdfeff;
   --minima-code-background-color: #eef2f5;
   --minima-link-base-color:       #E93C35;
   --minima-link-visited-color:    #c4312b;
@@ -44,22 +85,22 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --minima-brand-color:           #989398;
+    --minima-brand-color:           #ADB8C2;
     --minima-brand-color-light:     #b8b3b8;
     --minima-brand-color-dimmed:    #7a757a;
     --minima-brand-color-dark:      #3d3a3d;
     --minima-site-title-color:      #ffffff;
-    --minima-heading-color:         #B9C7D2;
-    --minima-text-color:            #B9C7D2;
+    --minima-heading-color:         #EAF1F5;
+    --minima-text-color:            #DCE7ED;
     --minima-background-color:      #2B3034;
     --minima-code-background-color: #353c41;
     --minima-link-base-color:       #E93C35;
     --minima-link-visited-color:    #ff6b65;
-    --minima-link-hover-color:      #B9C7D2;
+    --minima-link-hover-color:      #EAF1F5;
     --minima-border-color-01:       #627C8C;
     --minima-border-color-02:       #4e6370;
     --minima-border-color-03:       #989398;
-    --minima-table-text-color:      #B9C7D2;
+    --minima-table-text-color:      #DCE7ED;
     --minima-table-zebra-color:     #323a3f;
     --minima-table-header-bg-color: #3b454c;
     --minima-table-header-border:   #627C8C;
@@ -68,26 +109,38 @@
 }
 
 :root[data-theme="dark"] {
-  --minima-brand-color:           #989398;
+  --minima-brand-color:           #ADB8C2;
   --minima-brand-color-light:     #b8b3b8;
   --minima-brand-color-dimmed:    #7a757a;
   --minima-brand-color-dark:      #3d3a3d;
   --minima-site-title-color:      #ffffff;
-  --minima-heading-color:         #B9C7D2;
-  --minima-text-color:            #B9C7D2;
+  --minima-heading-color:         #EAF1F5;
+  --minima-text-color:            #DCE7ED;
   --minima-background-color:      #2B3034;
   --minima-code-background-color: #353c41;
   --minima-link-base-color:       #E93C35;
   --minima-link-visited-color:    #ff6b65;
-  --minima-link-hover-color:      #B9C7D2;
+  --minima-link-hover-color:      #EAF1F5;
   --minima-border-color-01:       #627C8C;
   --minima-border-color-02:       #4e6370;
   --minima-border-color-03:       #989398;
-  --minima-table-text-color:      #B9C7D2;
+  --minima-table-text-color:      #DCE7ED;
   --minima-table-zebra-color:     #323a3f;
   --minima-table-header-bg-color: #3b454c;
   --minima-table-header-border:   #627C8C;
   --minima-table-border-color:    #627C8C;
+}
+
+// ============================================================
+// FONDO DE LA PÁGINA
+// ============================================================
+// El tema trae `background-color` comentado en _base.scss, así que
+// nada pintaba el fondo: al cambiar a modo oscuro se oscurecía el
+// texto pero el papel seguía blanco. Se aplica con la variable para
+// que el conmutador de tema funcione en los dos sentidos.
+html,
+body {
+  background-color: var(--minima-background-color);
 }
 
 // Remove underline from all links on hover (Minima adds it by default)
@@ -158,15 +211,33 @@ a:hover { text-decoration: none; }
   }
 }
 
-html[data-theme="dark"] .site-logo,
-html[data-theme="dark"] .footer-logo {
-  filter: invert(1) brightness(1.8);
+// ── Logo: dos versiones en vez de invertir con un filtro ──
+// `invert()` volvía cian el rojo del mapa. Ahora se intercambia la imagen:
+// logo-oscuro.png tiene el texto aclarado y el mapa con su rojo original.
+//
+// Los selectores llevan `html` delante a propósito: `.site-masthead
+// .site-logo` y `.footer-brand .footer-logo` fijan `display: block` con
+// dos clases, así que una sola clase no alcanza para ocultarlos.
+html .site-logo.logo--oscuro,
+html .footer-logo.logo--oscuro {
+  display: none;
+}
+
+html[data-theme="dark"] {
+  .site-logo.logo--claro,
+  .footer-logo.logo--claro { display: none; }
+
+  .site-logo.logo--oscuro,
+  .footer-logo.logo--oscuro { display: block; }
 }
 
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) .site-logo,
-  html:not([data-theme="light"]) .footer-logo {
-    filter: invert(1) brightness(1.8);
+  html:not([data-theme="light"]) {
+    .site-logo.logo--claro,
+    .footer-logo.logo--claro { display: none; }
+
+    .site-logo.logo--oscuro,
+    .footer-logo.logo--oscuro { display: block; }
   }
 }
 
@@ -397,6 +468,10 @@ html[data-theme="dark"] {
 // BUSCADOR — Overlay
 // ============================================================
 
+// El overlay se monta con `is-open` (que sólo cambia el display) y un
+// fotograma después recibe `is-visible`, que dispara la animación. Al
+// cerrar se quita `is-visible` y el mismo recorrido se reproduce al
+// revés; `is-open` no se retira hasta que la transición termina.
 .search-overlay {
   display: none;
   position: fixed;
@@ -409,6 +484,8 @@ html[data-theme="dark"] {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.45);
+    opacity: 0;
+    transition: opacity 0.24s ease;
   }
 
   &__box {
@@ -419,6 +496,31 @@ html[data-theme="dark"] {
     max-width: 760px;
     margin: 0 auto;
     box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+
+    // Entra deslizándose desde arriba, como una persiana.
+    opacity: 0;
+    transform: translateY(-1.5rem);
+    transform-origin: top center;
+    transition: opacity 0.22s ease,
+                transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &.is-visible {
+    .search-overlay__backdrop { opacity: 1; }
+    .search-overlay__box {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // La salida es más corta que la entrada: esperar a que algo se vaya
+  // se siente lento mucho antes que esperar a que llegue.
+  &:not(.is-visible) {
+    .search-overlay__backdrop { transition-duration: 0.16s; }
+    .search-overlay__box {
+      transform: translateY(-1.5rem) scale(0.98);
+      transition-duration: 0.16s, 0.18s;
+    }
   }
 
   &__bar {
@@ -473,6 +575,15 @@ html[data-theme="dark"] {
 }
 
 body.search-open { overflow: hidden; }
+
+// Quien pide menos movimiento recibe sólo el fundido, sin desplazamiento.
+@media (prefers-reduced-motion: reduce) {
+  .search-overlay__box {
+    transform: none !important;
+    transition: opacity 0.12s ease !important;
+  }
+  .search-overlay__backdrop { transition-duration: 0.12s !important; }
+}
 
 .search-result {
   display: grid;
@@ -1608,25 +1719,11 @@ body.search-open { overflow: hidden; }
   justify-content: space-between;
   gap: 0.75rem;
 
+  // Mismo botón relleno que «Apoyar en Ko-fi» y «Suscribirme».
   &__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+    @include boton-relleno(0.8rem);
     padding: 0.5rem 1.25rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-decoration: none;
-    border: 2px solid var(--minima-heading-color);
-    color: var(--minima-heading-color);
-    background: transparent;
     border-radius: 3px;
-    transition: background 0.15s, color 0.15s;
-    white-space: nowrap;
-
-    &:hover {
-      background: var(--minima-heading-color);
-      color: var(--minima-background-color);
-    }
 
     &--disabled {
       opacity: 0.3;
@@ -1641,14 +1738,18 @@ body.search-open { overflow: hidden; }
     gap: 0.3rem;
   }
 
+  // Los números no usan boton-base: son cifras, así que las versalitas
+  // no aplican y el letter-spacing las descentraría dentro del cuadrado.
+  // Sólo se comparte la tipografía.
   &__page {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 2rem;
     height: 2rem;
+    font-family: $font-sans;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
     border-radius: 3px;
     color: var(--minima-heading-color);
@@ -1806,20 +1907,11 @@ body.search-open { overflow: hidden; }
   }
 
   &__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+    @include boton-base(0.8rem);
     padding: 0.6rem 1.4rem;
-    font-family: $font-sans;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
     color: #fff;
     background: #E93C35;
-    border: 2px solid #E93C35;
-    text-decoration: none;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    border-color: #E93C35;
 
     &:hover {
       background: transparent;
@@ -2500,33 +2592,51 @@ h4, h5, h6 {
   padding: 1.75rem 0;
   margin: 2.5rem 0 0;
 
+  // El hueco de arriba son los 28px del padding. Debajo, cada contenedor
+  // añade márgenes propios que lo desequilibraban, distintos en cada uno
+  // de los tres sitios donde aparece la caja. Se descuentan para que el
+  // espacio hasta la siguiente línea roja sea el mismo que hay arriba.
+  //
+  //   portada    .page-content                   30px
+  //   artículo   .post-content                   30px
+  //   /apoyar/   .post-content + .page-content   60px
+  .home > &:last-child,
+  .post-content > &:last-child {
+    margin-bottom: -30px;
+  }
+
+  .post > .post-content > &:last-child {
+    margin-bottom: -60px;
+  }
+
+  // El botón queda al final de la fila y el texto se extiende hasta
+  // encontrarlo, ocupando todo el ancho disponible.
   &__inner {
     display: flex;
-    gap: 2rem;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    gap: 2rem;
   }
 
   &__text {
-    flex: 1;
-    min-width: 220px;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   &__heading {
     font-family: $font-sans;
-    font-size: 1.1rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--minima-heading-color);
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.75rem;
     letter-spacing: -0.01em;
   }
 
   &__body {
-    font-size: 0.9rem;
-    line-height: 1.65;
+    font-size: 1.05rem;
+    line-height: 1.6;
     color: var(--minima-text-color);
-    opacity: 0.85;
+    opacity: 0.92;
     margin: 0;
   }
 
@@ -2537,29 +2647,17 @@ h4, h5, h6 {
     flex-shrink: 0;
   }
 
+  // Mismo lenguaje visual que .promo-banner__btn, que es el botón
+  // principal del sitio: rojo de marca, versalitas, se invierte al pasar.
+  // Sólo cambia el tamaño, porque aquí es la llamada a la acción central.
   &__btn-kofi {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.65rem 1.5rem;
-    background: var(--minima-heading-color);
-    color: var(--minima-background-color);
-    font-family: $font-sans;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    border-radius: 3px;
-    border: 2px solid var(--minima-heading-color);
-    transition: background 0.15s, color 0.15s;
-    white-space: nowrap;
+    @include boton-relleno(0.9rem);
+    padding: 0.85rem 1.75rem;
+  }
 
-    &:hover {
-      background: #E93C35;
-      border-color: #E93C35;
-      color: #fff;
-      text-decoration: none;
-    }
+  &__taza {
+    font-size: 1.5em;
+    line-height: 1;
   }
 
   &__local {
@@ -2602,9 +2700,13 @@ h4, h5, h6 {
   }
 
   @media (max-width: 600px) {
-    &__inner { flex-direction: column; gap: 1.25rem; }
+    &__inner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.25rem;
+    }
     &__acciones { width: 100%; }
-    &__btn-kofi { justify-content: center; }
+    &__btn-kofi { width: 100%; }
   }
 }
 
@@ -2719,24 +2821,10 @@ h4, h5, h6 {
   }
 
   &__submit {
+    @include boton-relleno(0.8rem);
     flex: 0 0 auto;
-    font-family: $font-sans;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
     padding: 0.6rem 1.4rem;
-    color: #fff;
-    background: #E93C35;
-    border: 1px solid #E93C35;
     border-radius: 2px;
-    cursor: pointer;
-    transition: background-color 0.15s, border-color 0.15s;
-
-    &:hover,
-    &:focus-visible {
-      background: var(--minima-brand-color-dark);
-      border-color: var(--minima-brand-color-dark);
-    }
   }
 
   &__legal,
