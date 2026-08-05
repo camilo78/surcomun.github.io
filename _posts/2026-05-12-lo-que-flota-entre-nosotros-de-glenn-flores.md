@@ -2,6 +2,7 @@
 layout: post
 title: "Lo que flota entre nosotros, de Glenn Flores"
 author: "Lety Inestroza"
+license: CC BY 4.0
 date: 2026-05-12
 categories: [cultura, literatura]
 tags: [reseña, microficción, literatura latinoamericana]
