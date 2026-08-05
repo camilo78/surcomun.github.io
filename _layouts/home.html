@@ -34,18 +34,6 @@ layout: base
     {%- endunless -%}
   {%- endfor -%}
 
-  {%- comment -%}── Por categoría (solo página 1): posts de 2016 ──{%- endcomment -%}
-  {%- assign category_posts = site.posts | where_exp: "p", "p.date.year < 2020" -%}
-  {%- assign cats_seen = "" | split: "" -%}
-  {%- for post in category_posts -%}
-    {%- assign cat = post.categories | first -%}
-    {%- if cat and cat != "" -%}
-      {%- unless cats_seen contains cat -%}
-        {%- assign cats_seen = cats_seen | push: cat -%}
-      {%- endunless -%}
-    {%- endif -%}
-  {%- endfor -%}
-
   {%- comment -%}── Más vistos ──{%- endcomment -%}
   {%- assign popular_posts = site.posts | where: "popular", true -%}
 
@@ -233,42 +221,6 @@ layout: base
           <span class="pagination__btn pagination__btn--next pagination__btn--disabled">Siguiente &rarr;</span>
         {%- endif -%}
       </nav>
-      {%- endif -%}
-
-      <!-- ── POR CATEGORÍA: solo en página 1 ── -->
-      {%- if current_page == 1 and category_posts.size > 0 -%}
-      <section class="home-section">
-        <h2 class="home-section__heading">Por categoría</h2>
-        {%- for cat in cats_seen -%}
-        <div class="category-group">
-          <h3 class="category-group__label">{{ cat }}</h3>
-          <div class="category-group__grid">
-            {%- for post in category_posts -%}
-              {%- if post.categories contains cat -%}
-              <article class="news-card news-card--sm">
-                {%- if post.cover_image -%}
-                <a href="{{ post.url | relative_url }}" class="news-card__img-link">
-                  <img src="{{ post.cover_image }}" alt="{{ post.title | escape }}" class="news-card__img" width="160" height="100" loading="lazy">
-                </a>
-                {%- endif -%}
-                <div class="news-card__body">
-                  <h3 class="news-card__title">
-                    <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-                  </h3>
-                  {%- assign author_display = post.author | join: ", " -%}
-                  {%- if author_display != "" -%}
-                    <span class="news-card__author">Por: <a href="{{ '/autores/' | relative_url }}?autor={{ post.author | url_encode }}">{{ author_display }}</a></span>
-                  {%- endif -%}
-                  <p class="news-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 14 }}</p>
-                  <span class="post-meta">{{ post.date | date: date_format }}</span>
-                </div>
-              </article>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </div>
-        {%- endfor -%}
-      </section>
       {%- endif -%}
 
     </main>

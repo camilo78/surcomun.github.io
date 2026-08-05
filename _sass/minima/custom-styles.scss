@@ -740,6 +740,24 @@ body.search-open { overflow: hidden; }
   }
 }
 
+// Variante para fotos verticales o de baja resolución: se muestran a su
+// tamaño natural y centradas. Estirarlas a todo el ancho con object-fit
+// las recorta arriba y abajo y las deja borrosas.
+.post-cover--vertical {
+  .post-cover-image {
+    width: auto;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: fill;
+    margin: 0 auto;
+  }
+
+  .post-cover-caption {
+    text-align: center;
+  }
+}
+
 .post-cover-caption {
   font-family: $font-sans;
   font-size: 0.72rem;

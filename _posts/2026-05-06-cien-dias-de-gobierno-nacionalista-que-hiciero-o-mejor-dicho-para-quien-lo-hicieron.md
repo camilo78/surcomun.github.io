@@ -6,6 +6,7 @@ date: 2026-05-06
 categories: [editorial, política]
 tags: [100-días, análisis-de-clase, gobierno-asfura, honduras]
 author: Sur Común
+excerpt: "Se repite que en estos primeros cien días \"no se ha hecho nada\". Nada más falso: se ha hecho mucho. La pregunta que importa no es cuánto se hizo, sino para quién."
 cover_image: "/assets/img/posts/caricatura_100_dias.webp"
 cover_caption: "Caricaturas Sur Común."
 page_styles: ".post-content table, .post-content table th, .post-content table td { font-size: 14px; line-height: 1.4; }"

@@ -119,6 +119,11 @@ def create_email(api_key, subject, body, send_mode):
         headers={
             "Authorization": f"Token {api_key}",
             "Content-Type": "application/json",
+            # Buttondown exige esta confirmación explícita la primera vez
+            # que una clave envía de verdad (status 'about_to_send'), y
+            # también cuando el cuerpo empieza con '---'. Sin ella devuelve
+            # 400 sending_requires_confirmation.
+            "X-Buttondown-Live-Dangerously": "true",
         },
     )
 

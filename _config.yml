@@ -86,7 +86,10 @@ newsletter:
 footer:
   description: "Revista digital independiente de análisis y crítica. Política, tecnología, ciencia y cultura, sin anunciantes ni patrocinadores."
   email: "contacto@surcomun.com"
-  copyright: "© 2025 Sur Común. Todos los derechos reservados."
+  # El aviso de licencia lo renderiza _includes/footer.html directamente
+  # (Creative Commons BY 4.0). No hay clave `copyright` aquí a propósito:
+  # la que existía no la usaba ninguna plantilla y además decía "todos los
+  # derechos reservados", que contradice la licencia del sitio.
 
   social:
     - platform: Facebook
@@ -138,5 +141,8 @@ kofi:
 
 permalink: /:year/:month/:day/:title:output_ext
 
-incremental: true
+# Desactivado a propósito: el build incremental no detecta bien los
+# archivos renombrados y servía portadas con el orden de posts viejo.
+# El sitio se reconstruye entero en menos de dos segundos.
+incremental: false
 future: true

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "El club que nadie pide unirse"
-date: 2026-08-03 09:00:00 -0600
+date: 2026-08-04 09:00:00 -0600
 categories: [opinión]
 tags: [salud, humor, crónica, la-ceiba, honduras]
 excerpt: "Hay exámenes médicos que se hacen con cierta dignidad. El del colon no es ese examen. Crónica de una mañana en la sala de espera y del saludo que me admitió en una asociación sin sede física."
@@ -13,7 +13,7 @@ featured: true
 popular: true
 hidden: false
 show_cover: false
-mobile_tables: true
+mobile_tables: false
 published: true
 ---
 
@@ -28,8 +28,8 @@ El procedimiento en sí lo hicieron con una profesionalidad que agradezco. Rápi
 El problema es la salida.
 
 {% if page.cover_image %}
-<figure class="post-cover">
-  <img src="{{ page.cover_image }}" alt="{{ page.title | escape }}" class="post-cover-image" width="1200" height="675" loading="lazy" />
+<figure class="post-cover post-cover--vertical">
+  <img src="{{ page.cover_image }}" alt="{{ page.title | escape }}" class="post-cover-image" width="371" height="539" loading="lazy" />
   {% if page.cover_caption %}<figcaption class="post-cover-caption">{{ page.cover_caption }}</figcaption>{% endif %}
 </figure>
 {% endif %}

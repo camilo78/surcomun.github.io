@@ -14,7 +14,7 @@ featured: false
 popular: true
 hidden: true
 show_cover: false
-mobile_tables: true
+mobile_tables: false
 published: true
 ---
  
