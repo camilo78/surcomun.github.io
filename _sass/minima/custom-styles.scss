@@ -24,6 +24,10 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  // El sitio no declara box-sizing global, así que sin esto un botón
+  // con `width: 100%` suma su relleno y su borde POR FUERA del ancho
+  // del contenedor y se sale de la pantalla.
+  box-sizing: border-box;
   font-family: $font-sans;
   font-size: $size;
   font-weight: 700;
@@ -2704,7 +2708,14 @@ h4, h5, h6 {
       gap: 1.25rem;
     }
     &__acciones { width: 100%; }
-    &__btn-kofi { width: 100%; }
+
+    // Relleno lateral más corto: con `nowrap`, en pantallas de 320px el
+    // rótulo más el relleno original no entraban y el botón desbordaba.
+    &__btn-kofi {
+      width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
 }
 
