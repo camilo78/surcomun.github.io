@@ -45,7 +45,22 @@
       <div class="footer-bottom__inner">
 
       <span class="footer-bottom__copy">
-<a href="https://surcomun.com/">Sur Común</a> © 2026 por <a href="https://surcomun.com/">Editorial Sur Común</a> está licenciado bajo <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a><img src="{{ '/assets/img/licencias/cc.svg' | relative_url }}" alt="" aria-hidden="true" width="16" height="16" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="{{ '/assets/img/licencias/by.svg' | relative_url }}" alt="" aria-hidden="true" width="16" height="16" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+{%- comment -%}
+  Casi todo el sitio es CC BY 4.0, pero un artículo traducido hereda la
+  CC BY-SA de su original y no podemos relicenciarlo. El pie muestra la
+  licencia de la página cuando ésta declara una propia.
+{%- endcomment -%}
+{%- assign licencia = page.license | default: 'CC BY 4.0' -%}
+{%- if licencia == 'CC BY-SA 4.0' -%}
+  {%- assign lic_url = 'https://creativecommons.org/licenses/by-sa/4.0/' -%}
+  {%- assign lic_nombre = 'Creative Commons Attribution-ShareAlike 4.0 International' -%}
+  {%- assign lic_iconos = 'cc,by,sa' | split: ',' -%}
+{%- else -%}
+  {%- assign lic_url = 'https://creativecommons.org/licenses/by/4.0/' -%}
+  {%- assign lic_nombre = 'Creative Commons Attribution 4.0 International' -%}
+  {%- assign lic_iconos = 'cc,by' | split: ',' -%}
+{%- endif -%}
+<a href="https://surcomun.com/">Sur Común</a> © 2026 por <a href="https://surcomun.com/">Editorial Sur Común</a> está licenciado bajo <a href="{{ lic_url }}">{{ lic_nombre }}</a>{%- for icono in lic_iconos -%}<img src="{{ '/assets/img/licencias/' | append: icono | append: '.svg' | relative_url }}" alt="" aria-hidden="true" width="16" height="16" style="max-width: 1em;max-height:1em;margin-left: .2em;">{%- endfor -%}
       </span>
 
       {%- if site.footer.social -%}
