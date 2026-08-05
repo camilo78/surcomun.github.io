@@ -105,7 +105,6 @@ split: "," -%}
       </div>
       {%- endif -%}
 
-      {%- include apoyo.html -%}
     </div>
 
     <aside class="post-aside">
@@ -150,6 +149,13 @@ split: "," -%}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
   </article>
+
+  {%- comment -%}
+    Fuera de .post-layout a propósito: dentro de la rejilla quedaba en la
+    columna del texto, unos 780px, y se veía más angosta que en la portada
+    y en /apoyar/. Aquí ocupa el ancho completo, igual que las otras dos.
+  {%- endcomment -%}
+  {%- include apoyo.html -%}
 
   {%- include newsletter.html variant="post" -%}
 

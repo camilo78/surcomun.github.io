@@ -2592,16 +2592,14 @@ h4, h5, h6 {
   padding: 1.75rem 0;
   margin: 2.5rem 0 0;
 
-  // El hueco de arriba son los 28px del padding. Debajo, cada contenedor
-  // añade márgenes propios que lo desequilibraban, distintos en cada uno
-  // de los tres sitios donde aparece la caja. Se descuentan para que el
-  // espacio hasta la siguiente línea roja sea el mismo que hay arriba.
+  // El hueco de arriba son los 28px del padding. Debajo, cada contexto
+  // añade lo suyo y hay que descontarlo para que el espacio hasta la
+  // siguiente línea roja sea el mismo que hay arriba.
   //
-  //   portada    .page-content                   30px
-  //   artículo   .post-content                   30px
-  //   /apoyar/   .post-content + .page-content   60px
-  .home > &:last-child,
-  .post-content > &:last-child {
+  //   portada    .page-content   30px  →  línea doble del pie
+  //   /apoyar/   .post-content + .page-content 60px  →  línea del pie
+  //   artículo   margen del boletín  →  se anula más abajo
+  .home > &:last-child {
     margin-bottom: -30px;
   }
 
@@ -2885,4 +2883,19 @@ h4, h5, h6 {
   }
 
   .newsletter__submit { flex: 1 1 100%; }
+}
+
+// En los artículos la caja de apoyo va seguida del boletín. Se anula el
+// margen superior de éste para que el hueco bajo la caja sea el mismo
+// que tiene encima, igual que en la portada y en /apoyar/.
+.apoyo-box + .newsletter--post {
+  margin-top: 0;
+}
+
+// En /apoyar/ la caja queda dentro de .post-content, donde los
+// encabezados llevan `margin-top: 30px`. Esa regla tiene más
+// especificidad que `.apoyo-box__heading` y le sumaba 30px al hueco
+// superior, así que la caja se veía descentrada sólo en esa página.
+.apoyo-box .apoyo-box__heading {
+  margin-top: 0;
 }
