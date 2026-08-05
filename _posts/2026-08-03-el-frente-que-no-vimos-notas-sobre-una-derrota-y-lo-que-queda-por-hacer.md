@@ -12,7 +12,7 @@ cover_image: "/assets/img/posts/pobre-derecha.jpg"
 cover_caption: "Caricatura de Matador (Julio César González)"
 featured: false
 popular: true
-hidden: true
+hidden: false
 show_cover: false
 mobile_tables: false
 published: true

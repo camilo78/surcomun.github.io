@@ -12,7 +12,7 @@ cover_caption: "Caricaturas Sur Común."
 page_styles: ".post-content table, .post-content table th, .post-content table td { font-size: 14px; line-height: 1.4; }"
 featured: true
 popular: false
-hidden: true
+hidden: false
 show_cover: true
 mobile_tables: true
 published: true
