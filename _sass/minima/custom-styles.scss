@@ -89,6 +89,8 @@ html {
   --minima-brand-color-light:     #dce7ed;
   --minima-brand-color-dimmed:    #4e6370;
   --minima-brand-color-dark:      #2B3034;
+  // Pies de foto: texto pequeño, necesita más contraste que el resto.
+  --minima-caption-color:         #4e6370;
   --minima-site-title-color:      #ffffff;
   --minima-heading-color:         #2B3034;
   --minima-text-color:            #2B3034;
@@ -113,6 +115,7 @@ html {
     --minima-brand-color-light:     #b8b3b8;
     --minima-brand-color-dimmed:    #7a757a;
     --minima-brand-color-dark:      #3d3a3d;
+    --minima-caption-color:         #ADB8C2;
     --minima-site-title-color:      #ffffff;
     --minima-heading-color:         #EAF1F5;
     --minima-text-color:            #DCE7ED;
@@ -137,6 +140,7 @@ html {
   --minima-brand-color-light:     #b8b3b8;
   --minima-brand-color-dimmed:    #7a757a;
   --minima-brand-color-dark:      #3d3a3d;
+  --minima-caption-color:         #ADB8C2;
   --minima-site-title-color:      #ffffff;
   --minima-heading-color:         #EAF1F5;
   --minima-text-color:            #DCE7ED;
@@ -933,7 +937,10 @@ body.search-open { overflow: hidden; }
 // POST — Etiquetas al pie
 // ============================================================
 
-.post-tags--bottom {
+// Se refuerza con la clase base porque `.post-tags` está declarada más
+// abajo en el archivo: a igual especificidad ganaba el orden, y este
+// margen no se aplicaba nunca.
+.post-tags.post-tags--bottom {
   margin-top: 2rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--minima-border-color-01);
@@ -1046,7 +1053,9 @@ body.search-open { overflow: hidden; }
   border-radius: 4px;
 }
 
-.post-content figure {
+// Sólo figuras sin clase, las que genera el Markdown. Antes pisaba el
+// margen de .post-figure-float, que necesita el suyo para flotar.
+.post-content figure:not([class]) {
   margin: 2rem auto;
   max-width: 66ch;
 
@@ -1226,14 +1235,20 @@ body.search-open { overflow: hidden; }
 
   &__caption {
     font-family: $font-sans;
-    font-size: 0.68rem;
-    color: var(--minima-brand-color-dark);
+    font-size: 0.8rem;
+    // `brand-color-dark` es un gris oscuro pensado para papel blanco: en
+    // tema oscuro daba 1,19:1 contra el fondo, ilegible. `brand-color`
+    // se adapta a cada tema, igual que en .featured-main__caption.
+    color: var(--minima-caption-color);
     text-align: right;
     padding: 0.35rem 0.5rem 0;
     margin: 0;
-    opacity: 0.65;
     line-height: 1.4;
     background: var(--minima-background-color);
+    // El enlace de la imagen crece con `flex: 1` y el contenedor recorta
+    // con `overflow: hidden`. Sin esto, el pie se comprimía hasta quedar
+    // partido por la mitad detrás del borde de la imagen.
+    flex: 0 0 auto;
   }
 
   &__body {
@@ -1356,10 +1371,18 @@ body.search-open { overflow: hidden; }
     margin-top: 0.25rem;
   }
 
+  // El recorte lo hace el enlace, que sólo envuelve la imagen. Antes
+  // estaba aquí, y como el contenedor fija su altura con `aspect-ratio`
+  // y recorta con `overflow: hidden`, el pie de foto quedaba fuera de la
+  // caja y no se veía nunca.
   &__img-wrap {
+    line-height: 0;
+  }
+
+  &__img-link {
+    display: block;
     aspect-ratio: 3 / 2;
     overflow: hidden;
-    line-height: 0;
   }
 
   &__img {
@@ -1374,12 +1397,11 @@ body.search-open { overflow: hidden; }
 
   &__caption {
     font-family: $font-sans;
-    font-size: 0.68rem;
-    color: var(--minima-brand-color);
+    font-size: 0.7rem;
+    color: var(--minima-caption-color);
     text-align: right;
     padding-top: 0.35rem;
     margin: 0;
-    opacity: 0.65;
     line-height: 1.4;
     display: block;
   }
@@ -1510,6 +1532,9 @@ body.search-open { overflow: hidden; }
     gap: 1rem;
     &__img-wrap {
       order: -1;
+    }
+
+    &__img-link {
       aspect-ratio: unset;
     }
     &__img {
@@ -2183,7 +2208,7 @@ body.search-open { overflow: hidden; }
   }
 
   // Imagen principal featured: más alta en tablet portrait
-  .featured-main__img-wrap {
+  .featured-main__img-link {
     aspect-ratio: 3/4;
   }
 
@@ -2203,7 +2228,7 @@ body.search-open { overflow: hidden; }
 }
 
 @media (max-width: 600px) {
-  .featured-main__img-wrap {
+  .featured-main__img-link {
     aspect-ratio: 3/2;
   }
   .latest-grid {
@@ -2320,16 +2345,29 @@ h4, h5, h6 {
   font-family: $font-sans;
 }
 
-// Párrafos y títulos en home
-.home p {
+// Párrafos de prosa en la portada.
+//
+// Sólo los que no llevan clase. Antes esto era `.home p` a secas, y como
+// un selector de clase más elemento (0,1,1) le gana a la clase suelta de
+// cada componente (0,1,0), pisaba la tipografía de todos los párrafos de
+// la página: extractos, pies de foto, el texto de la caja de apoyo. Los
+// pies se veían en serif a 1.1rem y su propio `font-size` no servía de
+// nada. Cada componente define su tipografía; esta regla es sólo para el
+// texto suelto que pueda escribirse en index.html.
+.home p:not([class]) {
   font-family: $font-serif-body;
   font-size: 1.1rem;
   line-height: 1.4;
 }
 
-.home h1 { line-height: 1.07; }
-.home h2 { line-height: 1.1;  }
-.home h3 { line-height: 1.15; }
+// Igual que `.home p`: sólo encabezados sin clase. Con `.home h2` a
+// secas se pisaba el line-height de los títulos de componente
+// (.editorial-feature__title, .featured-main__title, .news-card__title,
+// .featured-item__title, .promo-banner__headline), porque clase más
+// etiqueta (0,1,1) gana a la clase suelta del componente (0,1,0).
+.home h1:not([class]) { line-height: 1.07; }
+.home h2:not([class]) { line-height: 1.1;  }
+.home h3:not([class]) { line-height: 1.15; }
 
 // ============================================================
 // FOOTER
@@ -2932,10 +2970,36 @@ h4, h5, h6 {
   margin-top: 0;
 }
 
-// En /apoyar/ la caja queda dentro de .post-content, donde los
-// encabezados llevan `margin-top: 30px`. Esa regla tiene más
-// especificidad que `.apoyo-box__heading` y le sumaba 30px al hueco
-// superior, así que la caja se veía descentrada sólo en esa página.
+// En /apoyar/ la caja queda dentro de .post-content, donde el tema
+// (_layout.scss) fija `margin-top` y `font-size` para h1..h6 pensando en
+// la prosa del Markdown. Esas reglas son clase más etiqueta (0,1,1) y le
+// ganan a `.apoyo-box__heading`, que es una clase suelta (0,1,0), así que
+// el título salía a 1.625rem y descentrado sólo en esa página. Se repite
+// la clase para llegar a (0,2,0) y recuperar el control.
 .apoyo-box .apoyo-box__heading {
   margin-top: 0;
+  font-size: 1.35rem;
+}
+
+// ══════════════════════════════════════════════════════════════
+//  NOTAS AL PIE (las genera Kramdown)
+// ══════════════════════════════════════════════════════════════
+// El número volado que enlaza a la nota. Va dentro de un <sup>, que el
+// navegador ya reduce por su cuenta, así que este 0.7em —un 30% menos—
+// se aplica sobre ese tamaño y no sobre el del párrafo.
+.footnote {
+  font-size: 0.7em;
+  font-weight: 700;
+}
+
+// El <sup> que envuelve el número venía con `vertical-align: super`, que
+// agranda la caja de línea y separa los renglones del párrafo que lleva
+// nota respecto a los demás. Con `line-height: 0` deja de contar para esa
+// altura, y el volado se consigue desplazándolo con `position: relative`,
+// que no afecta al flujo.
+sup[role="doc-noteref"] {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.45em;
+  line-height: 0;
 }

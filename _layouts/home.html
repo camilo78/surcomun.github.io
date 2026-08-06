@@ -104,11 +104,11 @@ layout: base
       </div>
       {%- if main_post.cover_image -%}
       <div class="featured-main__img-wrap">
-        <a href="{{ main_post.url | relative_url }}">
+        <a href="{{ main_post.url | relative_url }}" class="featured-main__img-link">
           <img src="{{ main_post.cover_image }}" alt="{{ main_post.title | escape }}" class="featured-main__img" width="720" height="450" fetchpriority="high" />
         </a>
         {%- if main_post.cover_caption -%}
-          <p class="featured-main__caption" style="text-align: center;">{{ main_post.cover_caption }}</p>
+          <p class="featured-main__caption">{{ main_post.cover_caption }}</p>
         {%- endif -%}
       </div>
       {%- endif -%}

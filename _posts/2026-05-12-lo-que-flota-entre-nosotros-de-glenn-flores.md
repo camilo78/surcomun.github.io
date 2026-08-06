@@ -10,7 +10,7 @@ excerpt: "Hay libros que se leen y hay libros que se recuerdan. 'Lo que flota en
 cover_image: "/assets/img/posts/lo_que_flota_entre_nosotros_cover.png"
 cover_caption: "Portada de Lo que flota entre nosotros, de Glenn Flores"
 featured: false
-popular: true
+popular: false
 hidden: false
 show_cover: false
 mobile_tables: false
