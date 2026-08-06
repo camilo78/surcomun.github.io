@@ -169,7 +169,7 @@ layout: base
             {%- endif -%}
             <div class="news-card__body">
               {%- if post.categories.size > 0 -%}
-                <a href="{{ '/categorias/' | append: post.categories.first | relative_url }}/" class="post-category">{{ post.categories | first }}</a>
+                {%- include categoria-enlace.html categoria=post.categories.first -%}
               {%- endif -%}
               <h3 class="news-card__title">
                 <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
@@ -238,7 +238,7 @@ layout: base
             <span class="most-viewed__num">{{ forloop.index }}</span>
             <div class="most-viewed__content">
               {%- if post.categories.size > 0 -%}
-                <a href="{{ '/categorias/' | append: post.categories.first | relative_url }}/" class="post-category">{{ post.categories | first }}</a>
+                {%- include categoria-enlace.html categoria=post.categories.first -%}
               {%- endif -%}
               <a href="{{ post.url | relative_url }}" class="most-viewed__title">
                 {{ post.title | escape }}

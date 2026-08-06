@@ -1,0 +1,23 @@
+{%- comment -%}
+  ══════════════════════════════════════════════════════════════
+  Enlace a una categoría
+  ══════════════════════════════════════════════════════════════
+  Busca la página de la categoría por su campo `category` y usa su
+  permalink real. Construir la URL pegando el nombre —
+  `/categorias/` + «política» — daba enlaces rotos, porque los
+  permalinks van sin tilde (/categorias/politica/).
+
+  Si la categoría no tiene página, se muestra el nombre sin enlazar
+  en lugar de apuntar a un 404.
+
+  Uso:  {% include categoria-enlace.html categoria=post.categories.first %}
+        {% include categoria-enlace.html categoria=x clase="mi-clase" %}
+{%- endcomment -%}
+{%- assign cat = include.categoria -%}
+{%- assign clase = include.clase | default: "post-category" -%}
+{%- assign cat_page = site.pages | where: "layout", "category" | where: "category", cat | first -%}
+{%- if cat_page -%}
+<a href="{{ cat_page.url | relative_url }}" class="{{ clase }}">{{ cat }}</a>
+{%- else -%}
+<span class="{{ clase }}">{{ cat }}</span>
+{%- endif -%}

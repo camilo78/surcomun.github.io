@@ -18,8 +18,7 @@ split: "," -%}
 
     {%- if page.categories.size > 0 -%}
     <div class="post-header__section">
-      <a href="{{ '/categorias/' | append: page.categories.first | relative_url }}" class="post-header__section-link">{{
-        page.categories | first }}</a>
+      {%- include categoria-enlace.html categoria=page.categories.first clase="post-header__section-link" -%}
     </div>
     {%- endif -%}
 
@@ -117,8 +116,7 @@ split: "," -%}
             <span class="most-viewed__num">{{ forloop.index }}</span>
             <div class="most-viewed__content">
               {%- if post.categories.size > 0 -%}
-              <a href="{{ '/categorias/' | append: post.categories.first | relative_url }}/" class="post-category">{{
-                post.categories | first }}</a>
+              {%- include categoria-enlace.html categoria=post.categories.first -%}
               {%- endif -%}
               <a href="{{ post.url | relative_url }}" class="most-viewed__title">
                 {{ post.title | escape }}

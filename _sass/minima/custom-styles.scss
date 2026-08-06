@@ -61,6 +61,26 @@
 }
 
 // ============================================================
+// MODELO DE CAJA
+// ============================================================
+// Sin esto, un elemento con `width` suma su relleno y su borde POR
+// FUERA de ese ancho, que es el origen clásico de los desbordamientos:
+// un botón al 100% dentro de un contenedor se sale por los costados.
+//
+// Se hereda desde `html` en lugar de forzarlo con `*` a secas: así, si
+// algún día un subárbol necesitara volver a `content-box`, basta con
+// declararlo en su raíz y todos sus descendientes lo siguen.
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// ============================================================
 // PALETA: #2B3034 · #627C8C · #989398 · #B9C7D2 · #E93C35
 // ============================================================
 
@@ -828,13 +848,18 @@ body.search-open { overflow: hidden; }
     margin-top: 2rem;
   }
 
-  .most-viewed__list {
+  // Sólo dentro del aside del artículo: a este ancho deja de ser barra
+  // lateral y pasa a ocupar toda la página, donde dos columnas tienen
+  // sentido. La portada mantiene su aside de 260px, y aplicar esto allí
+  // metía dos columnas en un espacio para una: los ítems de la segunda
+  // no podían encoger y se salían de la pantalla.
+  .post-aside .most-viewed__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0 1.5rem;
   }
 
-  .most-viewed__item {
+  .post-aside .most-viewed__item {
     &:nth-last-child(-n+2) { border-bottom: none; }
   }
 }
@@ -2006,6 +2031,10 @@ body.search-open { overflow: hidden; }
     align-items: flex-start;
     padding: 0.9rem 0rem;
     border-bottom: 1px solid var(--minima-border-color-02);
+    // Los ítems de una rejilla arrancan con `min-width: auto`: se niegan
+    // a bajar del ancho de su contenido y desbordan la pista. Esto los
+    // deja encoger cuando la columna es estrecha.
+    min-width: 0;
 
     &:last-child { border-bottom: none; }
   }

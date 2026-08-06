@@ -39,7 +39,14 @@
   <style>{{ page.page_styles }}</style>
   {%- endif -%}
 
+  {%- comment -%}
+    count.js va autoalojado. Antes se cargaba desde gc.zgo.at, el CDN de
+    GoatCounter: los datos ya iban a nuestro servidor, pero el script lo
+    servía un tercero que recibía la IP de cada visitante. Es software
+    ISC, así que copiarlo es legítimo; para actualizarlo, basta volver a
+    descargar https://gc.zgo.at/count.js sobre assets/js/count.js.
+  {%- endcomment -%}
   <script data-goatcounter="https://estadisticas.surcomun.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+          async src="{{ '/assets/js/count.js' | relative_url }}"></script>
 
 </head>
