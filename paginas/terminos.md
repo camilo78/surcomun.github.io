@@ -115,7 +115,7 @@ Estos Términos se rigen por la **legislación de la República de Honduras**. E
 - El **Decreto N.º 149-2013, Ley sobre Firma Electrónica**, cuando sea aplicable a comunicaciones electrónicas con el Sitio.
 - Las disposiciones del **Código Civil** y del **Código de Comercio** de Honduras, en lo aplicable a las obligaciones derivadas del uso del Sitio.
 - Los **tratados internacionales** suscritos por Honduras en materia de propiedad intelectual, particularmente el Convenio de Berna y el Acuerdo sobre los ADPIC.
-Para cualquier controversia derivada del acceso o uso del Sitio, las partes se someten expresamente a la **jurisdicción de los Juzgados y Tribunales competentes de la ciudad de La Ceiba, departamento de Atlántida, República de Honduras**, con renuncia a cualquier otro fuero que pudiera corresponder, sin perjuicio de los derechos que la ley reconozca al usuario en su condición de consumidor.
+Para cualquier controversia derivada del acceso o uso del Sitio, las partes se someten expresamente a la **jurisdicción de los Juzgados y Tribunales competentes de la República de Honduras**, con renuncia a cualquier otro fuero que pudiera corresponder, sin perjuicio de los derechos que la ley reconozca al usuario en su condición de consumidor.
  
 ---
  

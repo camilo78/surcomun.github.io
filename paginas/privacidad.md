@@ -16,7 +16,7 @@ Esta política explica, en lenguaje claro, qué hacemos y qué no hacemos con tu
  
 ## 1. Responsable del sitio
  
-**Sur Común** — revista digital independiente con sede en La Ceiba, departamento de Atlántida, Honduras.
+**Sur Común** — revista digital independiente con sede en Honduras.
  
 Para cualquier consulta relacionada con esta política: [privacidad@surcomun.com](mailto:privacidad@surcomun.com)
  
