@@ -9,7 +9,7 @@ author: Glenn Flores
 license: CC BY 4.0
 cover_image: "/assets/img/posts/parque-jeannette-kawas.webp"
 cover_caption: "Parque Nacional Jeannette Kawas, Punta Sal, Honduras."
-featured: true
+featured: false
 popular: false
 hidden: false
 show_cover: true
